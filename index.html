@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Daan van Beelen</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23080b12'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233b82f6'/%3E%3Cstop offset='1' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ctext x='16' y='22' font-family='Arial Black,sans-serif' font-size='13' font-weight='900' text-anchor='middle' fill='url(%23g)'%3EDvB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+<!-- ════════════════════════════════════
+  ⚙  PROJECTEN TOEVOEGEN / ADD PROJECTS
+  Zoek hieronder:  const PROJECTS = [
+  Kopieer een object en pas de velden aan.
+════════════════════════════════════════ -->
+<script>
+const PROJECTS = [
+  // VOORBEELD / EXAMPLE:
+  // { tag_nl:"Elektronica", tag_en:"Electronics",
+  //   title_nl:"Naam NL", title_en:"Name EN",
+  //   summary_nl:"Korte omschrijving.", summary_en:"Short description.",
+  //   body_nl:`<p>Uitleg...</p>`, body_en:`<p>Explanation...</p>`,
+  //   chips:["KiCad","C++"],
+  //   images: ["media/foto1.jpg","media/foto2.jpg"]  // ← meerdere fotos mogelijk, of [] voor placeholder
+  // },
+
+  { tag_nl:"R&D / Defence", tag_en:"R&D / Defence",
+    title_nl:"Closure Unit, TNO", title_en:"Closure Unit, TNO",
+    summary_nl:"Van idee tot werkend meetsysteem in 10 weken, zelfstandig ontwikkeld bij TNO Defence.",
+    summary_en:"From idea to working measurement system in 10 weeks, independently developed at TNO Defence.",
+    body_nl:`<p>Voor TNO heb ik een closure unit ontwikkeld die snelle en betrouwbare data-acquisitie mogelijk maakt. Met 12 BNC-inputs en outputs registreert hij closure signalen (kortsluitcontacten) stabiel en tot een bepaald punt storingsvrij, zodat nauwkeurige metingen kunnen plaatsvinden.</p><p>Van plan en componentkeuze tot het ontwerp van de elektronica en een aluminium behuizing: ik heb het project van A tot Z geleid. De PCB's heb ik zelf getekend en gesoldeerd met SMD-componenten, terwijl de behuizing stevigheid biedt en bescherming tegen elektromagnetische storingen.</p><p>Ik kan niet te diep ingaan op de onderzoeksdetails, maar het ontwikkelen van deze closure unit was een geweldige ervaring die ik samen met collega's bij TNO heb mogen uitvoeren.</p>`,
+    body_en:`<p>For TNO I developed a closure unit that enables fast and reliable data acquisition. With 12 BNC inputs and outputs, it records closure signals (short-circuit contacts) stably and up to a certain point interference-free, ensuring accurate measurements.</p><p>From planning and component selection to designing the electronics and an aluminium enclosure: I led the project from A to Z. I drew and soldered the PCBs myself using SMD components, while the enclosure provides rigidity and protection against electromagnetic interference.</p><p>I cannot go into the research details, but developing this closure unit was a fantastic experience that I had the privilege of executing together with colleagues at TNO.</p>`,
+    chips:["PCB ontwerp","SMD solderen","Data-acquisitie"],
+    images: ["media/closure_unit.jpg"] },
+
+  { tag_nl:"Elektronica", tag_en:"Electronics",
+    title_nl:"LED Cube Project, Eindproject", title_en:"LED Cube Project, Final Project",
+    summary_nl:"Eindproject Technicus Engineering: een 4×4×4 LED cube met multiplexing en eigen PCB design.",
+    summary_en:"Final project Technicus Engineering: a 4×4×4 LED cube with multiplexing and custom PCB design.",
+    body_nl:`<p>Dit eindproject voor het laatste jaar van Technicus Engineering was het meest uitdagende project dat ik tot dan toe had gemaakt. In 10 schoolweken bouwde ik van nul een volledig werkend product met multiplexing: de techniek om 64 LEDs individueel aan te sturen met slechts 7 uitgangen.</p><p>Alles is volledig eigen ontwerp: het elektrische schema, de PCB, de software en de kunststof behuizing (ontworpen in SolidWorks en geprint op een Ultimaker 3D printer in PLA), aangevuld met op maat gesneden plexiglas. Multiplexing werkt via een matrix: je stuurt rijen en kolommen apart aan, zodat je met weinig uitgangen toch elk punt afzonderlijk kunt bedienen. Ditzelfde principe zit verwerkt in LED-displays, toetsenbordmatrixen en beeldschermen. Dit project gaf mij een sterke basis voor dat soort concepten.</p>`,
+    body_en:`<p>This final project for the last year of Technicus Engineering was the most challenging project I had built up to that point. In 10 school weeks I built a fully functional product from scratch using multiplexing: the technique of individually controlling 64 LEDs with just 7 outputs.</p><p>Everything is custom-designed: the electrical schematic, PCB, software, and plastic enclosure (designed in SolidWorks and printed with an Ultimaker 3D printer in PLA), plus custom-cut plexiglass. Multiplexing works through a matrix: you address rows and columns separately, so with few outputs you can still control every point individually. The same principle is used in LED displays, keyboard matrices and screens. This project gave me a solid foundation for those kinds of concepts.</p>`,
+    chips:["Multiplexing","KiCad","PCB ontwerp in KiCad","Solderen","Arduino","3D printen"],
+    images: ["media/led_cube.png","media/led_cube_schema.jpg","media/led_cube_print.png"] },
+
+  { tag_nl:"Elektronica & Mechanisch", tag_en:"Electronics & Mechanical",
+    title_nl:"Eigen E-bike Ontwikkeling", title_en:"Custom E-bike Build",
+    summary_nl:"Zelfstandig een e-bike gebouwd van ontwerp tot rijklaar concept.",
+    summary_en:"Independently built an e-bike from design to road-ready concept.",
+    body_nl:`<p>Ik wilde eerst een kant-en-klare e-bike kopen, maar het leek me veel gaver om hem zelf te bouwen. Als basis gebruikte ik een bestaand fietsframe, maar het volledige elektrische systeem heb ik zelf ontworpen en opgebouwd: accu, motor, controller, cadanssensoren en LED-verlichting. Van componentkeuze en dimensionering tot de uiteindelijke installatie en het rijklaar maken, alles volledig zelfstandig uitgevoerd.</p><p>Dit project gaf me veel inzicht in hoe elektrische systemen samenwerken en hoe je alles op elkaar afstemt voor optimale performance.</p>`,
+    body_en:`<p>I wanted to buy a ready-made e-bike at first, but it seemed much cooler to build one myself. I used an existing bike frame as the base, but designed and built the entire electrical system from scratch: battery, motor, controller, cadence sensors, and LED lighting. From component selection and sizing to final installation and making it road-ready — all done independently.</p><p>This project gave me a lot of insight into how electrical systems work together and how to tune everything for optimal performance.</p>`,
+    chips:["Elektrisch systeem","Vermogenselektronica"],
+    images: ["media/ebike_build.jpg", "media/ebike_schema.png"] },
+
+  { tag_nl:"Bedrijf / Elektrisch & Mechanisch", tag_en:"Business / Electrical & Mechanical",
+    title_nl:"VB Customs, Scooters & Klanten", title_en:"VB Customs, Scooters & Clients",
+    summary_nl:"Eigen bedrijf opgericht: customizen, onderhoud en verkoop van Vespa's voor klanten.",
+    summary_en:"Founded own business: customising, maintenance and sales of Vespa scooters for clients.",
+    body_nl:`<p>Via VBcustoms heb ik veel klanten geholpen met het aanpassen en onderhouden van hun Vespa's, en heel veel Vespa's verkocht — soms wel 7 per week! Werkzaamheden omvatten echt alles: motoronderhoud, elektra aanpassen, remsysteem, storingen opsporen en oplossen, en opvoeren. Elk project was anders en vroeg om een andere aanpak, wat het erg interessant maakte en me enorm veel heeft geleerd. Van simpele onderhoudsbeurten tot complexe elektrische problemen: geen dag was hetzelfde.</p><p>Naast het technische werk runde ik het volledige bedrijf zelfstandig: klantcontact, offertes, facturen en inkoop van onderdelen. Een unieke combinatie van technisch vakmanschap en ondernemerschap.</p>`,
+    body_en:`<p>Through VBcustoms I helped many clients with customising and maintaining their Vespas, and sold a lot of Vespas — sometimes up to 7 per week! Work included literally everything: engine maintenance, electrical modifications, brake systems, diagnosing and fixing faults, and performance tuning. Each project was different and required a different approach, which made it very interesting and taught me an enormous amount. From simple service jobs to complex electrical problems — no two days were the same.</p><p>Beyond the technical work, I ran the entire business independently: client contact, quotes, invoices, and parts purchasing. A unique combination of technical craftsmanship and entrepreneurship.</p>`,
+    chips:["Klantcontact","Mechanisch onderhoud","Ondernemerschap"],
+    images: ["media/brommers.jpg","media/werken.jpg","media/zip.jpg","media/tomos.jpg"] },
+
+  { tag_nl:"Elektronica", tag_en:"Electronics",
+    title_nl:"PCB Ontwerp & Testkasten, Head Electronics", title_en:"PCB Design & Test Cabinets, Head Electronics",
+    summary_nl:"Printplaten (PCBs) ontworpen, SMD gesoldeerd en bijgedragen aan testkasten bij Head Electronics.",
+    summary_en:"Designed PCBs, hand-soldered SMD components, and contributed to test cabinets at Head Electronics.",
+    body_nl:`<p>Tijdens mijn stage bij Head Electronics B.V. in Katwijk aan Zee ontwierp en soldeerde ik zelfstandig printplaten — ook wel PCBs (Printed Circuit Boards) genoemd. Dit zijn de groene of blauwe platen die je in vrijwel elk elektronisch apparaat vindt, waarop alle componenten gemonteerd zijn. De componenten die ik gebruikte zijn SMD-componenten (Surface Mount Devices): minuscule onderdelen die direct op het oppervlak van de printplaat worden gesoldeerd. Het voordeel hiervan is enorm: je kan veel meer functionaliteit in dezelfde ruimte stoppen, wat essentieel is voor compact ontwerp.</p><p>Samen met het testengineeringteam ontwikkelde ik drie producten die uiteindelijk in de testkasten zijn toegepast. Een van die producten loste een hardnekkig probleem op met een Intel NUC minicomputer: de USB-poorten van de NUC hadden moeite met het gelijktijdig opstarten van meerdere USB-apparaten, wat ervoor zorgde dat sommige apparaten niet herkend werden. Mijn oplossing was een RC-kring, een eenvoudige schakeling met een weerstand (R) en een condensator (C). De condensator laadt langzaam op via de weerstand, waardoor een tijdvertraging ontstaat. Hierdoor starten de USB-apparaten gespreid op in plaats van allemaal tegelijk, zodat de NUC elk apparaat netjes kan herkennen. Een elegante oplossing voor een complex probleem.</p>`,
+    body_en:`<p>During my internship at Head Electronics B.V. in Katwijk aan Zee, I independently designed and soldered PCBs — Printed Circuit Boards: the green or blue boards found in virtually every electronic device, on which all components are mounted. The components I used are SMD components (Surface Mount Devices): tiny parts soldered directly onto the surface of the board. The advantage is huge: you can fit far more functionality into the same space, which is essential for compact design.</p><p>Together with the test engineering team, I developed three products that were ultimately integrated into test cabinets. One of those products solved a persistent problem with an Intel NUC mini computer: the NUC's USB ports struggled when multiple USB devices powered up simultaneously, causing some devices not to be recognised. My solution was an RC circuit — a simple circuit with a resistor (R) and a capacitor (C). The capacitor charges slowly through the resistor, creating a time delay. This staggers the startup of the USB devices so the NUC can properly enumerate each one. An elegant solution to a complex problem.</p>`,
+    chips:["KiCad","SMD solderen"],
+    images: ["media/head_pcb.png","media/head_pcb2.jpg"] },
+
+  { tag_nl:"Drones", tag_en:"Drones",
+    title_nl:"FPV Racing Drones, 3 Custom Builds", title_en:"FPV Racing Drones, 3 Custom Builds",
+    summary_nl:"3 FPV racing drones van nul af aan gebouwd: solderen, programmeren en tunen.",
+    summary_en:"Built 3 FPV racing drones from scratch: soldering, programming and tuning.",
+    body_nl:`<p>FPV drones zijn een passie van mij — het gevoel van speed en controle is ongeëvenaard. In plaats van kant-en-klare drones te kopen, heb ik 3 custom builds gemaakt: ESCs solderen, flight controllers programmeren, frames assembleren en alles fine-tunen voor optimale performance.</p><p>Begonnen met twee 5-inch drones: eerst analoge beeldoverdracht, daarna overgestapt naar een DJI Digital FPV-systeem (1080p 60fps, latency ~40ms). De 3-inch is voor rustiger vliegen. Een groot deel van het leerproces zat in de lithium-batterijen: hoe je ze veilig oplaadt, op de juiste spanning houdt en hoe ze precies genoeg vermogen leveren voor de motor en ESCs. Alles is op elkaar afgestemd — propellerkeuze, motorgewikkeling, accucapaciteit — zodat de drone zo snel en responsief mogelijk reageert (~20ms per input).</p><p>Vliegen met een FPV drone is een compleet andere wereld dan een DJI drone. In 3D-modus houdt de drone geen rekening meer met waar de grond is — je kunt hem omkeren, rollen en de meest extreme manoeuvres uitvoeren die bij een gewone drone simpelweg onmogelijk zijn.</p>`,
+    body_en:`<p>FPV drones are a passion of mine — the sensation of speed and control is unmatched. Rather than buying off-the-shelf, I built 3 custom FPV racing drones from scratch: soldering ESCs, programming flight controllers, assembling frames, and fine-tuning everything for peak performance.</p><p>Started with two 5-inch drones: first with an analog video feed, then upgraded to a DJI Digital FPV system (1080p 60fps, latency ~40ms). The 3-inch is for smoother flying. A big part of the learning process was the lithium batteries: how to charge them safely, keep them at the right voltage, and how they deliver exactly enough power for the motors and ESCs. Everything is tuned together — propeller choice, motor windings, battery capacity — so the drone responds as fast and precisely as possible (~20ms per input).</p><p>Flying an FPV drone is a completely different world from a DJI drone. In 3D mode, the drone no longer takes the ground into account — you can flip it, roll it, and pull off the most extreme manoeuvres that are simply impossible with a regular drone.</p>`,
+    chips:["Solderen","Programmeren","Drone assembly","ESC tuning","Betaflight programeren"],
+    images: ["media/drone.jpg","media/drone1.jpg","media/drone3.jpg"] },
+
+  { tag_nl:"Reparatie & Restauratie", tag_en:"Repair & Restoration",
+    title_nl:"iPhone 12 Restauratie, Volledige Overhaul", title_en:"iPhone 12 Restoration, Full Overhaul",
+    summary_nl:"iPhone 12 volledig gerestaureerd: accu, frame, glas achterkant, scherm en oplaadpoort.",
+    summary_en:"iPhone 12 fully restored: battery, frame, rear glass, screen and charging port.",
+    body_nl:`<p>Dit was mijn oude iPhone 12 die aan het einde van zijn leven was: versleten accu, beschadigd frame, gebarsten glas, wazig scherm en kapotte oplaadpoort. Ik heb mezelf uitgedaagd om hem helemaal zelf te herstellen — als backup telefoon én om te leren hoe de elektronica binnenin werkt.</p><p>Wat me het meest verraste: een smartphone bestaat eigenlijk uit een aantal afzonderlijke printplaten die elk een eigen functie hebben. De logic board met de processor, een apart boardje voor de camera, een voor het opladen, een voor het scherm. Al die kleine PCBs werken samen om één compact apparaat te vormen. Het mooiste aan dit project was dan ook inzien hoeveel functionaliteit er in zo'n klein formaat is gepropt — dat is echt een staaltje ingenieurstechniek.</p><p>Het project vereist precisie en geduld: scherm voorzichtig losmaken, elk onderdeel vervangen en alles zonder schade weer in elkaar zetten. Het resultaat: een iPhone die als nieuw werkt, en veel beter voor het milieu dan een nieuwe kopen.</p>`,
+    body_en:`<p>This was my old iPhone 12 that was at the end of its life: worn-out battery, damaged frame, cracked glass, hazy screen and broken charging port. I challenged myself to restore it completely — as a backup phone and to learn how the electronics inside actually work.</p><p>What surprised me most: a smartphone is essentially made up of several separate circuit boards, each with its own function. The logic board with the processor, a separate board for the camera, one for charging, one for the display. All those small PCBs work together to form one compact device. The most impressive part of this project was realising just how much functionality is packed into such a small form factor — that's genuine engineering.</p><p>The project demands precision and patience: carefully prying open the screen, replacing every component and reassembling everything without damage. The result: an iPhone that works like new, and far better for the environment than buying a new one.</p>`,
+    chips:["Component vervanging","Precisie werk"],
+    images: ["media/iphone1.jpg","media/iphone2.jpg"] },
+
+  { tag_nl:"Automatisering", tag_en:"Automation",
+    title_nl:"Automatisch Watersysteem", title_en:"Automatic Water System",
+    summary_nl:"Automatisch irrigatiesysteem voor een vergaderruimte bij The Field, Leiden.",
+    summary_en:"Automated irrigation system for a meeting room at The Field, Leiden.",
+    body_nl:`<p>Als schoolproject bij The Field in Leiden ontwikkelde ik een volledig automatisch watersysteem voor de beplanting in een vergaderruimte. Het systeem bestaat uit magnetische kleppen die de watertoevoer regelen, waterlekslangen die het water gelijkmatig verdelen, een pomp en een combinatie van vochtweerstands- en temperatuursensoren die continu de omstandigheden meten. Op basis van die sensordata stuurt de microcontroller de pomp en kleppen automatisch aan.</p><p>Het team bestond uit studenten van een andere studie, waardoor ik ook leerde samenwerken over vakgebieden heen. Na de basisversie werkten we samen aan verdere uitbreidingen zoals remote monitoring en logging van historische data.</p>`,
+    body_en:`<p>As a school project at The Field in Leiden, I developed a fully automatic watering system for the plants in a meeting room. The system consists of magnetic valves that control the water supply, drip hoses that distribute water evenly, a pump, and a combination of moisture resistance sensors and temperature sensors that continuously monitor conditions. Based on that sensor data, the microcontroller automatically controls the pump and valves.</p><p>The team consisted of students from a different course of study, which also taught me how to collaborate across disciplines. After the initial version, we worked together on further extensions such as remote monitoring and logging of historical data.</p>`,
+    chips:["Microcontroller","Sensoren","Automatisering"],
+    images: [] },
+
+  { tag_nl:"Mechanisch / Elektrisch", tag_en:"Mechanical / Electrical",
+    title_nl:"Kabelboom Boot (Piranha Espada)", title_en:"Boat Wiring Harness (Piranha Espada)",
+    summary_nl:"Kabelboom ontworpen en gemonteerd in een Piranha Espada speedboot.",
+    summary_en:"Designed and mounted a wiring harness in a Piranha Espada speedboat.",
+    body_nl:`<p>De aanleiding voor dit project was oxydatie: de originele kabels van de boot waren zo aangetast dat ze niet meer betrouwbaar werkten. In plaats van losse kabels te vervangen, ontwierp en monteerde ik een volledig nieuwe kabelboom van nul af aan en sloot alle elektrische systemen opnieuw aan. Van schematekening tot definitieve installatie en test.</p><p>Ik installeerde onder andere: 4 waterdichte speakers met een subwoofer, LED-verlichting, navigatieverlichting, een radio, contactslot, powertrim, accu en killswitch. Daarnaast voegde ik een hoofdrelais toe, zodat alle systemen centraal en veilig onderbroken kunnen worden. Alles is netjes georganiseerd in een controlepaneel zodat de bediening overzichtelijk blijft.</p><p>Het project vereiste nauwkeurig werken in een beperkte ruimte en gedegen kennis van marine elektra.</p>`,
+    body_en:`<p>The reason for this project was oxidation: the boat's original cables had deteriorated so badly they were no longer reliable. Instead of replacing individual cables, I designed and mounted a complete new wiring harness from scratch and reconnected all electrical systems. From schematic drawing to final installation and testing.</p><p>I installed among other things: 4 waterproof speakers with a subwoofer, LED lighting, navigation lights, a radio, ignition switch, power trim, battery and kill switch. I also added a main relay, so all systems can be centrally and safely disconnected. Everything is neatly organised in a control panel for a clean and logical layout.</p><p>The project required precision work in a confined space and solid knowledge of marine electrical systems.</p>`,
+    chips:["Kabelboom","Schematekening in KiCad"],
+    images: [] }
+];
+</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0b101c;
+  --surface:#111726;
+  --card:rgba(255,255,255,.03);
+  --border:rgba(255,255,255,.07);
+  --border-strong:rgba(255,255,255,.16);
+  --accent:#5c9bff;
+  --accent2:#7dd3fc;
+  --text:#eef2f8;
+  --muted:#8a94a6;
+  --r:16px;
+  --max:1080px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--bg);color:var(--text);
+  line-height:1.7;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+@media(pointer:fine){body{cursor:none}body a,body button,body .proj-card,body .skill-card,body .c-card,body .tl-header{cursor:none}}
+::selection{background:rgba(92,155,255,.28);color:#fff}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:99px;border:2px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.16)}
+a{color:var(--accent);text-decoration:none;transition:color .3s var(--ease)}
+a:hover{color:var(--accent2)}
+section{position:relative;z-index:1;background:transparent;scroll-margin-top:70px}
+section+section::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:min(90%,var(--max));height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);
+}
+
+/* ── AMBIENT BACKGROUND ── */
+body::before{
+  content:'';position:fixed;inset:-20%;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 46% 38% at 22% 18%,rgba(52,102,220,.13) 0%,transparent 68%),
+    radial-gradient(ellipse 40% 34% at 80% 72%,rgba(28,140,190,.09) 0%,transparent 66%),
+    radial-gradient(ellipse 34% 30% at 60% 12%,rgba(92,155,255,.06) 0%,transparent 70%);
+  animation:aurora 26s ease-in-out infinite alternate;
+  will-change:transform;
+}
+@keyframes aurora{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(2.2%,-1.6%,0) scale(1.05)}
+  100%{transform:translate3d(-1.8%,1.4%,0) scale(1.02)}
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.028;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* ── CURSOR ── */
+#c-dot{
+  position:fixed;width:5px;height:5px;border-radius:50%;
+  background:var(--text);pointer-events:none;z-index:9999;
+  top:0;left:0;transform:translate(-50%,-50%);
+  will-change:transform;
+}
+#c-ring{
+  position:fixed;width:30px;height:30px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.28);pointer-events:none;z-index:9998;
+  top:0;left:0;transform:translate(-50%,-50%);
+  will-change:transform;
+  transition:width .3s var(--ease),height .3s var(--ease),border-color .3s,background .3s;
+}
+body.c-hover #c-ring{width:46px;height:46px;border-color:rgba(92,155,255,.55);background:rgba(92,155,255,.05)}
+@media(pointer:coarse),(hover:none){#c-dot,#c-ring{display:none}body{cursor:auto}}
+
+/* ── PROFILE PIC ── */
+.profile-pic-wrapper{display:flex;justify-content:center;margin-bottom:2.6rem}
+.profile-pic{
+  width:150px;height:150px;border-radius:50%;
+  object-fit:cover;
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.04),
+    0 0 0 10px rgba(255,255,255,.02),
+    0 24px 60px rgba(0,0,0,.55),
+    0 0 90px rgba(70,120,230,.14);
+  opacity:0;transform:scale(.92);
+  animation:picIn 1.2s var(--ease) .15s forwards;
+}
+@keyframes picIn{to{opacity:1;transform:scale(1)}}
+@media(max-width:600px){.profile-pic{width:126px;height:126px}}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(1.5rem,5vw,3rem);height:64px;
+  background:transparent;border-bottom:1px solid transparent;
+  transition:background .5s var(--ease),border-color .5s var(--ease),backdrop-filter .5s;
+}
+nav.scrolled{
+  background:rgba(11,16,28,.72);
+  -webkit-backdrop-filter:blur(20px) saturate(1.4);
+  backdrop-filter:blur(20px) saturate(1.4);
+  border-bottom-color:rgba(255,255,255,.06);
+}
+.nav-logo{
+  font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:700;
+  letter-spacing:.14em;color:var(--text);flex-shrink:0;
+}
+.nav-links{display:flex;gap:2.2rem;align-items:center;flex:1;justify-content:center}
+.nav-links a{
+  color:var(--muted);font-size:.82rem;font-weight:500;letter-spacing:.02em;
+  position:relative;padding:4px 0;transition:color .3s;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--text);transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+@media(max-width:640px){.nav-links{display:none}}
+.lang-toggle{
+  display:flex;gap:3px;align-items:center;
+  background:rgba(255,255,255,.04);border:1px solid var(--border);
+  border-radius:99px;padding:3px;flex-shrink:0;
+}
+.lang-btn{
+  padding:4px 13px;border-radius:99px;border:none;background:none;
+  color:var(--muted);font-size:.75rem;font-weight:600;letter-spacing:.04em;
+  transition:all .35s var(--ease);font-family:'Inter',sans-serif;
+}
+.lang-btn.active{background:rgba(255,255,255,.1);color:var(--text)}
+.lang-btn:hover:not(.active){color:var(--text)}
+
+/* ── HERO ── */
+#hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  text-align:center;
+  padding:110px clamp(1rem,6vw,4rem) 80px;
+  overflow:hidden;
+}
+.spotlight{display:none}
+.hero-inner{position:relative;z-index:1;width:100%;max-width:var(--max)}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);
+  color:#c3cede;border-radius:99px;
+  padding:6px 18px;font-size:.76rem;font-weight:500;letter-spacing:.03em;
+  margin-bottom:2rem;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  opacity:0;animation:fadeUp 1s var(--ease) .3s forwards;
+}
+.hero-badge::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:#4ade80;box-shadow:0 0 10px rgba(74,222,128,.8);
+  animation:breathe 3.2s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:1}50%{opacity:.35}}
+
+#name-wrap{margin-bottom:.6rem;display:block}
+#hero-name{
+  display:block;
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:600;
+  font-size:clamp(2.9rem,9vw,6.8rem);
+  letter-spacing:-.035em;
+  line-height:1.02;
+  color:var(--text);
+}
+.char{
+  display:inline-block;will-change:transform,filter;
+  opacity:0;
+  transition:transform .5s var(--ease),color .5s;
+}
+.char:hover{transform:translateY(-5px);color:var(--accent2)}
+.char.sp{display:inline-block;width:.24em;opacity:1}
+@keyframes charDrop{
+  0%{opacity:0;transform:translateY(46px);filter:blur(10px)}
+  100%{opacity:1;transform:translateY(0);filter:blur(0)}
+}
+
+.hero-sub{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(.82rem,1.6vw,.98rem);
+  color:var(--accent);font-weight:500;letter-spacing:.3em;text-transform:uppercase;
+  opacity:0;animation:fadeUp 1s var(--ease) 1.15s forwards;
+  margin-top:1.1rem;
+}
+.hero-bio{
+  max-width:520px;margin:.9rem auto 0;
+  color:var(--muted);font-size:.95rem;line-height:1.8;font-weight:300;letter-spacing:.06em;
+  opacity:0;animation:fadeUp 1s var(--ease) 1.3s forwards;
+}
+.hero-cta{
+  display:flex;gap:.9rem;flex-wrap:wrap;
+  justify-content:center;margin-top:2.4rem;
+  opacity:0;animation:fadeUp 1s var(--ease) 1.45s forwards;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.78rem 1.9rem;border-radius:99px;
+  font-weight:600;font-size:.88rem;letter-spacing:.01em;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .35s,border-color .35s,color .35s;
+  border:none;
+}
+.btn-primary{
+  background:var(--text);color:#0a0e16;
+  box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 10px 30px rgba(0,0,0,.35);
+}
+.btn-primary:hover{
+  transform:translateY(-2px);color:#0a0e16;
+  box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 18px 44px rgba(120,160,255,.22);
+}
+.btn-secondary{
+  background:rgba(255,255,255,.03);color:var(--text);border:1px solid rgba(255,255,255,.14);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+.btn-secondary:hover{border-color:rgba(255,255,255,.32);transform:translateY(-2px);color:var(--text)}
+
+.hero-stats{
+  display:flex;gap:0;flex-wrap:wrap;
+  justify-content:center;margin-top:3.4rem;
+  opacity:0;animation:fadeUp 1s var(--ease) 1.6s forwards;
+}
+.hero-stats>div{padding:0 2.6rem;position:relative}
+.hero-stats>div+div::before{
+  content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  height:34px;width:1px;background:rgba(255,255,255,.09);
+}
+.stat-num{
+  font-family:'Space Grotesk',sans-serif;font-size:2.3rem;font-weight:600;letter-spacing:-.02em;
+  background:linear-gradient(135deg,#fff 20%,var(--accent2));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.stat-label{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.18em;margin-top:2px}
+.stat-sub{font-size:.62rem;color:var(--muted);opacity:.65;margin-top:2px;letter-spacing:.04em}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── SECTIONS ── */
+.section-inner{
+  max-width:var(--max);margin:0 auto;
+  padding:7rem clamp(1.5rem,5vw,3rem);
+  text-align:center;
+}
+.s-tag{
+  font-size:.68rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:.3em;color:var(--accent);margin-bottom:.9rem;
+}
+.s-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(1.9rem,4.2vw,3rem);font-weight:600;
+  letter-spacing:-.025em;line-height:1.05;
+  margin-bottom:1.1rem;overflow:hidden;
+}
+.s-title .w{
+  display:inline-block;
+  transform:translateY(112%);
+  transition:transform 1s var(--ease);
+}
+.s-vis .s-title .w{transform:translateY(0)}
+.s-line{
+  width:0;height:1px;border-radius:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  margin:0 auto 3.4rem;
+  transition:width 1.3s var(--ease) .2s;
+}
+.s-vis .s-line{width:120px}
+
+/* reveal */
+.rev{opacity:0;transform:translateY(30px);filter:blur(5px);transition:opacity 1s var(--ease),transform 1s var(--ease),filter 1s var(--ease)}
+.rev.vis{opacity:1;transform:translateY(0);filter:blur(0)}
+.rev-d1{transition-delay:.12s}.rev-d2{transition-delay:.24s}.rev-d3{transition-delay:.36s}
+@media(prefers-reduced-motion:reduce){
+  .rev,.s-title .w,.s-line{transition:none;transform:none;opacity:1;filter:none;width:120px}
+  body::before{animation:none}
+}
+
+/* ── ABOUT ── */
+.about-grid{
+  display:grid;grid-template-columns:1.2fr .8fr;gap:3.4rem;
+  text-align:left;margin-top:1rem;align-items:start;
+}
+@media(max-width:700px){.about-grid{grid-template-columns:1fr}}
+.about-text p{color:#aab4c4;line-height:2;font-size:.95rem;font-weight:300}
+.about-text p+p{margin-top:.9rem}
+.about-facts{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:var(--r);background:var(--card);overflow:hidden}
+.fact{
+  display:flex;align-items:center;gap:.9rem;color:#c3cede;font-size:.87rem;
+  padding:1.05rem 1.3rem;
+}
+.fact+.fact{border-top:1px solid rgba(255,255,255,.05)}
+.fact-icon{font-size:1.05rem;flex-shrink:0;width:26px;text-align:center;color:var(--accent)}
+
+/* ── SKILLS ── */
+.skills-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.8rem;
+  text-align:left;
+}
+.skill-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:14px;padding:1rem 1.15rem;
+  display:flex;align-items:center;gap:.85rem;
+  transition:border-color .4s var(--ease),transform .4s var(--ease),background .4s,box-shadow .4s var(--ease);
+  position:relative;overflow:hidden;
+}
+.skill-card:hover{
+  border-color:var(--border-strong);transform:translateY(-3px);
+  background:rgba(255,255,255,.045);
+  box-shadow:0 18px 40px rgba(0,0,0,.4);
+}
+.sk-icon{
+  font-size:1.15rem;width:38px;height:38px;
+  background:rgba(92,155,255,.08);border:1px solid rgba(92,155,255,.14);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  color:var(--accent);
+  transition:background .4s,border-color .4s,transform .5s var(--ease);
+}
+.skill-card:hover .sk-icon{background:rgba(92,155,255,.14);border-color:rgba(92,155,255,.3);transform:scale(1.06)}
+.sk-icon i{line-height:1}
+.sk-info{display:flex;flex-direction:column;gap:6px;min-width:0}
+.sk-name{font-size:.84rem;font-weight:500;letter-spacing:.01em}
+.sk-dots{display:flex;gap:4px;align-items:center}
+.sk-dot{width:14px;height:3px;border-radius:2px;background:rgba(255,255,255,.08);flex-shrink:0;transition:background .4s}
+.sk-dot.on{background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.sk-detail{display:none;flex-wrap:wrap;gap:5px;margin-top:9px;padding-top:9px;border-top:1px solid rgba(255,255,255,.06)}
+.sk-tag{font-size:.68rem;padding:2px 9px;border-radius:20px;background:rgba(92,155,255,.08);color:#a9c6ff;border:1px solid rgba(92,155,255,.16);font-weight:500}
+.skill-card.open .sk-detail{display:flex}
+.skill-card.open{border-color:rgba(92,155,255,.35)}
+
+/* ── PROJECT IMAGE ── */
+.p-img{
+  width:100%;height:150px;border-radius:10px;
+  background:linear-gradient(135deg,rgba(92,155,255,.05),rgba(125,211,252,.03));
+  border:1px solid rgba(255,255,255,.05);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.15rem;overflow:hidden;font-size:.72rem;color:var(--muted);
+  letter-spacing:.08em;text-transform:uppercase;
+}
+.p-img img{width:100%;height:100%;object-fit:cover;border-radius:9px;transition:transform 1.2s var(--ease);filter:saturate(.92)}
+.proj-card:hover .p-img img{transform:scale(1.05)}
+
+/* ── EXPERIENCE ── */
+.tl{display:flex;flex-direction:column;text-align:left;max-width:860px;margin:0 auto}
+.tl-item{display:grid;grid-template-columns:118px 1px 1fr;gap:0 1.6rem;padding-bottom:2.6rem}
+.tl-item:last-child{padding-bottom:0}
+.tl-date{text-align:right;padding-top:.3rem;font-size:.74rem;color:var(--muted);font-weight:500;line-height:1.5;letter-spacing:.02em}
+.tl-line{display:flex;flex-direction:column;align-items:center}
+.tl-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--accent);flex-shrink:0;margin-top:.45rem;
+  box-shadow:0 0 0 4px rgba(92,155,255,.1),0 0 14px rgba(92,155,255,.4);
+}
+.tl-item:first-child .tl-dot{background:#4ade80;box-shadow:0 0 0 4px rgba(74,222,128,.1),0 0 14px rgba(74,222,128,.45)}
+.tl-tail{flex:1;width:1px;background:linear-gradient(to bottom,rgba(255,255,255,.1),rgba(255,255,255,.02));margin-top:8px}
+.tl-item:last-child .tl-tail{display:none}
+.tl-role{font-size:.94rem;font-weight:600;font-family:'Space Grotesk',sans-serif;letter-spacing:-.01em;transition:color .3s}
+.tl-co{font-size:.8rem;color:var(--accent);margin-top:2px;letter-spacing:.02em}
+.tl-desc{font-size:.86rem;color:var(--muted);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .6s var(--ease),margin-top .6s var(--ease),opacity .5s;margin-top:0;opacity:0;font-weight:300}
+.tl-item.open .tl-desc{max-height:600px;margin-top:.6rem;opacity:1}
+.tl-header{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.tl-arrow{font-size:.58rem;color:var(--muted);transition:transform .5s var(--ease),color .3s;flex-shrink:0}
+.tl-item.open .tl-arrow{transform:rotate(180deg);color:var(--accent)}
+.tl-header:hover .tl-role{color:var(--accent2)}
+.tl-logo{height:26px;width:auto;max-width:90px;object-fit:contain;border-radius:5px;margin-bottom:5px;opacity:.55;filter:brightness(1.1) grayscale(.3);transition:opacity .4s,filter .4s}
+.tl-item:hover .tl-logo{opacity:.9;filter:brightness(1.1) grayscale(0)}
+@media(max-width:560px){.tl-item{grid-template-columns:74px 1px 1fr;gap:0 1rem}.tl-date{font-size:.68rem}}
+@media(max-width:900px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.proj-grid{grid-template-columns:1fr}}
+
+/* ── PROJECTS ── */
+.proj-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.1rem;text-align:left;
+}
+.proj-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:1.5rem;
+  transition:border-color .45s var(--ease),transform .45s var(--ease),box-shadow .45s var(--ease),background .45s;
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.proj-card::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(120,165,255,.07),transparent 65%);
+  opacity:0;transition:opacity .5s;
+}
+.proj-card:hover::after{opacity:1}
+.proj-card:hover{
+  border-color:var(--border-strong);
+  transform:translateY(-5px);
+  background:rgba(255,255,255,.04);
+  box-shadow:0 30px 60px rgba(0,0,0,.5);
+}
+.p-tag{
+  display:inline-block;font-size:.63rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  color:#93c9e8;background:rgba(125,211,252,.06);border:1px solid rgba(125,211,252,.14);
+  border-radius:99px;padding:3px 11px;margin-bottom:.9rem;align-self:flex-start;
+}
+.p-title{font-size:1.02rem;font-weight:600;margin-bottom:.45rem;font-family:'Space Grotesk',sans-serif;letter-spacing:-.01em}
+.p-sum{font-size:.84rem;color:var(--muted);line-height:1.7;font-weight:300;flex:1}
+.p-foot{display:flex;align-items:center;justify-content:space-between;margin-top:1.15rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.05)}
+.chips{display:flex;gap:.3rem;flex-wrap:wrap}
+.chip{font-size:.64rem;padding:2px 9px;border-radius:99px;background:rgba(92,155,255,.08);color:#a9c6ff;font-weight:500;border:1px solid rgba(92,155,255,.12)}
+.p-arr{color:var(--muted);transition:color .35s,transform .35s var(--ease)}
+.proj-card:hover .p-arr{color:var(--accent2);transform:translateX(5px)}
+
+/* ── MODAL ── */
+.modal-bg{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(9,13,23,.72);
+  -webkit-backdrop-filter:blur(22px) saturate(1.2);backdrop-filter:blur(22px) saturate(1.2);
+  display:flex;align-items:center;justify-content:center;padding:1.5rem;
+  opacity:0;pointer-events:none;transition:opacity .4s var(--ease);
+}
+.modal-bg.open{opacity:1;pointer-events:all}
+.modal{
+  background:#121826;border:1px solid rgba(255,255,255,.09);
+  border-radius:20px;padding:2.5rem;
+  max-width:860px;width:100%;max-height:90vh;overflow-y:auto;
+  transform:translateY(26px) scale(.96);opacity:0;
+  transition:transform .55s var(--ease),opacity .4s ease;
+  position:relative;text-align:left;
+  box-shadow:0 40px 100px rgba(0,0,0,.6);
+}
+.modal-bg.open .modal{transform:translateY(0) scale(1);opacity:1}
+.m-close{
+  position:absolute;top:1.15rem;right:1.15rem;
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  color:var(--muted);font-size:.85rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s var(--ease);z-index:5;
+}
+.m-close:hover{background:rgba(255,255,255,.1);color:var(--text);transform:rotate(90deg)}
+.m-img-wrap{width:100%;margin-bottom:1.4rem;border-radius:12px;overflow:hidden;display:none;position:relative}
+.m-img-wrap.has-img{display:block}
+.m-carousel{position:relative;width:100%;border-radius:12px;overflow:hidden;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05)}
+.m-carousel img{width:100%;max-height:480px;aspect-ratio:3/4;object-fit:contain;display:block;border-radius:12px;transition:opacity .45s ease,transform .3s var(--ease);transform-origin:center center;cursor:zoom-in}
+.m-carousel img:hover{transform:scale(1.8)}
+.m-arr{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(6,9,16,.6);border:1px solid rgba(255,255,255,.12);color:#fff;
+  width:38px;height:38px;border-radius:50%;font-size:1rem;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .3s,border-color .3s;z-index:10;
+}
+.m-arr:hover{background:rgba(92,155,255,.35);border-color:rgba(92,155,255,.5)}
+.m-arr.prev{left:12px}
+.m-arr.next{right:12px}
+.m-dots{display:flex;justify-content:center;gap:7px;margin-top:12px}
+.m-dot{width:20px;height:3px;border-radius:2px;background:rgba(255,255,255,.1);border:none;transition:background .35s,width .35s var(--ease);padding:0}
+.m-dot.on{background:var(--accent);width:30px}
+.modal h3{font-family:'Space Grotesk',sans-serif;font-size:1.55rem;font-weight:600;letter-spacing:-.02em;margin:.4rem 0 1.1rem}
+.modal-body{color:#aab4c4;line-height:1.95;font-size:.93rem;font-weight:300}
+.modal-body p{margin-bottom:.85rem}
+.modal-chips{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.06)}
+
+/* ── CONTACT ── */
+.contact-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:1rem;max-width:580px;margin:0 auto;
+}
+.c-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:1.35rem 1.5rem;
+  display:flex;align-items:center;gap:1rem;
+  transition:border-color .4s var(--ease),transform .4s var(--ease),background .4s,box-shadow .4s var(--ease);
+  text-decoration:none;text-align:left;
+}
+.c-card:hover{
+  border-color:var(--border-strong);transform:translateY(-4px);
+  background:rgba(255,255,255,.045);
+  box-shadow:0 22px 46px rgba(0,0,0,.45);
+}
+.c-icon{
+  font-size:1.15rem;width:42px;height:42px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(92,155,255,.08);border:1px solid rgba(92,155,255,.14);
+  border-radius:11px;color:var(--accent);
+}
+.c-label{font-size:.68rem;color:var(--muted);margin-bottom:1px;text-transform:uppercase;letter-spacing:.14em}
+.c-val{font-size:.88rem;font-weight:500;color:var(--text)}
+
+/* ── VIDEO ── */
+#yt-wrap{border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 70px rgba(0,0,0,.5)}
+
+/* ── FOOTER ── */
+footer{
+  text-align:center;padding:2.4rem;
+  color:var(--muted);font-size:.74rem;letter-spacing:.06em;
+  border-top:1px solid rgba(255,255,255,.05);position:relative;z-index:1;
+  background:transparent;
+}
+
+/* ── V2: naam-animaties, mobiel menu, muis-interactie ── */
+body{-webkit-tap-highlight-color:transparent}
+.rev.vis{filter:none}
+.nav-logo{
+  font-size:1.25rem;letter-spacing:.1em;
+  background:linear-gradient(120deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+#name-wrap{perspective:900px}
+#hero-name{transform-style:preserve-3d;cursor:pointer}
+@media(pointer:fine){#hero-name{cursor:none}}
+.char{transition:color .4s}
+.char:hover{color:var(--accent2)}
+@keyframes nameSpinL{from{transform:rotateY(0deg)}to{transform:rotateY(-360deg)}}
+@keyframes nameSpinR{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
+@keyframes nameSpinDouble{from{transform:rotateY(0)}to{transform:rotateY(720deg)}}
+#name-wrap.spin-l{animation:nameSpinL .6s ease-in-out forwards}
+#name-wrap.spin-r{animation:nameSpinR .6s ease-in-out forwards}
+#name-wrap.spin-intro{animation:nameSpinDouble 1.6s cubic-bezier(.45,0,.25,1) forwards}
+#mouse-glow{
+  position:fixed;top:50%;left:50%;width:640px;height:640px;border-radius:50%;
+  pointer-events:none;z-index:0;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(85,135,255,.075),transparent 62%);
+  will-change:left,top;
+}
+@media(hover:none),(pointer:coarse){#mouse-glow{display:none}}
+#scroll-progress{
+  position:fixed;top:0;left:0;height:2px;width:100%;z-index:210;
+  transform:scaleX(0);transform-origin:left;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 0 12px rgba(92,155,255,.5);
+}
+.tl-logo{transition:opacity .4s}
+.tl-item:hover .tl-logo{opacity:.9;filter:brightness(1.1) grayscale(.3)}
+.tl-header{-webkit-user-select:none;user-select:none}
+.nav-burger{
+  display:none;flex-direction:column;justify-content:center;gap:5px;
+  background:none;border:none;padding:10px;margin-left:.6rem;z-index:102;
+}
+.nav-burger span{display:block;width:20px;height:1.7px;background:var(--text);border-radius:2px;transition:transform .45s var(--ease),opacity .3s}
+body.menu-open .nav-burger span:nth-child(1){transform:translateY(6.7px) rotate(45deg)}
+body.menu-open .nav-burger span:nth-child(2){opacity:0}
+body.menu-open .nav-burger span:nth-child(3){transform:translateY(-6.7px) rotate(-45deg)}
+@media(max-width:640px){.nav-burger{display:flex}}
+.mobile-menu{
+  position:fixed;inset:0;z-index:99;
+  background:rgba(11,16,28,.88);
+  -webkit-backdrop-filter:blur(26px);backdrop-filter:blur(26px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.1rem;
+  opacity:0;pointer-events:none;transition:opacity .45s var(--ease);
+}
+body.menu-open .mobile-menu{opacity:1;pointer-events:all}
+.mobile-menu a{
+  font-family:'Space Grotesk',sans-serif;font-size:1.45rem;font-weight:600;letter-spacing:-.01em;
+  color:var(--text);opacity:0;transform:translateY(16px);
+  transition:opacity .5s var(--ease),transform .5s var(--ease),color .3s;
+}
+.mobile-menu a:nth-child(1){transition-delay:.05s}
+.mobile-menu a:nth-child(2){transition-delay:.1s}
+.mobile-menu a:nth-child(3){transition-delay:.15s}
+.mobile-menu a:nth-child(4){transition-delay:.2s}
+.mobile-menu a:nth-child(5){transition-delay:.25s}
+body.menu-open .mobile-menu a{opacity:1;transform:none}
+@media(max-width:640px){
+  .section-inner{padding:4.6rem 1.35rem}
+  .hero-stats>div{padding:0 1.7rem}
+  .modal{padding:1.7rem 1.35rem;border-radius:16px}
+  .about-grid{gap:2rem}
+  .btn{padding:.72rem 1.5rem;font-size:.85rem}
+  .proj-card{padding:1.3rem}
+  #hero{padding-top:96px}
+}
+@media(pointer:coarse){
+  .m-carousel img:hover{transform:none}
+  .m-carousel img{cursor:default}
+  .m-arr{width:42px;height:42px}
+  .tl-header{padding:.3rem 0}
+}
+
+/* ── V3: logo terug, geen letter-highlight/caret, spin snel→langzaam ── */
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;font-weight:400;letter-spacing:2px}
+#hero-name,.nav-logo,nav,.hero-badge,.hero-sub,.hero-stats{-webkit-user-select:none;user-select:none}
+.char{transition:none;pointer-events:none}
+.char:hover{color:inherit;transform:none}
+#name-wrap.spin-intro{animation:nameSpinDouble 2.4s cubic-bezier(.1,.7,.2,1) forwards}
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div id="mouse-glow"></div>
+<div id="scroll-progress"></div>
+<div id="c-dot"></div>
+<div id="c-ring"></div>
+
+<!-- Modal -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <button class="m-close" id="m-close">✕</button>
+    <div class="m-img-wrap" id="m-img-wrap"></div>
+    <span class="p-tag" id="m-tag"></span>
+    <h3 id="m-title"></h3>
+    <div class="modal-body" id="m-body"></div>
+    <div class="modal-chips" id="m-chips"></div>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav>
+  <span class="nav-logo">DvB</span>
+  <div class="nav-links">
+    <a href="#about"      data-nl="Over mij"    data-en="About">Over mij</a>
+    <a href="#projects"   data-nl="Projecten"    data-en="Projects">Projecten</a>
+    <a href="#skills"     data-nl="Vaardigheden" data-en="Skills">Vaardigheden</a>
+    <a href="#experience" data-nl="Ervaring"     data-en="Experience">Ervaring</a>
+    <a href="#contact"    data-nl="Contact"      data-en="Contact">Contact</a>
+  </div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('nl')">NL</button>
+    <button class="lang-btn"        onclick="setLang('en')">EN</button>
+  </div>
+  <button class="nav-burger" id="nav-burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" data-nl="Over mij" data-en="About">Over mij</a>
+  <a href="#projects" data-nl="Projecten" data-en="Projects">Projecten</a>
+  <a href="#skills" data-nl="Vaardigheden" data-en="Skills">Vaardigheden</a>
+  <a href="#experience" data-nl="Ervaring" data-en="Experience">Ervaring</a>
+  <a href="#contact" data-nl="Contact" data-en="Contact">Contact</a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="spotlight" id="spotlight"></div>
+
+  <div class="hero-inner">
+    <div class="profile-pic-wrapper">
+      <img src="media/me.jpeg" alt="Daan van Beelen" class="profile-pic">
+    </div>
+
+    <div>
+      <span class="hero-badge" data-nl="Open voor nieuwe kansen" data-en="Open to new opportunities">
+        Open voor nieuwe kansen
+      </span>
+    </div>
+
+    <div id="name-wrap">
+      <h1 id="hero-name" aria-label="Daan van Beelen"></h1>
+    </div>
+
+    <p class="hero-sub"
+      data-nl="Mechatronica Engineer"
+      data-en="Mechatronics Engineer">Mechatronica Engineer</p>
+
+    <p class="hero-bio"
+      data-nl="Hardware, Mechanica, Automatisering"
+      data-en="Hardware, Mechanics, Automation">
+      Hardware, Mechanica, Automatisering
+    </p>
+
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary"   data-nl="Bekijk projecten →" data-en="View projects →">Bekijk projecten →</a>
+      <a href="#contact"  class="btn btn-secondary" data-nl="Contact"            data-en="Contact">Contact</a>
+    </div>
+
+    <div class="hero-stats">
+      <div><div class="stat-num" id="exp-count">0</div><div class="stat-label" data-nl="Jaar ervaring" data-en="Years exp.">Jaar ervaring</div></div>
+      <div><div class="stat-num" id="proj-count">0</div><div class="stat-label" data-nl="Projecten"     data-en="Projects">Projecten</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="section-inner">
+    <p class="s-tag rev" data-nl="Over mij" data-en="About me">Over mij</p>
+    <h2 class="s-title"><span class="w" data-nl="Wie ben ik?" data-en="Who am I?">Wie ben ik?</span></h2>
+    <div class="s-line"></div>
+    <div class="about-grid">
+      <div class="about-text rev rev-d1">
+        <p data-nl="Mijn naam is Daan van Beelen — een technicus die zijn handen graag vuil maakt, zowel in elektronica en hardware als mechanisch werk. Ik vind het erg leuk om dingen te maken en te bouwen, en ben ervan overtuigd dat de beste manier om te leren is door te doen. Ik ben altijd op zoek naar nieuwe uitdagingen, zowel op het werk als privé. Die drang om mezelf te blijven ontwikkelen is ook precies de reden waarom ik deze site heb willen maken — en hem helemaal zelf heb gebouwd en host. Ik hoop dat je hier een goed beeld krijgt van wie ik ben en wat ik kan."
+           data-en="My name is Daan van Beelen — a technician who loves getting his hands dirty, whether in electronics, hardware or mechanical work. I enjoy making and building things, and I'm convinced the best way to learn is by doing. I'm always looking for new challenges, both at work and in my personal life. That drive to keep developing myself is also exactly why I wanted to build this site — and why I built and host it entirely myself. I hope it gives you a good sense of who I am and what I can do.">
+          Mijn naam is Daan van Beelen — een technicus die zijn handen graag vuil maakt, zowel in elektronica en hardware als mechanisch werk. Ik vind het erg leuk om dingen te maken en te bouwen, en ben ervan overtuigd dat de beste manier om te leren is door te doen. Ik ben altijd op zoek naar nieuwe uitdagingen, zowel op het werk als privé. Die drang om mezelf te blijven ontwikkelen is ook precies de reden waarom ik deze site heb willen maken — en hem helemaal zelf heb gebouwd en host. Ik hoop dat je hier een goed beeld krijgt van wie ik ben en wat ik kan.
+        </p>
+      </div>
+      <div class="about-facts rev rev-d2">
+        <div class="fact"><span class="fact-icon"><i class="ti ti-school"></i></span><span>Technicus Engineering</span></div>
+        <div class="fact"><span class="fact-icon"><i class="ti ti-language"></i></span><span data-nl="Nederlands, Engels" data-en="Dutch, English">Nederlands, Engels</span></div>
+        <div class="fact"><span class="fact-icon"><i class="ti ti-map-pin"></i></span><span>Wassenaar, Nederland</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECTS ═══ -->
+<section id="projects">
+  <div class="section-inner">
+    <p class="s-tag rev" data-nl="Wat ik gebouwd heb" data-en="What I've built">Wat ik gebouwd heb</p>
+    <h2 class="s-title"><span class="w" data-nl="Projecten" data-en="Projects">Projecten</span></h2>
+    <div class="s-line"></div>
+    <div class="proj-grid rev rev-d1" id="proj-grid"></div>
+  </div>
+</section>
+
+<!-- ═══ SKILLS ═══ -->
+<section id="skills">
+  <div class="section-inner">
+    <p class="s-tag rev" data-nl="Wat ik kan" data-en="What I do">Wat ik kan</p>
+    <h2 class="s-title"><span class="w" data-nl="Vaardigheden" data-en="Skills">Vaardigheden</span></h2>
+    <div class="s-line"></div>
+    <div class="skills-grid rev rev-d1">
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-atom"></i></div><div class="sk-info"><div class="sk-name" data-nl="SMD Solderen" data-en="SMD Soldering">SMD Solderen</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag" data-nl="Surface Mount Device" data-en="Surface Mount Device">Surface Mount Device</span><span class="sk-tag" data-nl="Handmatig solderen" data-en="Hand soldering">Handmatig solderen</span><span class="sk-tag" data-nl="Reflow oven" data-en="Reflow oven">Reflow oven</span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-pencil"></i></div><div class="sk-info"><div class="sk-name" data-nl="3D Modelleren" data-en="3D Modelling">3D Modelleren</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">SolidWorks</span><span class="sk-tag">MeshMixer</span><span class="sk-tag">MeshLab</span><span class="sk-tag">FreeCAD</span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-shield"></i></div><div class="sk-info"><div class="sk-name" data-nl="ESD Veilig" data-en="ESD Safe">ESD Veilig</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-tool"></i></div><div class="sk-info"><div class="sk-name" data-nl="Sleutelen" data-en="Mechanical work">Sleutelen</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-scan"></i></div><div class="sk-info"><div class="sk-name" data-nl="3D Scannen" data-en="3D Scanning">3D Scannen</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-wave-sine"></i></div><div class="sk-info"><div class="sk-name" data-nl="Data-acquisitie & Scopes" data-en="Data acquisition & Scopes">Data-acquisitie & Scopes</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-cpu"></i></div><div class="sk-info"><div class="sk-name">KiCad</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-cube"></i></div><div class="sk-info"><div class="sk-name" data-nl="3D Printen" data-en="3D Printing">3D Printen</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">Ultimaker</span><span class="sk-tag">Bambu Lab</span><span class="sk-tag">Cura</span><span class="sk-tag">Bambu Studio</span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-bolt"></i></div><div class="sk-info"><div class="sk-name" data-nl="Elektrische storingen" data-en="Electrical faults">Elektrische storingen</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag" data-nl="Huisinstallaties" data-en="Home wiring">Huisinstallaties</span><span class="sk-tag" data-nl="Groepenkast" data-en="Distribution board">Groepenkast</span><span class="sk-tag" data-nl="Printplaten" data-en="PCBs">Printplaten</span><span class="sk-tag" data-nl="Kabelboom (boot/auto/scooter)" data-en="Wiring harness (boat/car/scooter)">Kabelboom (boot/auto/scooter)</span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-movie"></i></div><div class="sk-info"><div class="sk-name">DaVinci Resolve</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-code"></i></div><div class="sk-info"><div class="sk-name" data-nl="Programmeren" data-en="Programming">Programmeren</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">Python</span><span class="sk-tag">C++</span><span class="sk-tag">HTML</span><span class="sk-tag">Arduino</span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-flame"></i></div><div class="sk-info"><div class="sk-name" data-nl="MIG/MAG Lassen" data-en="MIG/MAG Welding">MIG/MAG Lassen</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span><span class="sk-dot"></span><span class="sk-dot"></span></div></div></div>
+    </div>
+
+    <!-- Radar chart -->
+    <div style="display:flex;justify-content:center;margin-top:3rem;" class="rev rev-d2">
+      <canvas id="radar-canvas" width="420" height="420" style="max-width:100%;"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ═══ -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="s-tag rev" data-nl="Mijn pad" data-en="My journey">Mijn pad</p>
+    <h2 class="s-title"><span class="w" data-nl="Werkervaring" data-en="Experience">Werkervaring</span></h2>
+    <div class="s-line"></div>
+    <div class="tl rev rev-d1">
+
+      <div class="tl-item" data-logo="media/tno_logo.png">
+        <div class="tl-date" data-nl="feb 2025 t/m heden" data-en="Feb 2025 t/m present">feb 2025 t/m heden</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
+        <div>
+          <div class="tl-role" data-nl="Researcher, Fulltime" data-en="Researcher, Full-time">Researcher, Fulltime</div>
+          <div class="tl-co">TNO, Den Haag</div>
+          <div class="tl-desc"
+            data-nl="Bij TNO, binnen de afdeling Defence, Safety &amp; Security, werk ik aan meerdere projecten waarbij ik ontwerp, bouw, testen en data-acquisitie combineer."
+            data-en="At TNO, within the Defence, Safety &amp; Security division, I work on multiple projects combining design, build, testing, and data acquisition.">
+            Bij TNO, binnen de afdeling Defence, Safety &amp; Security, werk ik aan meerdere projecten waarbij ik ontwerp, bouw, testen en data-acquisitie combineer.
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-logo="media/logo_vbcustoms.png">
+        <div class="tl-date" data-nl="jun 2024 t/m jul 2025" data-en="Jun 2024 t/m Jul 2025">jun 2024 t/m jul 2025</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
+        <div>
+          <div class="tl-role" data-nl="Eigenaar, Zelfstandig" data-en="Owner, Self-employed">Eigenaar, Zelfstandig</div>
+          <div class="tl-co">VBcustoms, Wassenaar</div>
+          <div class="tl-desc"
+            data-nl="VB Customs opgericht en volledig zelfstandig geleid, gespecialiseerd in het customizen en onderhouden van Vespa-brommers. Werkzaamheden omvatten prestatie-upgrades, aanpassingen aan verlichting en het maken van maatwerk onderdelen. Verantwoordelijk voor de volledige inkoop en verkoop, met meer dan 100 verkochte Vespas. Naast het technische werk heb ik het ondernemerschap van A tot Z leren kennen: het opzetten van de eenmanszaak via de KVK, het openen van een zakelijke rekening, het opstellen van offertes en facturen, en het bijhouden van de boekhouding. Daarnaast heb ik zelf de huisstijl en het logo ontworpen en geleerd hoe je aangifte doet bij de Belastingdienst. Na het starten van mijn huidige baan de klantenkring geleidelijk afgebouwd en de bedrijfsactiviteiten verkleind."
+            data-en="Founded and fully independently managed VB Customs, specialised in customising and maintaining Vespa scooters. Work included performance upgrades, lighting modifications, and custom parts fabrication. Responsible for all purchasing and sales, with over 100 Vespas sold. Beyond the technical work, I learned the full scope of entrepreneurship: registering the sole proprietorship with the KVK, opening a business bank account, drafting quotes and invoices, and maintaining the bookkeeping. I also designed the branding and logo myself, and learned how to file tax returns with the Belastingdienst. After starting my current job, gradually wound down the client base and scaled back business activities.">
+            VB Customs opgericht en volledig zelfstandig geleid, gespecialiseerd in het customizen en onderhouden van Vespa-brommers. Werkzaamheden omvatten prestatie-upgrades, aanpassingen aan verlichting en het maken van maatwerk onderdelen. Verantwoordelijk voor de volledige inkoop en verkoop, met meer dan 100 verkochte Vespas. Naast het technische werk heb ik het ondernemerschap van A tot Z leren kennen: het opzetten van de eenmanszaak via de KVK, het openen van een zakelijke rekening, het opstellen van offertes en facturen, en het bijhouden van de boekhouding. Daarnaast heb ik zelf de huisstijl en het logo ontworpen en geleerd hoe je aangifte doet bij de Belastingdienst. Na het starten van mijn huidige baan de klantenkring geleidelijk afgebouwd en de bedrijfsactiviteiten verkleind.
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date" data-nl="jul 2024 t/m jan 2025" data-en="Jul 2024 t/m Jan 2025">jul 2024 t/m jan 2025</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
+        <div>
+          <div class="tl-role" data-nl="Monteur Elektrotechniek, Parttime" data-en="Electrical Technician, Part-time">Monteur Elektrotechniek, Parttime</div>
+          <div class="tl-co">Van Bentem Elektrotechniek, Warmond</div>
+          <div class="tl-desc"
+            data-nl="Parttime werkzaam als monteur elektrotechniek in de regio Zuid-Holland, met een werkbus van de zaak. Verantwoordelijk voor een breed scala aan elektrische klussen bij particuliere klanten: huisinstallaties aanleggen, groepenkasten plaatsen en uitbreiden, storingen opsporen en verhelpen, en extra verlichting zoals spotjes installeren. Op drukke dagen stond ik voor wel 8 spoedklussen gepland die ik zelfstandig moest uitvoeren. Dat vroeg om snel kunnen schakelen, goed probleemoplossend vermogen en nauw contact houden met de zaak. Ik kreeg veel verantwoordelijkheid: zelf naar klanten rijden, uitzoeken wat de storing of wens precies was, en ervoor zorgen dat alles netjes en veilig werd afgerond. Een enorm leerzame periode die mijn praktische kennis van elektrotechniek sterk heeft verbreed."
+            data-en="Worked part-time as an electrical technician across the Zuid-Holland region, driving a company van. Responsible for a wide range of electrical jobs at residential clients: installing home wiring, fitting and expanding distribution boards, diagnosing and resolving faults, and installing extra lighting such as spotlights. On busy days I had up to 8 urgent jobs scheduled, all completed independently. This required quick thinking, strong problem-solving skills, and close communication with the office. I was given a lot of responsibility: driving to clients alone, figuring out the exact fault or requirement, and ensuring everything was completed neatly and safely. An incredibly valuable period that significantly broadened my hands-on knowledge of electrical engineering.">
+            Parttime werkzaam als monteur elektrotechniek in de regio Zuid-Holland, met een werkbus van de zaak. Verantwoordelijk voor een breed scala aan elektrische klussen bij particuliere klanten: huisinstallaties aanleggen, groepenkasten plaatsen en uitbreiden, storingen opsporen en verhelpen, en extra verlichting zoals spotjes installeren. Op drukke dagen stond ik voor wel 8 spoedklussen gepland die ik zelfstandig moest uitvoeren. Dat vroeg om snel kunnen schakelen, goed probleemoplossend vermogen en nauw contact houden met de zaak. Ik kreeg veel verantwoordelijkheid: zelf naar klanten rijden, uitzoeken wat de storing of wens precies was, en ervoor zorgen dat alles netjes en veilig werd afgerond. Een enorm leerzame periode die mijn praktische kennis van elektrotechniek sterk heeft verbreed.
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-logo="media/the_field_logo.png">
+        <div class="tl-date" data-nl="feb 2024 t/m nov 2024" data-en="Feb 2024 t/m Nov 2024">feb 2024 t/m nov 2024</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
+        <div>
+          <div class="tl-role" data-nl="Ontwikkelaar, Leerwerktraject" data-en="Developer, Work-study">Ontwikkelaar, Leerwerktraject</div>
+          <div class="tl-co">The Field, Leiden</div>
+          <div class="tl-desc"
+            data-nl="Via school heb ik samen met andere studenten een geautomatiseerd watersysteem ontwikkeld dat nu op een Raspberry Pi draait. Het systeem optimaliseert watergebruik op basis van omgevingsfactoren en draagt bij aan efficiëntie en plantgezondheid. Verdere automatisering zal plaatsvinden binnen de opleiding Software Development."
+            data-en="Through school I collaborated with other students to develop an automated watering system now running on a Raspberry Pi. The system optimises water usage based on environmental factors and contributes to efficiency and plant health. Further automation will take place within the Software Development programme.">
+            Via school heb ik samen met andere studenten een geautomatiseerd watersysteem ontwikkeld dat nu op een Raspberry Pi draait. Het systeem optimaliseert watergebruik op basis van omgevingsfactoren en draagt bij aan efficiëntie en plantgezondheid. Verdere automatisering zal plaatsvinden binnen de opleiding Software Development.
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-logo="media/head_logo.png">
+        <div class="tl-date" data-nl="mrt 2023 t/m feb 2024" data-en="Mar 2023 t/m Feb 2024">mrt 2023 t/m feb 2024</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
+        <div>
+          <div class="tl-role" data-nl="Technicus & Test Engineer, 2 Stages" data-en="Technician & Test Engineer, 2 Internships">Technicus & Test Engineer, 2 Stages</div>
+          <div class="tl-co">Head Electronics B.V., Katwijk aan Zee</div>
+          <div class="tl-desc"
+            data-nl="Twee stages doorlopen bij Head Electronics B.V. Tijdens de eerste stage bij de technische dienst veel geleerd over het gebruik van CNC-machine, draaibank en freesmachine in de werkplaats. Daarna een tijdelijk contract gehad waarbij ik technische storingen oploste en een nieuw led-verlichtingssysteem aanlegde. Tijdens de tweede, langere stage bij de testafdeling veel geleerd over de ontwikkeling van testkasten en bijbehorende custom printplaten (PCB's). Daarbij heb ik het proces van printplaten ontwerpen geleerd en samen met collega's 3 PCB's ontwikkeld die daadwerkelijk zijn toegepast in de testkasten. Daarnaast ervaring opgedaan door mee te lopen op de afdelingen repair, assemblage en R&amp;D."
+            data-en="Completed two internships at Head Electronics B.V. During the first internship at the technical department, I learned a great deal about CNC machines, lathes, and milling machines in the workshop. I then had a temporary contract resolving technical faults and installing a new LED lighting system. During the second, longer internship at the test department, I learned about developing test cabinets and custom PCBs. I learned the PCB design process and co-developed 3 PCBs with colleagues that were integrated into the test cabinets. I also gained experience by shadowing the repair, assembly, and R&amp;D departments.">
+            Twee stages doorlopen bij Head Electronics B.V. Tijdens de eerste stage bij de technische dienst veel geleerd over het gebruik van CNC-machine, draaibank en freesmachine in de werkplaats. Daarna een tijdelijk contract gehad waarbij ik technische storingen oploste en een nieuw led-verlichtingssysteem aanlegde. Tijdens de tweede, langere stage bij de testafdeling veel geleerd over de ontwikkeling van testkasten en bijbehorende custom printplaten (PCB's). Daarbij heb ik het proces van printplaten ontwerpen geleerd en samen met collega's 3 PCB's ontwikkeld die daadwerkelijk zijn toegepast in de testkasten. Daarnaast ervaring opgedaan door mee te lopen op de afdelingen repair, assemblage en R&amp;D.
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date" data-nl="2019 t/m jan 2024" data-en="2019 t/m Jan 2024">2019 t/m jan 2024</div>
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
+        <div>
+          <div class="tl-role" data-nl="Junior Vestigingsmanager, Parttime" data-en="Junior Branch Manager, Part-time">Junior Vestigingsmanager, Parttime</div>
+          <div class="tl-co">IJskiosk Aan De Slag, Wassenaar</div>
+          <div class="tl-desc"
+            data-nl="Begonnen op 13-jarige leeftijd als verkoper en doorgegroeid naar junior vestigingsmanager. Verantwoordelijk voor het openen en afsluiten van twee kiosken, aansturen van collega's, klanten helpen en problemen oplossen tijdens drukke momenten. Daarnaast voorraadbeheer, bestellingen doorgeven en regelmatig overzichten maken met belangrijke updates voor mijn werkgever."
+            data-en="Started at age 13 as a salesperson and grew into junior branch manager. Responsible for opening and closing two kiosks, managing colleagues, helping customers and resolving issues during busy periods. Also handled stock management, placing orders, and regularly creating overviews with important updates for my employer.">
+            Begonnen op 13-jarige leeftijd als verkoper en doorgegroeid naar junior vestigingsmanager. Verantwoordelijk voor het openen en afsluiten van twee kiosken, aansturen van collega's, klanten helpen en problemen oplossen tijdens drukke momenten. Daarnaast voorraadbeheer, bestellingen doorgeven en regelmatig overzichten maken met belangrijke updates voor mijn werkgever.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VIDEO ═══ -->
+<section id="video">
+  <div class="section-inner" style="text-align:center;">
+    <p class="s-tag rev" data-nl="Bekijk mijn werk" data-en="Watch my work">Bekijk mijn werk</p>
+    <h2 class="s-title"><span class="w" data-nl="Video" data-en="Video">Video</span></h2>
+    <div class="s-line"></div>
+    <p class="rev rev-d1" style="max-width:800px;margin:0 auto 1.5rem;color:var(--muted);font-size:.95rem;line-height:1.75;text-align:left;"
+      data-nl="Dit is een van mijn projecten, en deze heb ik gefilmd om het vast te leggen. Hierbij vervang ik een groot deel van het elektrische systeem: de accu's, de balancer die zorgt dat de accu's gelijkmatig worden leeggetrokken en opgeladen, de controller, en daarbij alle draden op maat gemaakt en een nieuwe oplader geplaatst. We hebben dit alles vervangen omdat we af wilden van het NIU-systeem, omdat er een storing in de controller zat. Door onze aanpassing kunnen we nu gemakkelijk elke accu in de scooter zetten, zonder dat die van NIU hoeft te zijn."
+      data-en="This is one of my projects, which I filmed to document the process. I replace a large part of the electrical system: the batteries, the balancer that ensures the batteries are charged and discharged evenly, the controller, and all wiring custom-made to fit, along with a new charger. We replaced all of this because we wanted to move away from the NIU system due to a fault in the controller. Thanks to our modification, we can now easily fit any battery into the scooter — it no longer has to be a NIU battery.">
+      Dit is een van mijn projecten, en deze heb ik gefilmd om het vast te leggen. Hierbij vervang ik een groot deel van het elektrische systeem: de accu's, de balancer die zorgt dat de accu's gelijkmatig worden leeggetrokken en opgeladen, de controller, en daarbij alle draden op maat gemaakt en een nieuwe oplader geplaatst. We hebben dit alles vervangen omdat we af wilden van het NIU-systeem, omdat er een storing in de controller zat. Door onze aanpassing kunnen we nu gemakkelijk elke accu in de scooter zetten, zonder dat die van NIU hoeft te zijn.
+    </p>
+    <div id="yt-wrap" class="rev rev-d1" style="max-width:800px;margin:0 auto;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:#000;">
+      <iframe id="yt-iframe"
+        src="https://www.youtube.com/embed/m5mBE7MGakE?enablejsapi=1&mute=1&autoplay=0"
+        style="width:100%;height:100%;border:none;display:block;"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="s-tag rev" data-nl="Kom in contact" data-en="Get in touch">Kom in contact</p>
+    <h2 class="s-title"><span class="w" data-nl="Contact" data-en="Contact">Contact</span></h2>
+    <div class="s-line"></div>
+    <div class="contact-grid rev rev-d1">
+      <a href="mailto:daan.hvs@gmail.com" class="c-card">
+        <span class="c-icon"><i class="ti ti-mail"></i></span>
+        <div><div class="c-label">Email</div><div class="c-val">daan.hvs@gmail.com</div></div>
+      </a>
+      <a href="https://linkedin.com/in/daan-van-beelen-072953246" target="_blank" class="c-card">
+        <span class="c-icon"><i class="ti ti-brand-linkedin"></i></span>
+        <div><div class="c-label">LinkedIn</div><div class="c-val">Daan van Beelen</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2026 Daan van Beelen</p></footer>
+
+<script>
+/* ══════════════════════════════════════════
+   CURSOR — subtiel: dot + ring
+══════════════════════════════════════════ */
+const dot = document.getElementById('c-dot');
+const ring = document.getElementById('c-ring');
+let mx = -300, my = -300, rx = -300, ry = -300, dx = -300, dy_ = -300;
+
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+function bindHover(el){
+  el.addEventListener('mouseenter', () => document.body.classList.add('c-hover'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('c-hover'));
+}
+document.querySelectorAll('a,button,.skill-card,.c-card,.tl-header').forEach(bindHover);
+
+function cursorTick() {
+  dx  += (mx - dx)  * 0.55;
+  dy_ += (my - dy_) * 0.55;
+  rx  += (mx - rx)  * 0.14;
+  ry  += (my - ry)  * 0.14;
+  dot.style.transform  = `translate3d(${dx}px,${dy_}px,0) translate(-50%,-50%)`;
+  ring.style.transform = `translate3d(${rx}px,${ry}px,0) translate(-50%,-50%)`;
+  requestAnimationFrame(cursorTick);
+}
+if(!window.matchMedia('(hover:none)').matches) cursorTick();
+
+/* ══════════════════════════════════════════
+   NAV — glas-effect bij scrollen
+══════════════════════════════════════════ */
+const navEl = document.querySelector('nav');
+const progressEl = document.getElementById('scroll-progress');
+const heroInner = document.querySelector('.hero-inner');
+function onScroll(){
+  const y = window.scrollY;
+  navEl.classList.toggle('scrolled', y > 24);
+  const hMax = document.documentElement.scrollHeight - window.innerHeight;
+  if(progressEl) progressEl.style.transform = `scaleX(${hMax > 0 ? y / hMax : 0})`;
+  if(heroInner && y < window.innerHeight){
+    heroInner.style.transform = `translateY(${y * .16}px)`;
+    heroInner.style.opacity = Math.max(0, 1 - y / (window.innerHeight * .85));
+  }
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+/* ══════════════════════════════════════════
+   AMBIENT PARTICLES — reageren op de muis
+══════════════════════════════════════════ */
+(function(){
+  const cv  = document.getElementById('bg-canvas');
+  const ctx = cv.getContext('2d');
+  let W, H, parts = [];
+  const COUNT = Math.min(130, Math.floor(window.innerWidth / 12));
+  const MR = 150;
+  let pmx = -9999, pmy = -9999, attract = false, attractT = 0;
+  window.addEventListener('mousemove', e => { pmx = e.clientX; pmy = e.clientY; });
+  if(!window.matchMedia('(hover:none)').matches){
+    window.addEventListener('mousedown', () => { attract = true; });
+    window.addEventListener('mouseup',   () => { attract = false; });
+    window.addEventListener('blur',      () => { attract = false; });
+    document.addEventListener('mouseleave', () => { attract = false; });
+  }
+
+  function build(){
+    W = cv.width  = window.innerWidth;
+    H = cv.height = window.innerHeight;
+    parts = [];
+    for(let i = 0; i < COUNT; i++){
+      parts.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 1.4 + .4,
+        vx: (Math.random() - .5) * .12,
+        vy: -(Math.random() * .18 + .05),
+        a: Math.random() * .45 + .12,
+        ph: Math.random() * Math.PI * 2,
+        ox: 0, oy: 0,
+        orA: Math.random() * Math.PI * 2,
+        orR: 46 + Math.random() * 150,
+        orS: (.1 + Math.random() * .2) * (Math.random() < .5 ? 1 : -1)
+      });
+    }
+  }
+
+  function frame(){
+    ctx.clearRect(0, 0, W, H);
+    const t = performance.now() * .001;
+    // aantrekking bouwt rustig op (~2s naar vol), en ebt weg na loslaten
+    attractT = attract ? Math.min(1, attractT + .008) : attractT * .9;
+    const k = attractT * attractT;
+    parts.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if(p.y < -6) { p.y = H + 6; p.x = Math.random() * W; }
+      if(p.x < -6) p.x = W + 6;
+      if(p.x > W + 6) p.x = -6;
+
+      // zachte afstoting rond de cursor; ingedrukt houden laat ze rond de muis draaien
+      const ddx = (p.x + p.ox) - pmx, ddy = (p.y + p.oy) - pmy;
+      const dist = Math.hypot(ddx, ddy);
+      let near = 0;
+      if(k > .001){
+        // rustig ronddraaien in een eigen baan rond de cursor
+        p.orA += p.orS * .016;
+        const bx = pmx + Math.cos(p.orA) * p.orR;
+        const by = pmy + Math.sin(p.orA) * p.orR;
+        p.ox += ((bx - p.x) - p.ox) * (.055 * k);
+        p.oy += ((by - p.y) - p.oy) * (.055 * k);
+        near = Math.max(near, k * Math.min(1, 220 / (p.orR + 60)));
+      } else if(!attract && dist < MR && dist > 0){
+        near = (MR - dist) / MR;
+        p.ox += (ddx / dist) * near * 1.6;
+        p.oy += (ddy / dist) * near * 1.6;
+      }
+      const ret = .88 + .12 * k;  // vastgehouden: zweven in baan; losgelaten: terugvliegen
+      p.ox *= ret;
+      p.oy *= ret;
+
+      const tw = p.a * (0.6 + 0.4 * Math.sin(t * 1.4 + p.ph)) + near * .25;
+      ctx.beginPath();
+      ctx.arc(p.x + p.ox, p.y + p.oy, p.r + near * .8, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(150,185,255,${Math.min(tw, .75)})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(frame);
+  }
+
+  window.addEventListener('resize', build);
+  build();
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) frame();
+})();
+
+/* ══════════════════════════════════════════
+   HERO NAME — blur-reveal, golf volgt muis
+   (zoals origineel), spins bij open + klik
+══════════════════════════════════════════ */
+(function(){
+  const NAME = window.innerWidth <= 768 ? 'Daan\nvan Beelen' : 'Daan van Beelen';
+  const cont = document.getElementById('hero-name');
+  const wrap = document.getElementById('name-wrap');
+  const chars = [];
+
+  [...NAME].forEach((ch, i) => {
+    if(ch === '\n'){ cont.appendChild(document.createElement('br')); return; }
+    const s = document.createElement('span');
+    s.className = ch === ' ' ? 'char sp' : 'char';
+    s.textContent = ch === ' ' ? ' ' : ch;
+    s.style.animation = `charDrop .9s cubic-bezier(.22,1,.36,1) ${.35 + i * .045}s forwards`;
+    s.addEventListener('animationend', () => { s.style.opacity = 1; s.style.animation = 'none'; }, {once:true});
+    cont.appendChild(s);
+    chars.push({el:s, oy:0, os:1, vy:0, nx:0, ready:false});
+  });
+
+  function captureX(){
+    chars.forEach(c => {
+      const r = c.el.getBoundingClientRect();
+      c.nx = r.left + r.width / 2;
+      c.ready = true;
+    });
+  }
+  setTimeout(captureX, (.35 + NAME.length * .045 + .9 + .25) * 1000);
+  window.addEventListener('resize', captureX);
+
+  // Spins: 2x bij openen (snel → langzaam), 1x bij klik (om en om)
+  let dir = 'l';
+  function doSpin(d){
+    wrap.classList.remove('spin-l','spin-r','spin-intro');
+    void wrap.offsetWidth;
+    wrap.classList.add('spin-' + d);
+    wrap.addEventListener('animationend', () => wrap.classList.remove('spin-l','spin-r','spin-intro'), {once:true});
+  }
+  setTimeout(() => doSpin('intro'), 900);
+  cont.addEventListener('click', () => { doSpin(dir); dir = dir === 'l' ? 'r' : 'l'; });
+
+  if(window.matchMedia('(hover:none)').matches) return;
+
+  // Golf per letter + 3D-tilt, zoals de originele site
+  let tiltX = 0, tiltY = 0;
+  const SIGMA = 160, AMPLITUDE = 42, SPRING = .09, DAMP = .74;
+  const heroEl = document.getElementById('hero');
+
+  function spinning(){
+    return wrap.classList.contains('spin-l') || wrap.classList.contains('spin-r') || wrap.classList.contains('spin-intro');
+  }
+
+  function tick(){
+    const hr = heroEl.getBoundingClientRect();
+    const relX = (mx - (hr.left + hr.width / 2)) / (hr.width / 2);
+    const relY = (my - (hr.top + hr.height / 2)) / (hr.height / 2);
+    tiltX += (relY * -8 - tiltX) * .06;
+    tiltY += (relX * 10 - tiltY) * .06;
+    if(!spinning())
+      wrap.style.transform = `perspective(900px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg)`;
+
+    chars.forEach(c => {
+      if(!c.ready) return;
+      const ddx = mx - c.nx;
+      const gauss = Math.exp(-(ddx * ddx) / (2 * SIGMA * SIGMA));
+      const targetY = -gauss * AMPLITUDE;
+      const targetS = 1 + gauss * .07;
+      const fy = (targetY - c.oy) * SPRING;
+      c.vy = (c.vy + fy) * DAMP;
+      c.oy += c.vy;
+      c.os += (targetS - c.os) * .1;
+      c.el.style.transform = `translate3d(0,${c.oy.toFixed(2)}px,0) scale(${c.os.toFixed(4)})`;
+    });
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+/* ══════════════════════════════════════════
+   SECTION REVEAL
+══════════════════════════════════════════ */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('vis', 's-vis');
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold: .1, rootMargin: '0px 0px -40px 0px'});
+document.querySelectorAll('section,.rev').forEach(el => io.observe(el));
+
+/* ══════════════════════════════════════════
+   CARD GLOW — licht volgt de muis
+══════════════════════════════════════════ */
+document.addEventListener('mousemove', e => {
+  const card = e.target.closest('.proj-card');
+  if(!card) return;
+  const r = card.getBoundingClientRect();
+  card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+  card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+});
+
+/* ══════════════════════════════════════════
+   LANGUAGE
+══════════════════════════════════════════ */
+let lang = 'nl';
+function setLang(l){
+  lang = l;
+  document.documentElement.lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.trim().toLowerCase() === l);
+  });
+  document.querySelectorAll('[data-nl]').forEach(el => {
+    el.textContent = l === 'nl' ? el.dataset.nl : el.dataset.en;
+  });
+  renderProjects();
+}
+
+/* ══════════════════════════════════════════
+   PROJECTS
+══════════════════════════════════════════ */
+function renderProjects(){
+  const grid = document.getElementById('proj-grid');
+  grid.innerHTML = '';
+  PROJECTS.forEach((p, i) => {
+    const tag   = lang === 'nl' ? p.tag_nl     : p.tag_en;
+    const title = lang === 'nl' ? p.title_nl   : p.title_en;
+    const sum   = lang === 'nl' ? p.summary_nl : p.summary_en;
+    const imgHtml = (p.images && p.images.length)
+      ? `<div class="p-img"><img src="${p.images[0]}" alt="${title}" loading="lazy"/></div>`
+      : ``;
+    const card = document.createElement('div');
+    card.className = 'proj-card';
+    card.innerHTML = `
+      ${imgHtml}
+      <span class="p-tag">${tag}</span>
+      <div class="p-title">${title}</div>
+      <div class="p-sum">${sum}</div>
+      <div class="p-foot">
+        <div class="chips">${(p.chips || []).map(c => `<span class="chip">${c}</span>`).join('')}</div>
+        <span class="p-arr">&rarr;</span>
+      </div>`;
+    card.addEventListener('click', () => openModal(i, card));
+    bindHover(card);
+    grid.appendChild(card);
+  });
+}
+
+/* ══════════════════════════════════════════
+   MODAL
+══════════════════════════════════════════ */
+let carouselTimer = null;
+let carouselIdx = 0;
+
+function buildCarousel(imgs, wrap){
+  if(!imgs || !imgs.length){ wrap.innerHTML = ''; wrap.classList.remove('has-img'); return; }
+  wrap.classList.add('has-img');
+  carouselIdx = 0;
+  const multi = imgs.length > 1;
+  wrap.innerHTML = `
+    <div class="m-carousel">
+      <img id="m-car-img" src="${imgs[0]}" alt=""/>
+      ${multi ? `<button class="m-arr prev" id="m-prev">&#8592;</button><button class="m-arr next" id="m-next">&#8594;</button>` : ''}
+    </div>
+    ${multi ? `<div class="m-dots" id="m-dots">${imgs.map((_, k) => `<button class="m-dot${k === 0 ? ' on' : ''}" data-k="${k}"></button>`).join('')}</div>` : ''}
+  `;
+  if(!multi) return;
+  const carImg = document.getElementById('m-car-img');
+  const dots = [...document.querySelectorAll('.m-dot')];
+
+  function goTo(k, resetTimer = true){
+    carouselIdx = ((k % imgs.length) + imgs.length) % imgs.length;
+    carImg.style.opacity = 0;
+    setTimeout(() => { carImg.src = imgs[carouselIdx]; carImg.style.opacity = 1; }, 220);
+    dots.forEach((d, j) => d.classList.toggle('on', j === carouselIdx));
+    if(resetTimer){ clearInterval(carouselTimer); carouselTimer = setInterval(() => goTo(carouselIdx + 1, false), 15000); }
+  }
+
+  // pan-zoom op hover
+  carImg.addEventListener('mousemove', e => {
+    const r = carImg.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width) * 100;
+    const y = ((e.clientY - r.top) / r.height) * 100;
+    carImg.style.transformOrigin = `${x}% ${y}%`;
+  });
+  carImg.addEventListener('mouseleave', () => { carImg.style.transformOrigin = 'center center'; });
+
+  document.getElementById('m-prev').addEventListener('click', e => { e.stopPropagation(); goTo(carouselIdx - 1); });
+  document.getElementById('m-next').addEventListener('click', e => { e.stopPropagation(); goTo(carouselIdx + 1); });
+  dots.forEach(d => d.addEventListener('click', e => { e.stopPropagation(); goTo(+d.dataset.k); }));
+
+  // Pijltjestoetsen
+  const keyListener = (e) => {
+    if(e.key === 'ArrowLeft') goTo(carouselIdx - 1);
+    if(e.key === 'ArrowRight') goTo(carouselIdx + 1);
+  };
+  document.addEventListener('keydown', keyListener);
+  carImg._keyListener = keyListener;
+
+  carouselTimer = setInterval(() => goTo(carouselIdx + 1, false), 5000);
+}
+
+function openModal(i, cardEl){
+  const p = PROJECTS[i];
+  clearInterval(carouselTimer);
+  buildCarousel(p.images || [], document.getElementById('m-img-wrap'));
+  document.getElementById('m-tag').textContent   = lang === 'nl' ? p.tag_nl   : p.tag_en;
+  document.getElementById('m-title').textContent = lang === 'nl' ? p.title_nl : p.title_en;
+  document.getElementById('m-body').innerHTML    = lang === 'nl' ? p.body_nl  : p.body_en;
+  document.getElementById('m-chips').innerHTML   = (p.chips || []).map(c => `<span class="chip">${c}</span>`).join('');
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  clearInterval(carouselTimer);
+  const carImg = document.getElementById('m-car-img');
+  if(carImg && carImg._keyListener) document.removeEventListener('keydown', carImg._keyListener);
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('m-close').addEventListener('click', closeModal);
+document.getElementById('modal').addEventListener('click', e => {
+  if(e.target === document.getElementById('modal')) closeModal();
+});
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+renderProjects();
+
+/* ══════════════════════════════════════════
+   RADAR CHART
+══════════════════════════════════════════ */
+(function(){
+  const canvas = document.getElementById('radar-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const cx = W / 2, cy = H / 2, R = 155;
+  const axes = [
+    {nl:'Hardware &\nElektronica', en:'Hardware &\nElectronics', val:4},
+    {nl:'Elektro-\nmechanisch',   en:'Electro-\nmechanical',   val:4},
+    {nl:'Mechanisch',             en:'Mechanical',              val:3},
+    {nl:'Automatisering',         en:'Automation',              val:2},
+    {nl:'Meting &\nTesten',       en:'Measurement &\nTesting',  val:3},
+    {nl:'Programmeren',           en:'Programming',             val:2},
+  ];
+  const N = axes.length;
+  const MAX = 5;
+  let animated = false;
+  let progress = 0;
+
+  function angle(i){ return (Math.PI * 2 / N) * i - Math.PI / 2; }
+  function pt(i, r){ return [cx + Math.cos(angle(i)) * r, cy + Math.sin(angle(i)) * r]; }
+
+  function draw(p){
+    ctx.clearRect(0, 0, W, H);
+    for(let ringI = 1; ringI <= MAX; ringI++){
+      const r = R * (ringI / MAX);
+      ctx.beginPath();
+      for(let i = 0; i < N; i++){
+        const [x, y] = pt(i, r);
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.strokeStyle = ringI === MAX ? 'rgba(150,180,230,0.30)' : 'rgba(150,180,230,0.10)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+    for(let i = 0; i < N; i++){
+      const [x, y] = pt(i, R);
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(x, y);
+      ctx.strokeStyle = 'rgba(150,180,230,0.08)'; ctx.lineWidth = 1; ctx.stroke();
+    }
+    ctx.beginPath();
+    for(let i = 0; i < N; i++){
+      const r = R * (axes[i].val / MAX) * p;
+      const [x, y] = pt(i, r);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, R);
+    grad.addColorStop(0, 'rgba(92,155,255,0.28)');
+    grad.addColorStop(1, 'rgba(125,211,252,0.08)');
+    ctx.fillStyle = grad;
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(122,170,255,0.75)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    for(let i = 0; i < N; i++){
+      const r = R * (axes[i].val / MAX) * p;
+      const [x, y] = pt(i, r);
+      ctx.beginPath(); ctx.arc(x, y, 3.2, 0, Math.PI * 2);
+      ctx.fillStyle = '#7dd3fc'; ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, 7, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(125,211,252,0.12)'; ctx.fill();
+    }
+    if(p >= 1){
+      const currentLang = document.documentElement.lang || 'nl';
+      ctx.font = '400 12px Inter,sans-serif';
+      ctx.fillStyle = '#aab4c4';
+      ctx.textAlign = 'center';
+      for(let i = 0; i < N; i++){
+        const [x, y] = pt(i, R + 28);
+        const label = (currentLang === 'en' ? axes[i].en : axes[i].nl).split('\n');
+        label.forEach((line, j) => { ctx.fillText(line, x, y + j * 16 - (label.length - 1) * 8); });
+      }
+    }
+  }
+
+  function animate(){
+    if(progress < 1){ progress = Math.min(1, progress + 0.022); draw(progress); requestAnimationFrame(animate); }
+    else draw(1);
+  }
+
+  const obs = new IntersectionObserver(entries => {
+    if(entries[0].isIntersecting && !animated){ animated = true; animate(); }
+  }, {threshold: 0.3});
+  obs.observe(canvas);
+
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => { setTimeout(() => draw(1), 50); }));
+})();
+
+/* ══════════════════════════════════════════
+   COUNTERS
+══════════════════════════════════════════ */
+function runCounter(el, target, suffix){
+  let cur = 0; const steps = 70; const inc = target / steps;
+  const t = setInterval(() => {
+    cur += inc;
+    if(cur >= target){ el.textContent = target + suffix; clearInterval(t); }
+    else el.textContent = Math.floor(cur);
+  }, 24);
+}
+setTimeout(() => {
+  const p = document.getElementById('proj-count');
+  const e = document.getElementById('exp-count');
+  if(p) runCounter(p, 9, '');
+  if(e) runCounter(e, 4, '+');
+}, 1800);
+
+/* ══════════════════════════════════════════
+   TIMELINE ACCORDION
+══════════════════════════════════════════ */
+document.querySelectorAll('.tl-item').forEach(item => {
+  const role = item.querySelector('.tl-role');
+  const co   = item.querySelector('.tl-co');
+  const desc = item.querySelector('.tl-desc');
+  if(!desc) return;
+  const header = document.createElement('div');
+  header.className = 'tl-header';
+  const left = document.createElement('div');
+  const logoSrc = item.dataset.logo;
+  if(logoSrc){
+    const img = document.createElement('img');
+    img.src = logoSrc; img.className = 'tl-logo'; img.alt = '';
+    left.appendChild(img);
+  }
+  left.appendChild(role);
+  left.appendChild(co);
+  const arrow = document.createElement('span');
+  arrow.className = 'tl-arrow';
+  arrow.textContent = '▼';
+  header.appendChild(left);
+  header.appendChild(arrow);
+  desc.parentNode.insertBefore(header, desc);
+  header.addEventListener('click', () => item.classList.toggle('open'));
+  bindHover(header);
+});
+
+/* ══════════════════════════════════════════
+   YOUTUBE — autoplay bij scrollen
+══════════════════════════════════════════ */
+const ytIframe = document.getElementById('yt-iframe');
+let ytPlaying = false;
+const ytObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting && !ytPlaying){
+      ytIframe.src = ytIframe.src.replace('autoplay=0', 'autoplay=1');
+      ytPlaying = true;
+    } else if(!e.isIntersecting && ytPlaying){
+      ytIframe.src = ytIframe.src.replace('autoplay=1', 'autoplay=0');
+      ytPlaying = false;
+    }
+  });
+}, {threshold: 0.5});
+ytObs.observe(document.getElementById('yt-wrap'));
+
+/* ══════════════════════════════════════════
+   MOUSE GLOW — zachte lichtvlek volgt cursor
+══════════════════════════════════════════ */
+(function(){
+  if(window.matchMedia('(hover:none)').matches) return;
+  const glow = document.getElementById('mouse-glow');
+  if(!glow) return;
+  let gx = innerWidth / 2, gy = innerHeight / 2;
+  (function loop(){
+    gx += (mx - gx) * .07;
+    gy += (my - gy) * .07;
+    glow.style.left = gx + 'px';
+    glow.style.top  = gy + 'px';
+    requestAnimationFrame(loop);
+  })();
+})();
+
+/* ══════════════════════════════════════════
+   MAGNETIC BUTTONS
+══════════════════════════════════════════ */
+if(!window.matchMedia('(hover:none)').matches){
+  document.querySelectorAll('.btn').forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .2}px,${(e.clientY - r.top - r.height / 2) * .3}px)`;
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+  });
+}
+
+/* ══════════════════════════════════════════
+   MOBIEL MENU
+══════════════════════════════════════════ */
+(function(){
+  const burger = document.getElementById('nav-burger');
+  const menu = document.getElementById('mobile-menu');
+  if(!burger || !menu) return;
+  burger.addEventListener('click', () => {
+    const open = document.body.classList.toggle('menu-open');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    document.body.classList.remove('menu-open');
+    document.body.style.overflow = '';
+  }));
+})();
+
+</script>
+</body>
+</html>
