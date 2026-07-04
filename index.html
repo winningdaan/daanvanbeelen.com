@@ -3,11 +3,38 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Daan van Beelen</title>
+<title>Daan van Beelen — Mechatronica Engineer</title>
+<meta name="description" content="Daan van Beelen, Mechatronica Engineer uit Wassenaar. Portfolio met projecten in hardware, elektronica, PCB-ontwerp, 3D-printen en automatisering.">
+<meta name="theme-color" content="#0b101c">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://daanvanbeelen.com/">
+<meta property="og:title" content="Daan van Beelen — Mechatronica Engineer">
+<meta property="og:description" content="Portfolio met projecten in hardware, elektronica, PCB-ontwerp, 3D-printen en automatisering.">
+<meta property="og:image" content="https://daanvanbeelen.com/media/me.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Daan van Beelen — Mechatronica Engineer">
+<meta name="twitter:description" content="Portfolio met projecten in hardware, elektronica, PCB-ontwerp, 3D-printen en automatisering.">
+<meta name="twitter:image" content="https://daanvanbeelen.com/media/me.jpeg">
+<link rel="canonical" href="https://daanvanbeelen.com/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23080b12'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233b82f6'/%3E%3Cstop offset='1' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ctext x='16' y='22' font-family='Arial Black,sans-serif' font-size='13' font-weight='900' text-anchor='middle' fill='url(%23g)'%3EDvB%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Daan van Beelen",
+  "jobTitle": "Mechatronica Engineer",
+  "url": "https://daanvanbeelen.com/",
+  "address": { "@type": "PostalAddress", "addressLocality": "Wassenaar", "addressCountry": "NL" },
+  "email": "daan.hvs@gmail.com",
+  "image": "https://daanvanbeelen.com/media/me.jpeg",
+  "sameAs": ["https://linkedin.com/in/daan-van-beelen-072953246"],
+  "knowsAbout": ["PCB-ontwerp", "SMD-solderen", "Mechatronica", "Elektrotechniek", "3D-printen", "Automatisering"]
+}
+</script>
 
 <!-- ════════════════════════════════════
   ⚙  PROJECTEN TOEVOEGEN / ADD PROJECTS
@@ -88,15 +115,6 @@ const PROJECTS = [
     chips:["Component vervanging","Precisie werk"],
     images: ["media/iphone1.jpg","media/iphone2.jpg"] },
 
-  { tag_nl:"Automatisering", tag_en:"Automation",
-    title_nl:"Automatisch Watersysteem", title_en:"Automatic Water System",
-    summary_nl:"Automatisch irrigatiesysteem voor een vergaderruimte bij The Field, Leiden.",
-    summary_en:"Automated irrigation system for a meeting room at The Field, Leiden.",
-    body_nl:`<p>Als schoolproject bij The Field in Leiden ontwikkelde ik een volledig automatisch watersysteem voor de beplanting in een vergaderruimte. Het systeem bestaat uit magnetische kleppen die de watertoevoer regelen, waterlekslangen die het water gelijkmatig verdelen, een pomp en een combinatie van vochtweerstands- en temperatuursensoren die continu de omstandigheden meten. Op basis van die sensordata stuurt de microcontroller de pomp en kleppen automatisch aan.</p><p>Het team bestond uit studenten van een andere studie, waardoor ik ook leerde samenwerken over vakgebieden heen. Na de basisversie werkten we samen aan verdere uitbreidingen zoals remote monitoring en logging van historische data.</p>`,
-    body_en:`<p>As a school project at The Field in Leiden, I developed a fully automatic watering system for the plants in a meeting room. The system consists of magnetic valves that control the water supply, drip hoses that distribute water evenly, a pump, and a combination of moisture resistance sensors and temperature sensors that continuously monitor conditions. Based on that sensor data, the microcontroller automatically controls the pump and valves.</p><p>The team consisted of students from a different course of study, which also taught me how to collaborate across disciplines. After the initial version, we worked together on further extensions such as remote monitoring and logging of historical data.</p>`,
-    chips:["Microcontroller","Sensoren","Automatisering"],
-    images: [] },
-
   { tag_nl:"Mechanisch / Elektrisch", tag_en:"Mechanical / Electrical",
     title_nl:"Kabelboom Boot (Piranha Espada)", title_en:"Boat Wiring Harness (Piranha Espada)",
     summary_nl:"Kabelboom ontworpen en gemonteerd in een Piranha Espada speedboot.",
@@ -104,6 +122,15 @@ const PROJECTS = [
     body_nl:`<p>De aanleiding voor dit project was oxydatie: de originele kabels van de boot waren zo aangetast dat ze niet meer betrouwbaar werkten. In plaats van losse kabels te vervangen, ontwierp en monteerde ik een volledig nieuwe kabelboom van nul af aan en sloot alle elektrische systemen opnieuw aan. Van schematekening tot definitieve installatie en test.</p><p>Ik installeerde onder andere: 4 waterdichte speakers met een subwoofer, LED-verlichting, navigatieverlichting, een radio, contactslot, powertrim, accu en killswitch. Daarnaast voegde ik een hoofdrelais toe, zodat alle systemen centraal en veilig onderbroken kunnen worden. Alles is netjes georganiseerd in een controlepaneel zodat de bediening overzichtelijk blijft.</p><p>Het project vereiste nauwkeurig werken in een beperkte ruimte en gedegen kennis van marine elektra.</p>`,
     body_en:`<p>The reason for this project was oxidation: the boat's original cables had deteriorated so badly they were no longer reliable. Instead of replacing individual cables, I designed and mounted a complete new wiring harness from scratch and reconnected all electrical systems. From schematic drawing to final installation and testing.</p><p>I installed among other things: 4 waterproof speakers with a subwoofer, LED lighting, navigation lights, a radio, ignition switch, power trim, battery and kill switch. I also added a main relay, so all systems can be centrally and safely disconnected. Everything is neatly organised in a control panel for a clean and logical layout.</p><p>The project required precision work in a confined space and solid knowledge of marine electrical systems.</p>`,
     chips:["Kabelboom","Schematekening in KiCad"],
+    images: ["media/speedboot_paneel.jpg","media/speedboot_speaker.jpg"] },
+
+  { tag_nl:"Automatisering", tag_en:"Automation",
+    title_nl:"Automatisch Watersysteem", title_en:"Automatic Water System",
+    summary_nl:"Automatisch irrigatiesysteem voor een vergaderruimte bij The Field, Leiden.",
+    summary_en:"Automated irrigation system for a meeting room at The Field, Leiden.",
+    body_nl:`<p>Als schoolproject bij The Field in Leiden ontwikkelde ik een volledig automatisch watersysteem voor de beplanting in een vergaderruimte. Het systeem bestaat uit magnetische kleppen die de watertoevoer regelen, waterlekslangen die het water gelijkmatig verdelen, een pomp en een combinatie van vochtweerstands- en temperatuursensoren die continu de omstandigheden meten. Op basis van die sensordata stuurt de microcontroller de pomp en kleppen automatisch aan.</p><p>Het team bestond uit studenten van een andere studie, waardoor ik ook leerde samenwerken over vakgebieden heen. Na de basisversie werkten we samen aan verdere uitbreidingen zoals remote monitoring en logging van historische data.</p>`,
+    body_en:`<p>As a school project at The Field in Leiden, I developed a fully automatic watering system for the plants in a meeting room. The system consists of magnetic valves that control the water supply, drip hoses that distribute water evenly, a pump, and a combination of moisture resistance sensors and temperature sensors that continuously monitor conditions. Based on that sensor data, the microcontroller automatically controls the pump and valves.</p><p>The team consisted of students from a different course of study, which also taught me how to collaborate across disciplines. After the initial version, we worked together on further extensions such as remote monitoring and logging of historical data.</p>`,
+    chips:["Microcontroller","Sensoren","Automatisering"],
     images: [] }
 ];
 </script>
@@ -119,7 +146,7 @@ const PROJECTS = [
   --accent:#5c9bff;
   --accent2:#7dd3fc;
   --text:#eef2f8;
-  --muted:#8a94a6;
+  --muted:#9aa4b5;
   --r:16px;
   --max:1080px;
   --ease:cubic-bezier(.22,1,.36,1);
@@ -132,7 +159,7 @@ body{
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
-@media(pointer:fine){body{cursor:none}body a,body button,body .proj-card,body .skill-card,body .c-card,body .tl-header{cursor:none}}
+@media(pointer:fine){html.cursor-ready body{cursor:none}html.cursor-ready body a,html.cursor-ready body button,html.cursor-ready body .proj-card,html.cursor-ready body .skill-card,html.cursor-ready body .c-card,html.cursor-ready body .tl-header{cursor:none}}
 ::selection{background:rgba(92,155,255,.28);color:#fff}
 ::-webkit-scrollbar{width:10px}
 ::-webkit-scrollbar-track{background:var(--bg)}
@@ -188,7 +215,7 @@ body.c-hover #c-ring{width:46px;height:46px;border-color:rgba(92,155,255,.55);ba
 /* ── PROFILE PIC ── */
 .profile-pic-wrapper{display:flex;justify-content:center;margin-bottom:2.6rem}
 .profile-pic{
-  width:150px;height:150px;border-radius:50%;
+  width:185px;height:185px;border-radius:50%;
   object-fit:cover;
   border:1px solid rgba(255,255,255,.14);
   box-shadow:
@@ -200,7 +227,7 @@ body.c-hover #c-ring{width:46px;height:46px;border-color:rgba(92,155,255,.55);ba
   animation:picIn 1.2s var(--ease) .15s forwards;
 }
 @keyframes picIn{to{opacity:1;transform:scale(1)}}
-@media(max-width:600px){.profile-pic{width:126px;height:126px}}
+@media(max-width:600px){.profile-pic{width:150px;height:150px}}
 
 /* ── NAV ── */
 nav{
@@ -216,9 +243,16 @@ nav.scrolled{
   backdrop-filter:blur(20px) saturate(1.4);
   border-bottom-color:rgba(255,255,255,.06);
 }
+nav.scrolled.scrolling{
+  background:rgba(9,13,23,.92);
+  -webkit-backdrop-filter:none;
+  backdrop-filter:none;
+}
 .nav-logo{
-  font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:700;
-  letter-spacing:.14em;color:var(--text);flex-shrink:0;
+  font-family:'Bebas Neue',sans-serif;font-size:1.5rem;font-weight:400;
+  letter-spacing:2px;flex-shrink:0;
+  background:linear-gradient(120deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
 }
 .nav-links{display:flex;gap:2.2rem;align-items:center;flex:1;justify-content:center}
 .nav-links a{
@@ -287,9 +321,8 @@ nav.scrolled{
 .char{
   display:inline-block;will-change:transform,filter;
   opacity:0;
-  transition:transform .5s var(--ease),color .5s;
+  pointer-events:none;
 }
-.char:hover{transform:translateY(-5px);color:var(--accent2)}
 .char.sp{display:inline-block;width:.24em;opacity:1}
 @keyframes charDrop{
   0%{opacity:0;transform:translateY(46px);filter:blur(10px)}
@@ -388,11 +421,11 @@ nav.scrolled{
 .s-vis .s-line{width:120px}
 
 /* reveal */
-.rev{opacity:0;transform:translateY(30px);filter:blur(5px);transition:opacity 1s var(--ease),transform 1s var(--ease),filter 1s var(--ease)}
-.rev.vis{opacity:1;transform:translateY(0);filter:blur(0)}
+.rev{opacity:0;transform:translateY(30px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rev.vis{opacity:1;transform:translateY(0)}
 .rev-d1{transition-delay:.12s}.rev-d2{transition-delay:.24s}.rev-d3{transition-delay:.36s}
 @media(prefers-reduced-motion:reduce){
-  .rev,.s-title .w,.s-line{transition:none;transform:none;opacity:1;filter:none;width:120px}
+  .rev,.s-title .w,.s-line{transition:none;transform:none;opacity:1;width:120px}
   body::before{animation:none}
 }
 
@@ -483,8 +516,7 @@ nav.scrolled{
 .tl-arrow{font-size:.58rem;color:var(--muted);transition:transform .5s var(--ease),color .3s;flex-shrink:0}
 .tl-item.open .tl-arrow{transform:rotate(180deg);color:var(--accent)}
 .tl-header:hover .tl-role{color:var(--accent2)}
-.tl-logo{height:26px;width:auto;max-width:90px;object-fit:contain;border-radius:5px;margin-bottom:5px;opacity:.55;filter:brightness(1.1) grayscale(.3);transition:opacity .4s,filter .4s}
-.tl-item:hover .tl-logo{opacity:.9;filter:brightness(1.1) grayscale(0)}
+.tl-logo{height:26px;width:auto;max-width:90px;object-fit:contain;border-radius:5px;margin-bottom:5px}
 @media(max-width:560px){.tl-item{grid-template-columns:74px 1px 1fr;gap:0 1rem}.tl-date{font-size:.68rem}}
 @media(max-width:900px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.proj-grid{grid-template-columns:1fr}}
@@ -545,6 +577,8 @@ nav.scrolled{
   box-shadow:0 40px 100px rgba(0,0,0,.6);
 }
 .modal-bg.open .modal{transform:translateY(0) scale(1);opacity:1}
+.modal:focus{outline:none}
+.proj-card:focus-visible,.skill-card:focus-visible,.tl-header:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:var(--r)}
 .m-close{
   position:absolute;top:1.15rem;right:1.15rem;
   width:32px;height:32px;border-radius:50%;
@@ -615,25 +649,17 @@ footer{
   background:transparent;
 }
 
-/* ── V2: naam-animaties, mobiel menu, muis-interactie ── */
+/* ── INTERACTIE: naam-animatie, mobiel menu, cursor-glow ── */
 body{-webkit-tap-highlight-color:transparent}
-.rev.vis{filter:none}
-.nav-logo{
-  font-size:1.25rem;letter-spacing:.1em;
-  background:linear-gradient(120deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-}
 #name-wrap{perspective:900px}
 #hero-name{transform-style:preserve-3d;cursor:pointer}
-@media(pointer:fine){#hero-name{cursor:none}}
-.char{transition:color .4s}
-.char:hover{color:var(--accent2)}
+@media(pointer:fine){html.cursor-ready #hero-name{cursor:none}}
 @keyframes nameSpinL{from{transform:rotateY(0deg)}to{transform:rotateY(-360deg)}}
 @keyframes nameSpinR{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
 @keyframes nameSpinDouble{from{transform:rotateY(0)}to{transform:rotateY(720deg)}}
 #name-wrap.spin-l{animation:nameSpinL .6s ease-in-out forwards}
 #name-wrap.spin-r{animation:nameSpinR .6s ease-in-out forwards}
-#name-wrap.spin-intro{animation:nameSpinDouble 1.6s cubic-bezier(.45,0,.25,1) forwards}
+#name-wrap.spin-intro{animation:nameSpinDouble 2.4s cubic-bezier(.1,.7,.2,1) forwards}
 #mouse-glow{
   position:fixed;top:50%;left:50%;width:640px;height:640px;border-radius:50%;
   pointer-events:none;z-index:0;transform:translate(-50%,-50%);
@@ -647,8 +673,6 @@ body{-webkit-tap-highlight-color:transparent}
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   box-shadow:0 0 12px rgba(92,155,255,.5);
 }
-.tl-logo{transition:opacity .4s}
-.tl-item:hover .tl-logo{opacity:.9;filter:brightness(1.1) grayscale(.3)}
 .tl-header{-webkit-user-select:none;user-select:none}
 .nav-burger{
   display:none;flex-direction:column;justify-content:center;gap:5px;
@@ -694,12 +718,7 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
   .tl-header{padding:.3rem 0}
 }
 
-/* ── V3: logo terug, geen letter-highlight/caret, spin snel→langzaam ── */
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;font-weight:400;letter-spacing:2px}
 #hero-name,.nav-logo,nav,.hero-badge,.hero-sub,.hero-stats{-webkit-user-select:none;user-select:none}
-.char{transition:none;pointer-events:none}
-.char:hover{color:inherit;transform:none}
-#name-wrap.spin-intro{animation:nameSpinDouble 2.4s cubic-bezier(.1,.7,.2,1) forwards}
 </style>
 </head>
 <body>
@@ -712,8 +731,8 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
 
 <!-- Modal -->
 <div class="modal-bg" id="modal">
-  <div class="modal">
-    <button class="m-close" id="m-close">✕</button>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title" tabindex="-1">
+    <button class="m-close" id="m-close" aria-label="Sluiten" data-nl-aria="Sluiten" data-en-aria="Close">✕</button>
     <div class="m-img-wrap" id="m-img-wrap"></div>
     <span class="p-tag" id="m-tag"></span>
     <h3 id="m-title"></h3>
@@ -886,7 +905,7 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
         </div>
       </div>
 
-      <div class="tl-item">
+      <div class="tl-item" data-logo="media/van_bentem_logo.png">
         <div class="tl-date" data-nl="jul 2024 t/m jan 2025" data-en="Jul 2024 t/m Jan 2025">jul 2024 t/m jan 2025</div>
         <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
         <div>
@@ -959,7 +978,8 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
     </p>
     <div id="yt-wrap" class="rev rev-d1" style="max-width:800px;margin:0 auto;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:#000;">
       <iframe id="yt-iframe"
-        src="https://www.youtube.com/embed/m5mBE7MGakE?enablejsapi=1&mute=1&autoplay=0"
+        title="YouTube video player"
+        data-src="https://www.youtube-nocookie.com/embed/m5mBE7MGakE?enablejsapi=1&mute=1&autoplay=0"
         style="width:100%;height:100%;border:none;display:block;"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
@@ -991,6 +1011,23 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
 
 <script>
 /* ══════════════════════════════════════════
+   MASTER RAF LOOP — één requestAnimationFrame
+   voor cursor, particles, hero-naam en glow
+══════════════════════════════════════════ */
+const _tickers = [];
+let _rafStarted = false;
+function registerTicker(fn){ _tickers.push(fn); }
+function _masterLoop(){
+  for(let i = 0; i < _tickers.length; i++) _tickers[i]();
+  requestAnimationFrame(_masterLoop);
+}
+function startMasterLoop(){
+  if(_rafStarted) return;
+  _rafStarted = true;
+  requestAnimationFrame(_masterLoop);
+}
+
+/* ══════════════════════════════════════════
    CURSOR — subtiel: dot + ring
 ══════════════════════════════════════════ */
 const dot = document.getElementById('c-dot');
@@ -1012,9 +1049,12 @@ function cursorTick() {
   ry  += (my - ry)  * 0.14;
   dot.style.transform  = `translate3d(${dx}px,${dy_}px,0) translate(-50%,-50%)`;
   ring.style.transform = `translate3d(${rx}px,${ry}px,0) translate(-50%,-50%)`;
-  requestAnimationFrame(cursorTick);
 }
-if(!window.matchMedia('(hover:none)').matches) cursorTick();
+if(!window.matchMedia('(hover:none)').matches){
+  document.documentElement.classList.add('cursor-ready');
+  registerTicker(cursorTick);
+  startMasterLoop();
+}
 
 /* ══════════════════════════════════════════
    NAV — glas-effect bij scrollen
@@ -1022,7 +1062,17 @@ if(!window.matchMedia('(hover:none)').matches) cursorTick();
 const navEl = document.querySelector('nav');
 const progressEl = document.getElementById('scroll-progress');
 const heroInner = document.querySelector('.hero-inner');
+let _scrollDirty = true;
+let _scrollSettleTimer = null;
 function onScroll(){
+  _scrollDirty = true;
+  navEl.classList.add('scrolling');
+  clearTimeout(_scrollSettleTimer);
+  _scrollSettleTimer = setTimeout(() => navEl.classList.remove('scrolling'), 150);
+}
+function applyScroll(){
+  if(!_scrollDirty) return;
+  _scrollDirty = false;
   const y = window.scrollY;
   navEl.classList.toggle('scrolled', y > 24);
   const hMax = document.documentElement.scrollHeight - window.innerHeight;
@@ -1033,7 +1083,10 @@ function onScroll(){
   }
 }
 window.addEventListener('scroll', onScroll, {passive:true});
+registerTicker(applyScroll);
+startMasterLoop();
 onScroll();
+applyScroll();
 
 /* ══════════════════════════════════════════
    AMBIENT PARTICLES — reageren op de muis
@@ -1042,7 +1095,7 @@ onScroll();
   const cv  = document.getElementById('bg-canvas');
   const ctx = cv.getContext('2d');
   let W, H, parts = [];
-  const COUNT = Math.min(130, Math.floor(window.innerWidth / 12));
+  const COUNT = Math.min(220, Math.floor(window.innerWidth / 8));
   const MR = 150;
   let pmx = -9999, pmy = -9999, attract = false, attractT = 0;
   window.addEventListener('mousemove', e => { pmx = e.clientX; pmy = e.clientY; });
@@ -1061,10 +1114,10 @@ onScroll();
       parts.push({
         x: Math.random() * W,
         y: Math.random() * H,
-        r: Math.random() * 1.4 + .4,
+        r: Math.random() * 1.6 + .5,
         vx: (Math.random() - .5) * .12,
         vy: -(Math.random() * .18 + .05),
-        a: Math.random() * .45 + .12,
+        a: Math.random() * .55 + .18,
         ph: Math.random() * Math.PI * 2,
         ox: 0, oy: 0,
         orA: Math.random() * Math.PI * 2,
@@ -1110,15 +1163,17 @@ onScroll();
       const tw = p.a * (0.6 + 0.4 * Math.sin(t * 1.4 + p.ph)) + near * .25;
       ctx.beginPath();
       ctx.arc(p.x + p.ox, p.y + p.oy, p.r + near * .8, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(150,185,255,${Math.min(tw, .75)})`;
+      ctx.fillStyle = `rgba(150,185,255,${Math.min(tw, .9)})`;
       ctx.fill();
     });
-    requestAnimationFrame(frame);
   }
 
   window.addEventListener('resize', build);
   build();
-  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) frame();
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    registerTicker(frame);
+    startMasterLoop();
+  }
 })();
 
 /* ══════════════════════════════════════════
@@ -1169,12 +1224,15 @@ onScroll();
   let tiltX = 0, tiltY = 0;
   const SIGMA = 160, AMPLITUDE = 42, SPRING = .09, DAMP = .74;
   const heroEl = document.getElementById('hero');
+  let heroVisible = true;
+  new IntersectionObserver(entries => { heroVisible = entries[0].isIntersecting; }, {threshold: 0}).observe(heroEl);
 
   function spinning(){
     return wrap.classList.contains('spin-l') || wrap.classList.contains('spin-r') || wrap.classList.contains('spin-intro');
   }
 
   function tick(){
+    if(!heroVisible) return;
     const hr = heroEl.getBoundingClientRect();
     const relX = (mx - (hr.left + hr.width / 2)) / (hr.width / 2);
     const relY = (my - (hr.top + hr.height / 2)) / (hr.height / 2);
@@ -1195,9 +1253,9 @@ onScroll();
       c.os += (targetS - c.os) * .1;
       c.el.style.transform = `translate3d(0,${c.oy.toFixed(2)}px,0) scale(${c.os.toFixed(4)})`;
     });
-    requestAnimationFrame(tick);
   }
-  tick();
+  registerTicker(tick);
+  startMasterLoop();
 })();
 
 /* ══════════════════════════════════════════
@@ -1237,6 +1295,9 @@ function setLang(l){
   document.querySelectorAll('[data-nl]').forEach(el => {
     el.textContent = l === 'nl' ? el.dataset.nl : el.dataset.en;
   });
+  document.querySelectorAll('[data-nl-aria]').forEach(el => {
+    el.setAttribute('aria-label', l === 'nl' ? el.dataset.nlAria : el.dataset.enAria);
+  });
   renderProjects();
 }
 
@@ -1255,6 +1316,9 @@ function renderProjects(){
       : ``;
     const card = document.createElement('div');
     card.className = 'proj-card';
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', title);
     card.innerHTML = `
       ${imgHtml}
       <span class="p-tag">${tag}</span>
@@ -1265,6 +1329,9 @@ function renderProjects(){
         <span class="p-arr">&rarr;</span>
       </div>`;
     card.addEventListener('click', () => openModal(i, card));
+    card.addEventListener('keydown', e => {
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openModal(i, card); }
+    });
     bindHover(card);
     grid.appendChild(card);
   });
@@ -1281,12 +1348,15 @@ function buildCarousel(imgs, wrap){
   wrap.classList.add('has-img');
   carouselIdx = 0;
   const multi = imgs.length > 1;
+  const prevLabel = lang === 'nl' ? 'Vorige afbeelding' : 'Previous image';
+  const nextLabel = lang === 'nl' ? 'Volgende afbeelding' : 'Next image';
+  const imgLabel  = lang === 'nl' ? 'Afbeelding' : 'Image';
   wrap.innerHTML = `
     <div class="m-carousel">
       <img id="m-car-img" src="${imgs[0]}" alt=""/>
-      ${multi ? `<button class="m-arr prev" id="m-prev">&#8592;</button><button class="m-arr next" id="m-next">&#8594;</button>` : ''}
+      ${multi ? `<button class="m-arr prev" id="m-prev" aria-label="${prevLabel}">&#8592;</button><button class="m-arr next" id="m-next" aria-label="${nextLabel}">&#8594;</button>` : ''}
     </div>
-    ${multi ? `<div class="m-dots" id="m-dots">${imgs.map((_, k) => `<button class="m-dot${k === 0 ? ' on' : ''}" data-k="${k}"></button>`).join('')}</div>` : ''}
+    ${multi ? `<div class="m-dots" id="m-dots">${imgs.map((_, k) => `<button class="m-dot${k === 0 ? ' on' : ''}" data-k="${k}" aria-label="${imgLabel} ${k + 1}"></button>`).join('')}</div>` : ''}
   `;
   if(!multi) return;
   const carImg = document.getElementById('m-car-img');
@@ -1324,6 +1394,22 @@ function buildCarousel(imgs, wrap){
   carouselTimer = setInterval(() => goTo(carouselIdx + 1, false), 5000);
 }
 
+let lastFocused = null;
+
+function getFocusable(container){
+  return [...container.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])')]
+    .filter(el => el.offsetParent !== null);
+}
+function trapFocus(e){
+  if(e.key !== 'Tab') return;
+  const modalEl = document.querySelector('.modal');
+  const focusable = getFocusable(modalEl);
+  if(!focusable.length) return;
+  const first = focusable[0], last = focusable[focusable.length - 1];
+  if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+  else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+}
+
 function openModal(i, cardEl){
   const p = PROJECTS[i];
   clearInterval(carouselTimer);
@@ -1334,6 +1420,9 @@ function openModal(i, cardEl){
   document.getElementById('m-chips').innerHTML   = (p.chips || []).map(c => `<span class="chip">${c}</span>`).join('');
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
+  lastFocused = cardEl || document.activeElement;
+  document.addEventListener('keydown', trapFocus);
+  document.querySelector('.modal').focus();
 }
 function closeModal(){
   clearInterval(carouselTimer);
@@ -1341,6 +1430,8 @@ function closeModal(){
   if(carImg && carImg._keyListener) document.removeEventListener('keydown', carImg._keyListener);
   document.getElementById('modal').classList.remove('open');
   document.body.style.overflow = '';
+  document.removeEventListener('keydown', trapFocus);
+  if(lastFocused) lastFocused.focus();
 }
 document.getElementById('m-close').addEventListener('click', closeModal);
 document.getElementById('modal').addEventListener('click', e => {
@@ -1457,9 +1548,28 @@ function runCounter(el, target, suffix){
 setTimeout(() => {
   const p = document.getElementById('proj-count');
   const e = document.getElementById('exp-count');
-  if(p) runCounter(p, 9, '');
+  if(p) runCounter(p, PROJECTS.length, '');
   if(e) runCounter(e, 4, '+');
 }, 1800);
+
+/* ══════════════════════════════════════════
+   SKILL CARDS — klik om details te tonen
+══════════════════════════════════════════ */
+document.querySelectorAll('.skill-card').forEach(card => {
+  const detail = card.querySelector('.sk-detail');
+  if(!detail) return;
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('role', 'button');
+  card.setAttribute('aria-expanded', 'false');
+  function toggleSkill(){
+    const open = card.classList.toggle('open');
+    card.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  card.addEventListener('click', toggleSkill);
+  card.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleSkill(); }
+  });
+});
 
 /* ══════════════════════════════════════════
    TIMELINE ACCORDION
@@ -1471,6 +1581,9 @@ document.querySelectorAll('.tl-item').forEach(item => {
   if(!desc) return;
   const header = document.createElement('div');
   header.className = 'tl-header';
+  header.setAttribute('tabindex', '0');
+  header.setAttribute('role', 'button');
+  header.setAttribute('aria-expanded', 'false');
   const left = document.createElement('div');
   const logoSrc = item.dataset.logo;
   if(logoSrc){
@@ -1486,7 +1599,14 @@ document.querySelectorAll('.tl-item').forEach(item => {
   header.appendChild(left);
   header.appendChild(arrow);
   desc.parentNode.insertBefore(header, desc);
-  header.addEventListener('click', () => item.classList.toggle('open'));
+  function toggleTl(){
+    const open = item.classList.toggle('open');
+    header.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  header.addEventListener('click', toggleTl);
+  header.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleTl(); }
+  });
   bindHover(header);
 });
 
@@ -1495,17 +1615,23 @@ document.querySelectorAll('.tl-item').forEach(item => {
 ══════════════════════════════════════════ */
 const ytIframe = document.getElementById('yt-iframe');
 let ytPlaying = false;
+let ytLoaded = false;
 const ytObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if(e.isIntersecting && !ytPlaying){
-      ytIframe.src = ytIframe.src.replace('autoplay=0', 'autoplay=1');
+      if(!ytLoaded){
+        ytIframe.src = ytIframe.dataset.src.replace('autoplay=0', 'autoplay=1');
+        ytLoaded = true;
+      } else {
+        ytIframe.src = ytIframe.src.replace('autoplay=0', 'autoplay=1');
+      }
       ytPlaying = true;
     } else if(!e.isIntersecting && ytPlaying){
       ytIframe.src = ytIframe.src.replace('autoplay=1', 'autoplay=0');
       ytPlaying = false;
     }
   });
-}, {threshold: 0.5});
+}, {threshold: 0.5, rootMargin: '200px 0px'});
 ytObs.observe(document.getElementById('yt-wrap'));
 
 /* ══════════════════════════════════════════
@@ -1516,13 +1642,14 @@ ytObs.observe(document.getElementById('yt-wrap'));
   const glow = document.getElementById('mouse-glow');
   if(!glow) return;
   let gx = innerWidth / 2, gy = innerHeight / 2;
-  (function loop(){
+  function loop(){
     gx += (mx - gx) * .07;
     gy += (my - gy) * .07;
     glow.style.left = gx + 'px';
     glow.style.top  = gy + 'px';
-    requestAnimationFrame(loop);
-  })();
+  }
+  registerTicker(loop);
+  startMasterLoop();
 })();
 
 /* ══════════════════════════════════════════
