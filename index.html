@@ -518,14 +518,14 @@ nav.scrolled.scrolling{
 .tl-header:hover .tl-role{color:var(--accent2)}
 .tl-logo{height:26px;width:auto;max-width:90px;object-fit:contain;border-radius:5px;margin-bottom:5px}
 @media(max-width:560px){.tl-item{grid-template-columns:74px 1px 1fr;gap:0 1rem}.tl-date{font-size:.68rem}}
-@media(max-width:900px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.proj-grid{grid-template-columns:1fr}}
 
 /* ── PROJECTS ── */
 .proj-grid{
   display:grid;grid-template-columns:repeat(3,1fr);
   gap:1.1rem;text-align:left;
 }
+@media(max-width:900px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.proj-grid{grid-template-columns:1fr}}
 .proj-card{
   background:var(--card);border:1px solid var(--border);
   border-radius:var(--r);padding:1.5rem;
@@ -817,9 +817,9 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
     <div class="s-line"></div>
     <div class="about-grid">
       <div class="about-text rev rev-d1">
-        <p data-nl="Mijn naam is Daan van Beelen — een technicus die zijn handen graag vuil maakt, zowel in elektronica en hardware als mechanisch werk. Ik vind het erg leuk om dingen te maken en te bouwen, en ben ervan overtuigd dat de beste manier om te leren is door te doen. Ik ben altijd op zoek naar nieuwe uitdagingen, zowel op het werk als privé. Die drang om mezelf te blijven ontwikkelen is ook precies de reden waarom ik deze site heb willen maken — en hem helemaal zelf heb gebouwd en host. Ik hoop dat je hier een goed beeld krijgt van wie ik ben en wat ik kan."
-           data-en="My name is Daan van Beelen — a technician who loves getting his hands dirty, whether in electronics, hardware or mechanical work. I enjoy making and building things, and I'm convinced the best way to learn is by doing. I'm always looking for new challenges, both at work and in my personal life. That drive to keep developing myself is also exactly why I wanted to build this site — and why I built and host it entirely myself. I hope it gives you a good sense of who I am and what I can do.">
-          Mijn naam is Daan van Beelen — een technicus die zijn handen graag vuil maakt, zowel in elektronica en hardware als mechanisch werk. Ik vind het erg leuk om dingen te maken en te bouwen, en ben ervan overtuigd dat de beste manier om te leren is door te doen. Ik ben altijd op zoek naar nieuwe uitdagingen, zowel op het werk als privé. Die drang om mezelf te blijven ontwikkelen is ook precies de reden waarom ik deze site heb willen maken — en hem helemaal zelf heb gebouwd en host. Ik hoop dat je hier een goed beeld krijgt van wie ik ben en wat ik kan.
+        <p data-nl="Welkom! Mijn naam is Daan van Beelen. Dit is mijn portfolio vol projecten waar elektronica, hardware, software en mechanica samenkomen. Ik vind het erg leuk om dingen te maken en bouwen, en ben ervan overtuigd dat de beste manier om te leren is door te doen. Deze website heb ik zelf gebouwd, en ik hoop dat je zo een goeie indruk krijgt van wat ik heb gemaakt."
+           data-en="Welcome! My name is Daan van Beelen. This is my portfolio of projects where electronics, hardware, software and mechanics come together. I love making and building things, and I'm convinced the best way to learn is by doing. I built this website myself, and I hope you get a good impression of what I've created.">
+          Welkom! Mijn naam is Daan van Beelen. Dit is mijn portfolio vol projecten waar elektronica, hardware, software en mechanica samenkomen. Ik vind het erg leuk om dingen te maken en bouwen, en ben ervan overtuigd dat de beste manier om te leren is door te doen. Deze website heb ik zelf gebouwd, en ik hoop dat je zo een goeie indruk krijgt van wat ik heb gemaakt.
         </p>
       </div>
       <div class="about-facts rev rev-d2">
@@ -1077,9 +1077,9 @@ function applyScroll(){
   navEl.classList.toggle('scrolled', y > 24);
   const hMax = document.documentElement.scrollHeight - window.innerHeight;
   if(progressEl) progressEl.style.transform = `scaleX(${hMax > 0 ? y / hMax : 0})`;
-  if(heroInner && y < window.innerHeight){
+  if(heroInner && y < window.innerHeight * 1.6){
     heroInner.style.transform = `translateY(${y * .16}px)`;
-    heroInner.style.opacity = Math.max(0, 1 - y / (window.innerHeight * .85));
+    heroInner.style.opacity = Math.max(0, 1 - y / (window.innerHeight * 1.5));
   }
 }
 window.addEventListener('scroll', onScroll, {passive:true});
