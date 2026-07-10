@@ -578,6 +578,29 @@ nav.scrolled.scrolling{
 }
 .modal-bg.open .modal{transform:translateY(0) scale(1);opacity:1}
 .modal:focus{outline:none}
+
+/* ── LIGHTBOX ── */
+#lightbox{
+  position:fixed;inset:0;z-index:300;
+  background:rgba(4,7,13,.93);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .35s var(--ease);
+}
+#lightbox.open{opacity:1;pointer-events:all}
+#lb-img{
+  max-width:94vw;max-height:90vh;object-fit:contain;border-radius:8px;
+  box-shadow:0 30px 90px rgba(0,0,0,.7);
+  transform:scale(.96);transition:transform .35s var(--ease);
+}
+#lightbox.open #lb-img{transform:scale(1)}
+.lb-close{top:18px;right:18px;width:40px;height:40px;font-size:1rem}
+.lb-prev{left:20px}
+.lb-next{right:20px}
+.lb-count{
+  position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+  color:var(--muted);font-size:.8rem;letter-spacing:.12em;
+}
 .proj-card:focus-visible,.skill-card:focus-visible,.tl-header:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:var(--r)}
 .m-close{
   position:absolute;top:1.15rem;right:1.15rem;
@@ -739,6 +762,15 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
     <div class="modal-body" id="m-body"></div>
     <div class="modal-chips" id="m-chips"></div>
   </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Afbeelding volledig scherm">
+  <button class="m-close lb-close" id="lb-close" aria-label="Sluiten">✕</button>
+  <button class="m-arr lb-prev" id="lb-prev" aria-label="Vorige afbeelding">&#8592;</button>
+  <img id="lb-img" src="" alt=""/>
+  <button class="m-arr lb-next" id="lb-next" aria-label="Volgende afbeelding">&#8594;</button>
+  <div class="lb-count" id="lb-count"></div>
 </div>
 
 <!-- Nav -->
@@ -1358,8 +1390,9 @@ function buildCarousel(imgs, wrap){
     </div>
     ${multi ? `<div class="m-dots" id="m-dots">${imgs.map((_, k) => `<button class="m-dot${k === 0 ? ' on' : ''}" data-k="${k}" aria-label="${imgLabel} ${k + 1}"></button>`).join('')}</div>` : ''}
   `;
-  if(!multi) return;
   const carImg = document.getElementById('m-car-img');
+  carImg.addEventListener('click', () => openLightbox(imgs, carouselIdx));
+  if(!multi) return;
   const dots = [...document.querySelectorAll('.m-dot')];
 
   function goTo(k, resetTimer = true){
@@ -1383,8 +1416,9 @@ function buildCarousel(imgs, wrap){
   document.getElementById('m-next').addEventListener('click', e => { e.stopPropagation(); goTo(carouselIdx + 1); });
   dots.forEach(d => d.addEventListener('click', e => { e.stopPropagation(); goTo(+d.dataset.k); }));
 
-  // Pijltjestoetsen
+  // Pijltjestoetsen (niet als de lightbox open is — die heeft eigen navigatie)
   const keyListener = (e) => {
+    if(document.getElementById('lightbox').classList.contains('open')) return;
     if(e.key === 'ArrowLeft') goTo(carouselIdx - 1);
     if(e.key === 'ArrowRight') goTo(carouselIdx + 1);
   };
@@ -1393,6 +1427,45 @@ function buildCarousel(imgs, wrap){
 
   carouselTimer = setInterval(() => goTo(carouselIdx + 1, false), 5000);
 }
+
+/* ══════════════════════════════════════════
+   LIGHTBOX — foto fullscreen bekijken
+══════════════════════════════════════════ */
+const lbEl    = document.getElementById('lightbox');
+const lbImg   = document.getElementById('lb-img');
+const lbCount = document.getElementById('lb-count');
+const lbPrev  = document.getElementById('lb-prev');
+const lbNext  = document.getElementById('lb-next');
+let lbImgs = [], lbIdx = 0;
+
+function lbGo(k){
+  lbIdx = ((k % lbImgs.length) + lbImgs.length) % lbImgs.length;
+  lbImg.src = lbImgs[lbIdx];
+  lbCount.textContent = lbImgs.length > 1 ? `${lbIdx + 1} / ${lbImgs.length}` : '';
+}
+function openLightbox(imgs, idx){
+  lbImgs = imgs;
+  const multi = imgs.length > 1;
+  lbPrev.style.display = multi ? '' : 'none';
+  lbNext.style.display = multi ? '' : 'none';
+  lbGo(idx);
+  lbEl.classList.add('open');
+  document.getElementById('lb-close').focus();
+}
+function closeLightbox(){
+  lbEl.classList.remove('open');
+  const carImg = document.getElementById('m-car-img');
+  if(carImg) carImg.focus();
+}
+document.getElementById('lb-close').addEventListener('click', closeLightbox);
+lbPrev.addEventListener('click', e => { e.stopPropagation(); lbGo(lbIdx - 1); });
+lbNext.addEventListener('click', e => { e.stopPropagation(); lbGo(lbIdx + 1); });
+lbEl.addEventListener('click', e => { if(e.target === lbEl) closeLightbox(); });
+document.addEventListener('keydown', e => {
+  if(!lbEl.classList.contains('open')) return;
+  if(e.key === 'ArrowLeft')  lbGo(lbIdx - 1);
+  if(e.key === 'ArrowRight') lbGo(lbIdx + 1);
+});
 
 let lastFocused = null;
 
@@ -1437,7 +1510,11 @@ document.getElementById('m-close').addEventListener('click', closeModal);
 document.getElementById('modal').addEventListener('click', e => {
   if(e.target === document.getElementById('modal')) closeModal();
 });
-document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+document.addEventListener('keydown', e => {
+  if(e.key !== 'Escape') return;
+  if(lbEl.classList.contains('open')){ closeLightbox(); return; }
+  closeModal();
+});
 
 renderProjects();
 
