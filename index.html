@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Daan van Beelen — Mechatronica Engineer</title>
 <meta name="description" content="Daan van Beelen, Mechatronica Engineer uit Wassenaar. Portfolio met projecten in hardware, elektronica, PCB-ontwerp, 3D-printen en automatisering.">
 <meta name="theme-color" content="#0b101c">
@@ -516,7 +518,8 @@ nav.scrolled.scrolling{
 .tl-arrow{font-size:.58rem;color:var(--muted);transition:transform .5s var(--ease),color .3s;flex-shrink:0}
 .tl-item.open .tl-arrow{transform:rotate(180deg);color:var(--accent)}
 .tl-header:hover .tl-role{color:var(--accent2)}
-.tl-logo{height:26px;width:auto;max-width:90px;object-fit:contain;border-radius:5px;margin-bottom:5px}
+.tl-logo{height:34px;width:auto;max-width:130px;object-fit:contain;border-radius:5px;margin-bottom:6px}
+@media(max-width:560px){.tl-logo{height:20px;max-width:72px;margin-bottom:4px}}
 @media(max-width:560px){.tl-item{grid-template-columns:74px 1px 1fr;gap:0 1rem}.tl-date{font-size:.68rem}}
 
 /* ── PROJECTS ── */
@@ -1042,6 +1045,18 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
 <footer><p>© 2026 Daan van Beelen</p></footer>
 
 <script>
+/* ══════════════════════════════════════════
+   AFBEELDING-FALLBACK — probeer .jpg ↔ .JPG
+   (server is hoofdlettergevoelig)
+══════════════════════════════════════════ */
+document.addEventListener('error', e => {
+  const img = e.target;
+  if(!(img instanceof HTMLImageElement) || img.dataset.retried) return;
+  const src = img.getAttribute('src') || '';
+  if(/\.jpg$/.test(src)){ img.dataset.retried = '1'; img.src = src.slice(0, -4) + '.JPG'; }
+  else if(/\.JPG$/.test(src)){ img.dataset.retried = '1'; img.src = src.slice(0, -4) + '.jpg'; }
+}, true);
+
 /* ══════════════════════════════════════════
    MASTER RAF LOOP — één requestAnimationFrame
    voor cursor, particles, hero-naam en glow
