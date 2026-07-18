@@ -217,7 +217,7 @@ body.c-hover #c-ring{width:46px;height:46px;border-color:rgba(92,155,255,.55);ba
 /* ── PROFILE PIC ── */
 .profile-pic-wrapper{display:flex;justify-content:center;margin-bottom:2.6rem}
 .profile-pic{
-  width:185px;height:185px;border-radius:50%;
+  width:204px;height:204px;border-radius:50%;
   object-fit:cover;
   border:1px solid rgba(255,255,255,.14);
   box-shadow:
@@ -229,7 +229,7 @@ body.c-hover #c-ring{width:46px;height:46px;border-color:rgba(92,155,255,.55);ba
   animation:picIn 1.2s var(--ease) .15s forwards;
 }
 @keyframes picIn{to{opacity:1;transform:scale(1)}}
-@media(max-width:600px){.profile-pic{width:150px;height:150px}}
+@media(max-width:600px){.profile-pic{width:165px;height:165px}}
 
 /* ── NAV ── */
 nav{
@@ -646,6 +646,10 @@ nav.scrolled.scrolling{
 .modal-chips{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.06)}
 
 /* ── CONTACT ── */
+.contact-intro{
+  max-width:480px;margin:-1.4rem auto 2.4rem;
+  color:var(--muted);font-size:.95rem;line-height:1.8;font-weight:300;
+}
 .contact-grid{
   display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
   gap:1rem;max-width:580px;margin:0 auto;
@@ -817,12 +821,6 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
   <div class="hero-inner">
     <div class="profile-pic-wrapper">
       <img src="media/me.jpeg" alt="Daan van Beelen" class="profile-pic">
-    </div>
-
-    <div>
-      <span class="hero-badge" data-nl="Open voor nieuwe kansen" data-en="Open to new opportunities">
-        Open voor nieuwe kansen
-      </span>
     </div>
 
     <div id="name-wrap">
@@ -1035,6 +1033,11 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
     <p class="s-tag rev" data-nl="Kom in contact" data-en="Get in touch">Kom in contact</p>
     <h2 class="s-title"><span class="w" data-nl="Contact" data-en="Contact">Contact</span></h2>
     <div class="s-line"></div>
+    <p class="contact-intro rev rev-d1"
+      data-nl="Wil je samenwerken aan een gaaf project? Stuur me dan gerust een e-mail, dan kunnen we bouwen aan iets moois."
+      data-en="Want to team up on a cool project? Feel free to send me an email, and together we can build something great.">
+      Wil je samenwerken aan een gaaf project? Stuur me dan gerust een e-mail, dan kunnen we bouwen aan iets moois.
+    </p>
     <div class="contact-grid rev rev-d1">
       <a href="mailto:daan.hvs@gmail.com" class="c-card">
         <span class="c-icon"><i class="ti ti-mail"></i></span>
