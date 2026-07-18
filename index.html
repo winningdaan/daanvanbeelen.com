@@ -1060,10 +1060,17 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
 ══════════════════════════════════════════ */
 document.addEventListener('error', e => {
   const img = e.target;
-  if(!(img instanceof HTMLImageElement) || img.dataset.retried) return;
+  if(!(img instanceof HTMLImageElement)) return;
+  const step = +(img.dataset.fb || 0);
+  if(step >= 2) return;
   const src = img.getAttribute('src') || '';
-  if(/\.jpg$/.test(src)){ img.dataset.retried = '1'; img.src = src.slice(0, -4) + '.JPG'; }
-  else if(/\.JPG$/.test(src)){ img.dataset.retried = '1'; img.src = src.slice(0, -4) + '.jpg'; }
+  const m = src.match(/^(.*)\.(jpg|JPG|jpeg|png)$/);
+  if(!m) return;
+  const alternatieven = {jpg: ['JPG','png'], JPG: ['jpg','png'], jpeg: ['jpg','png'], png: ['jpg','JPG']};
+  const lijst = alternatieven[m[2]] || [];
+  if(step >= lijst.length) return;
+  img.dataset.fb = step + 1;
+  img.src = m[1] + '.' + lijst[step];
 }, true);
 
 /* ══════════════════════════════════════════
