@@ -23,7 +23,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="media/me2.jpg" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.47.0/dist/tabler-icons.min.css"
+      integrity="sha384-4UKSeMq7QVPsQlmbneE96DfOm7Cxxt7DJvsgRjJh7JfBcXI+h7k3L11lgmKp2wCH" crossorigin="anonymous">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -96,6 +97,11 @@
             }
           }
         ]
+      },
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "KVK",
+        "value": "94085714"
       }
     }
   ]
@@ -125,8 +131,8 @@ const PROJECTS = [
     summary_en:"From idea to working measurement system in 10 weeks, independently developed at TNO Defence.",
     body_nl:`<p>Voor TNO heb ik een closure unit ontwikkeld die snelle en betrouwbare data-acquisitie mogelijk maakt. Het zet closure-signalen (kortsluitcontacten) om naar bruikbare TTL-signalen, zodat maximaal 12 kanalen gelijktijdig en storingsvrij gemeten kunnen worden.</p><p>Van plan en componentkeuze tot het ontwerp van de elektronica: ik heb het project van A tot Z geleid. De PCB's heb ik zelf getekend en gesoldeerd met SMD-componenten.</p><p>Ik kan niet te diep ingaan op de onderzoeksdetails, maar het ontwikkelen van deze closure unit was een geweldige ervaring die ik samen met collega's bij TNO heb mogen uitvoeren.</p>`,
     body_en:`<p>For TNO I developed a closure unit that enables fast and reliable data acquisition. It converts closure signals (short-circuit contacts) into usable TTL signals, so up to 12 channels can be measured simultaneously and interference-free.</p><p>From planning and component selection to designing the electronics: I led the project from A to Z. I drew and soldered the PCBs myself using SMD components.</p><p>I cannot go into the research details, but developing this closure unit was a fantastic experience that I had the privilege of executing together with colleagues at TNO.</p>`,
-    chips:["PCB ontwerp","SMD solderen","Data-acquisitie"],
-    images: ["media/closure_unit.jpg"] },
+    chips:["PCB-ontwerp","SMD-solderen","Data-acquisitie"], chips_en:["PCB design","SMD soldering","Data acquisition"],
+    images: ["media/closure_unit.jpg","media/closure_unit3.jpg","media/closure_unit2.jpg"] },
 
   { tag_nl:"Elektronica", tag_en:"Electronics",
     id:"led-cube",
@@ -135,7 +141,7 @@ const PROJECTS = [
     summary_en:"Final project Technicus Engineering: a 4×4×4 LED cube with multiplexing and custom PCB design.",
     body_nl:`<p>Dit eindproject voor het laatste jaar van Technicus Engineering was het meest uitdagende project dat ik tot dan toe had gemaakt. In 10 schoolweken bouwde ik van nul een volledig werkend prototype met multiplexing: de techniek om 64 LEDs individueel aan te sturen met slechts 7 uitgangen.</p><p>Alles is volledig eigen ontwerp: het elektrische schema, de PCB, de software en de kunststof behuizing (ontworpen in SolidWorks en geprint op een Ultimaker 3D printer), aangevuld met op maat gesneden plexiglas.</p><p>Multiplexing werkt via een matrix: je stuurt rijen en kolommen apart aan, zodat je met weinig uitgangen toch elk punt afzonderlijk kunt bedienen. Ditzelfde principe zit verwerkt in LED-displays, toetsenbordmatrixen en beeldschermen. Dit project gaf mij een sterke basis voor dat soort concepten.</p>`,
     body_en:`<p>This final project for the last year of Technicus Engineering was the most challenging project I had built up to that point. In 10 school weeks I built a fully functional prototype from scratch using multiplexing: the technique of individually controlling 64 LEDs with just 7 outputs.</p><p>Everything is custom-designed: the electrical schematic, PCB, software, and plastic enclosure (designed in SolidWorks and printed with an Ultimaker 3D printer), plus custom-cut plexiglass.</p><p>Multiplexing works through a matrix: you address rows and columns separately, so with few outputs you can still control every point individually. The same principle is used in LED displays, keyboard matrices and screens. This project gave me a solid foundation for those kinds of concepts.</p>`,
-    chips:["Multiplexing","KiCad","PCB ontwerp in KiCad","Solderen","Arduino","3D printen"],
+    chips:["Multiplexing","PCB-ontwerp in KiCad","Solderen","Arduino","3D-printen"], chips_en:["Multiplexing","PCB design in KiCad","Soldering","Arduino","3D printing"],
     images: ["media/led_cube.png","media/led_cube_schema.jpg","media/led_cube_print.png"],
     thumbFocus: "50% 25%" },
 
@@ -146,7 +152,7 @@ const PROJECTS = [
     summary_en:"Independently built an e-bike from design to road-ready concept.",
     body_nl:`<p>Eerst wilde ik een kant-en-klare e-bike kopen, maar het leek me veel gaver om hem zelf te bouwen. Als basis gebruikte ik een bestaand fietsframe, maar het volledige elektrische systeem heb ik zelf ontworpen en opgebouwd: accu, motor, controller, sensoren bij de trapas en LED-verlichting. Van componentkeuze en dimensionering tot de uiteindelijke installatie en het rijklaar maken, alles volledig zelfstandig uitgevoerd.</p><p>Dit project gaf me veel inzicht in hoe elektrische systemen samenwerken en hoe je alles op elkaar afstemt voor optimale performance.</p>`,
     body_en:`<p>At first I wanted to buy a ready-made e-bike, but it seemed much cooler to build one myself. I used an existing bike frame as the base, but designed and built the entire electrical system from scratch: battery, motor, controller, sensors at the bottom bracket, and LED lighting. From component selection and sizing to final installation and making it road-ready, all done independently.</p><p>This project gave me a lot of insight into how electrical systems work together and how to tune everything for optimal performance.</p>`,
-    chips:["Elektrisch systeem","Vermogenselektronica"],
+    chips:["Elektrisch systeem","Vermogenselektronica"], chips_en:["Electrical system","Power electronics"],
     images: ["media/ebike_build.jpg", "media/ebike_schema.png"] },
 
   { tag_nl:"Bedrijf / Elektrisch & Mechanisch", tag_en:"Business / Electrical & Mechanical",
@@ -155,9 +161,10 @@ const PROJECTS = [
     summary_nl:"Eigen bedrijf opgericht: customizen, onderhoud en verkoop van Vespa's voor klanten.",
     summary_en:"Founded own business: customising, maintenance and sales of Vespa scooters for clients.",
     body_nl:`<p>Via VB Customs hebben we veel klanten geholpen met het aanpassen en onderhouden van hun Vespa- en Tomos-brommers, met ruim 100 verkochte brommers. Werkzaamheden omvatten echt alles: motoronderhoud, elektra aanpassen, remsysteem, storingen opsporen en oplossen, en opvoeren. Onderdelen die niet te koop waren, heb ik zelf op maat ontworpen en 3D-geprint. Elk project was anders en vroeg om een andere aanpak, wat het erg interessant maakte en me enorm veel heeft geleerd. Van simpele onderhoudsbeurten tot complexe elektrische problemen: geen dag was hetzelfde.</p><p>Het bedrijf runde ik samen met een compagnon: ik deed de inkoop, offertes, facturatie en boekhouding, mijn compagnon de verkoop en voorraad. Het bedrijf hebben we vanaf nul opgebouwd, inclusief KVK-inschrijving, huisstijl en belastingadministratie. Een unieke combinatie van technisch vakmanschap en ondernemerschap, waar ik een mooi netwerk aan heb overgehouden.</p>`,
-    body_en:`<p>Through VB Customs we helped many clients with customising and maintaining their Vespa and Tomos scooters, with over 100 scooters sold. Work included literally everything: engine maintenance, electrical modifications, brake systems, diagnosing and fixing faults, and performance tuning. Parts that weren't for sale, I designed to size myself and 3D-printed. Each project was different and required a different approach, which made it very interesting and taught me an enormous amount. From simple service jobs to complex electrical problems: no two days were the same.</p><p>I ran the business together with a partner: I handled purchasing, quotes, invoicing and bookkeeping, my partner sales and stock. We built the business from scratch, including chamber of commerce registration, branding and tax administration. A unique combination of technical craftsmanship and entrepreneurship, which left me with a great network.</p>`,
-    chips:["Klantcontact","Mechanisch onderhoud","Ondernemerschap"],
-    images: ["media/naast_scooters1.jpg","media/naast_tomos.jpg","media/vier_scooters.jpg","media/werken.jpg","media/zip.jpg"] },
+    body_en:`<p>Through VB Customs we helped many clients with customising and maintaining their Vespa and Tomos scooters, with over 100 scooters sold. Work included literally everything: engine maintenance, electrical modifications, brake systems, diagnosing and fixing faults, and performance tuning. Parts that weren't for sale, I designed to size myself and 3D-printed. Each project was different and required a different approach, which made it very interesting and taught me an enormous amount. From simple service jobs to complex electrical problems: no two days were the same.</p><p>I ran the business together with a partner: I handled purchasing, quotes, invoicing and bookkeeping, my partner sales and stock. We built the business from scratch, including Chamber of Commerce registration, branding and tax administration. A unique combination of technical craftsmanship and entrepreneurship, which left me with a great network.</p>`,
+    chips:["Klantcontact","Mechanisch onderhoud","Ondernemerschap"], chips_en:["Customer contact","Mechanical maintenance","Entrepreneurship"],
+    images: ["media/naast_scooters1.jpg","media/naast_tomos.jpg","media/vier_scooters.jpg","media/werken.jpg","media/zip.jpg",
+             "media/twee_vespas.jpg","media/twee_scooters.jpg","media/meerdere_scooters.jpg","media/vespas_trailer.jpg","media/dikke_tomos.jpg"] },
 
   { tag_nl:"Elektronica", tag_en:"Electronics",
     id:"testsystemen",
@@ -166,8 +173,8 @@ const PROJECTS = [
     summary_en:"Developed automated test systems and designed and soldered custom PCBs at Mach Technology.",
     body_nl:`<p>Tijdens mijn stage bij Mach Technology (voorheen Head Electronics B.V.) in Katwijk aan Zee hield ik me vooral bezig met het testen van printplaten (PCB's): controleren of ze goed functioneren. Dat testen heb ik geautomatiseerd, zodat er meer testen uitgevoerd konden worden. De printplaat gaat daarbij in een testkast, die vervolgens via software een reeks stappen doorloopt om meerdere componenten achter elkaar te testen. Daarnaast ontwierp en soldeerde ik zelf printplaten met SMD-componenten (Surface Mount Devices): minuscule onderdelen die direct op het oppervlak van de printplaat worden gesoldeerd.</p><p>Samen met het testengineeringteam ontwikkelde ik drie producten die uiteindelijk in de testkasten zijn toegepast. Een van die producten loste een hardnekkig probleem op met een Intel NUC minicomputer: de USB-poorten van de NUC hadden moeite met het gelijktijdig opstarten van meerdere USB-apparaten, waardoor sommige apparaten niet herkend werden. Mijn oplossing was een RC-kring, een eenvoudige schakeling met een weerstand (R) en een condensator (C). De condensator laadt langzaam op via de weerstand, waardoor een tijdvertraging ontstaat. De apparaten starten nog steeds tegelijk op, maar niet meer direct met de Intel NUC zelf, waardoor de NUC elk apparaat nu wel netjes herkent.</p>`,
     body_en:`<p>During my internship at Mach Technology (formerly Head Electronics B.V.) in Katwijk aan Zee, I mainly focused on testing PCBs: verifying that they function correctly. I automated that testing, so more tests could be carried out. The PCB goes into a test cabinet, which then runs through a series of software-driven steps to test multiple components one after another. I also designed and soldered PCBs myself using SMD components (Surface Mount Devices): tiny parts soldered directly onto the surface of the board.</p><p>Together with the test engineering team, I developed three products that were ultimately integrated into test cabinets. One of those products solved a persistent problem with an Intel NUC mini computer: the NUC's USB ports struggled when multiple USB devices powered up simultaneously, causing some devices not to be recognised. My solution was an RC circuit, a simple circuit with a resistor (R) and a capacitor (C). The capacitor charges slowly through the resistor, creating a time delay. The devices still start up at the same time, but no longer directly with the Intel NUC itself, so the NUC now recognises every device properly.</p>`,
-    chips:["KiCad","SMD solderen"],
-    images: ["media/head_pcb.png","media/head_pcb2.jpg"] },
+    chips:["KiCad","SMD-solderen"], chips_en:["KiCad","SMD soldering"],
+    images: ["media/head_pcb2.jpg","media/solderen.jpg","media/head_pcb.png"] },
 
   { tag_nl:"Drones", tag_en:"Drones",
     id:"drones",
@@ -175,8 +182,8 @@ const PROJECTS = [
     summary_nl:"3 FPV racing drones van nul af aan gebouwd: solderen, programmeren en tunen.",
     summary_en:"Built 3 FPV racing drones from scratch: soldering, programming and tuning.",
     body_nl:`<p>FPV drones zijn een passie van mij, het gevoel van speed en controle is onbeschrijfelijk. In plaats van kant-en-klare drones te kopen, heb ik 3 custom builds gemaakt: ESCs solderen, flight controllers programmeren, frames assembleren en alles fine-tunen voor optimale performance.</p><p>Begonnen met twee 5-inch drones: eerst analoge beeldoverdracht, daarna overgestapt naar een DJI Digital FPV-systeem (1080p 60fps, latency ~40ms). De 3-inch is voor rustiger vliegen. Een groot deel van het leerproces zat in begrijpen wat elk component in de drone doet en hoe alles met elkaar in verhouding staat. Alles is op elkaar afgestemd, van propellerkeuze en motorgewikkeling tot accucapaciteit, zodat de drone zo snel en responsief mogelijk reageert (~20ms per input).</p><p>Vliegen met een FPV drone is een compleet andere wereld dan een DJI drone. In 3D-modus houdt de drone geen rekening meer met waar de grond is: je kunt hem omkeren, rollen en de meest extreme manoeuvres uitvoeren die bij een gewone drone simpelweg onmogelijk zijn.</p>`,
-    body_en:`<p>FPV drones are a passion of mine, the sensation of speed and control is indescribable. Rather than buying off-the-shelf, I built 3 custom FPV racing drones from scratch: soldering ESCs, programming flight controllers, assembling frames, and fine-tuning everything for peak performance.</p><p>Started with two 5-inch drones: first with an analog video feed, then upgraded to a DJI Digital FPV system (1080p 60fps, latency ~40ms). The 3-inch is for smoother flying. A big part of the learning process was understanding what each component in the drone does and how everything relates to each other. Everything is tuned together, from propeller choice and motor windings to battery capacity, so the drone responds as fast and precisely as possible (~20ms per input).</p><p>Flying an FPV drone is a completely different world from a DJI drone. In 3D mode, the drone no longer takes the ground into account: you can flip it, roll it, and pull off the most extreme manoeuvres that are simply impossible with a regular drone.</p>`,
-    chips:["Solderen","Programmeren","Drone assembly","ESC tuning","Betaflight programeren"],
+    body_en:`<p>FPV drones are a passion of mine: the sensation of speed and control is indescribable. Rather than buying off-the-shelf, I built 3 custom FPV racing drones from scratch: soldering ESCs, programming flight controllers, assembling frames, and fine-tuning everything for peak performance.</p><p>Started with two 5-inch drones: first with an analogue video feed, then upgraded to a DJI Digital FPV system (1080p 60fps, latency ~40ms). The 3-inch is for smoother flying. A big part of the learning process was understanding what each component in the drone does and how everything relates to each other. Everything is tuned together, from propeller choice and motor windings to battery capacity, so the drone responds as fast and precisely as possible (~20ms per input).</p><p>Flying an FPV drone is a completely different world from a DJI drone. In 3D mode, the drone no longer takes the ground into account: you can flip it, roll it, and pull off the most extreme manoeuvres that are simply impossible with a regular drone.</p>`,
+    chips:["Solderen","Programmeren","Drones bouwen","ESC-tuning","Betaflight programmeren"], chips_en:["Soldering","Programming","Drone assembly","ESC tuning","Betaflight programming"],
     images: ["media/drone.jpg","media/drone1.jpg","media/drone3.jpg"] },
 
   { tag_nl:"Reparatie & Restauratie", tag_en:"Repair & Restoration",
@@ -195,8 +202,8 @@ const PROJECTS = [
     summary_nl:"Kabelboom ontworpen en gemonteerd in een Piranha Espada speedboot.",
     summary_en:"Designed and mounted a wiring harness in a Piranha Espada speedboat.",
     body_nl:`<p>De aanleiding voor dit project was oxydatie: de originele kabels van de boot waren zo aangetast dat ze niet meer betrouwbaar werkten. In plaats van losse kabels te vervangen, ontwierp en monteerde ik een volledig nieuwe kabelboom van nul af aan en sloot alle elektrische systemen opnieuw aan. Van schematekening tot definitieve installatie en test.</p><p>Ik installeerde onder andere: 4 waterdichte speakers met een subwoofer, LED-verlichting, navigatieverlichting, een radio, contactslot, powertrim, accu en killswitch. Daarnaast voegde ik een hoofdrelais toe, zodat alle systemen centraal en veilig onderbroken kunnen worden. Alles is netjes georganiseerd in een controlepaneel zodat de bediening overzichtelijk blijft.</p><p>Het project vereiste nauwkeurig werken in een beperkte ruimte en gedegen kennis van marine elektra.</p><p>Daarnaast heb ik voor boten verschillende maatwerkonderdelen ontworpen en 3D-geprint, voor dingen die nergens kant-en-klaar te koop zijn.</p>`,
-    body_en:`<p>The reason for this project was oxidation: the boat's original cables had deteriorated so badly they were no longer reliable. Instead of replacing individual cables, I designed and mounted a complete new wiring harness from scratch and reconnected all electrical systems. From schematic drawing to final installation and testing.</p><p>I installed among other things: 4 waterproof speakers with a subwoofer, LED lighting, navigation lights, a radio, ignition switch, power trim, battery and kill switch. I also added a main relay, so all systems can be centrally and safely disconnected. Everything is neatly organised in a control panel for a clean and logical layout.</p><p>The project required precision work in a confined space and solid knowledge of marine electrical systems.</p><p>I have also designed and 3D-printed various custom parts for boats, for things you can't buy off the shelf anywhere.</p>`,
-    chips:["Kabelboom","Schematekening in KiCad"],
+    body_en:`<p>The reason for this project was oxidation: the boat's original cables had deteriorated so badly they were no longer reliable. Instead of replacing individual cables, I designed and mounted a complete new wiring harness from scratch and reconnected all electrical systems. From schematic drawing to final installation and testing.</p><p>Among other things, I installed 4 waterproof speakers with a subwoofer, LED lighting, navigation lights, a radio, ignition switch, power trim, battery and kill switch. I also added a main relay, so all systems can be centrally and safely disconnected. Everything is neatly organised in a control panel for a clean and logical layout.</p><p>The project required precision work in a confined space and solid knowledge of marine electrical systems.</p><p>I have also designed and 3D-printed various custom parts for boats, for things you can't buy off the shelf anywhere.</p>`,
+    chips:["Kabelboom","Schematekening in KiCad"], chips_en:["Wiring harness","Schematic in KiCad"],
     images: ["media/speedboot.jpg","media/speedboot_paneel.jpg","media/speedboot_speaker.jpg"] },
 
   { tag_nl:"Automatisering", tag_en:"Automation",
@@ -205,9 +212,9 @@ const PROJECTS = [
     summary_nl:"Automatisch irrigatiesysteem voor een vergaderruimte bij The Field, Leiden.",
     summary_en:"Automated irrigation system for a meeting room at The Field, Leiden.",
     body_nl:`<p>Als schoolproject bij The Field in Leiden ontwikkelde ik een volledig automatisch watersysteem voor de beplanting in een vergaderruimte. Het systeem bestaat uit magnetische kleppen die de watertoevoer regelen, waterlekslangen die het water gelijkmatig verdelen, een pomp en een combinatie van vochtweerstands- en temperatuursensoren die continu de omstandigheden meten. Op basis van die sensordata stuurt de microcontroller de pomp en kleppen automatisch aan.</p><p>Dit deed ik samen met een medestudent; we waren gezamenlijk verantwoordelijk voor het complete systeem, van concept en hardware-ontwerp tot een werkende installatie. IT-studenten hebben de automatisering later verder verbeterd.</p>`,
-    body_en:`<p>As a school project at The Field in Leiden, I developed a fully automatic watering system for the plants in a meeting room. The system consists of magnetic valves that control the water supply, drip hoses that distribute water evenly, a pump, and a combination of moisture resistance sensors and temperature sensors that continuously monitor conditions. Based on that sensor data, the microcontroller automatically controls the pump and valves.</p><p>I did this together with a fellow student; we were jointly responsible for the complete system, from concept and hardware design to a working installation. IT students later improved the automation further.</p>`,
-    chips:["Microcontroller","Sensoren","Automatisering"],
-    images: [] }
+    body_en:`<p>As a school project at The Field in Leiden, I developed a fully automatic watering system for the plants in a meeting room. The system consists of solenoid valves that control the water supply, drip hoses that distribute water evenly, a pump, and a combination of resistive moisture sensors and temperature sensors that continuously monitor conditions. Based on that sensor data, the microcontroller automatically controls the pump and valves.</p><p>I did this together with a fellow student; we were jointly responsible for the complete system, from concept and hardware design to a working installation. IT students later improved the automation further.</p>`,
+    chips:["Microcontroller","Sensoren","Automatisering"], chips_en:["Microcontroller","Sensors","Automation"],
+    images: ["media/watersysteem.jpg","media/watersysteem_samen.jpg"] }
 ];
 </script>
 
@@ -238,7 +245,7 @@ body{
 }
 /* ...maar in invoervelden moet je juist zien waar je typt */
 input,textarea{caret-color:var(--accent2)}
-@media(pointer:fine){html.cursor-ready body{cursor:none}html.cursor-ready body a,html.cursor-ready body button,html.cursor-ready body .proj-card,html.cursor-ready body .skill-card,html.cursor-ready body .c-card,html.cursor-ready body .tl-header{cursor:none}}
+@media(pointer:fine){html.cursor-ready body{cursor:none}html.cursor-ready body a,html.cursor-ready body button,html.cursor-ready body .proj-card,html.cursor-ready body .skill-card,html.cursor-ready body .c-card{cursor:none}}
 ::selection{background:rgba(92,155,255,.28);color:#fff}
 ::-webkit-scrollbar{width:10px}
 ::-webkit-scrollbar-track{background:var(--bg)}
@@ -678,30 +685,79 @@ a.svc-proof-link:hover{color:var(--text)}
 .proj-card:hover .p-img img{transform:scale(1.05)}
 
 /* ── EXPERIENCE ── */
-.tl{display:flex;flex-direction:column;text-align:left;max-width:860px;margin:0 auto}
-.tl-item{display:grid;grid-template-columns:118px 1px 1fr;gap:0 1.6rem;padding-bottom:2.6rem}
-.tl-item:last-child{padding-bottom:0}
-.tl-date{text-align:right;padding-top:.3rem;font-size:.74rem;color:var(--muted);font-weight:500;line-height:1.5;letter-spacing:.02em}
-.tl-line{display:flex;flex-direction:column;align-items:center}
-.tl-dot{
-  width:7px;height:7px;border-radius:50%;
-  background:var(--accent);flex-shrink:0;margin-top:.45rem;
-  box-shadow:0 0 0 4px rgba(92,155,255,.1),0 0 14px rgba(92,155,255,.4);
+.xp{max-width:980px;margin:0 auto;text-align:left}
+.xp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+@media(max-width:640px){.xp-grid{grid-template-columns:repeat(2,1fr);gap:.7rem}
+  .xp-card:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - .35rem)}}
+.xp-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.2rem .9rem;cursor:pointer;font-family:inherit;color:var(--text);text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:.4rem;
+  transition:border-color .35s var(--ease),transform .35s var(--ease),background .35s,box-shadow .35s var(--ease);
 }
-.tl-item:first-child .tl-dot{background:#4ade80;box-shadow:0 0 0 4px rgba(74,222,128,.1),0 0 14px rgba(74,222,128,.45)}
-.tl-tail{flex:1;width:1px;background:linear-gradient(to bottom,rgba(255,255,255,.1),rgba(255,255,255,.02));margin-top:8px}
-.tl-item:last-child .tl-tail{display:none}
-.tl-role{font-size:.94rem;font-weight:600;font-family:'Space Grotesk',sans-serif;letter-spacing:-.01em;transition:color .3s}
-.tl-co{font-size:.8rem;color:var(--accent);margin-top:2px;letter-spacing:.02em}
-.tl-desc{font-size:.86rem;color:var(--muted);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .6s var(--ease),margin-top .6s var(--ease),opacity .5s;margin-top:0;opacity:0;font-weight:300}
-.tl-item.open .tl-desc{max-height:600px;margin-top:.6rem;opacity:1}
-.tl-header{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
-.tl-arrow{font-size:.58rem;color:var(--muted);transition:transform .5s var(--ease),color .3s;flex-shrink:0}
-.tl-item.open .tl-arrow{transform:rotate(180deg);color:var(--accent)}
-.tl-header:hover .tl-role{color:var(--accent2)}
-.tl-logo{height:34px;width:auto;max-width:130px;object-fit:contain;border-radius:5px;margin-bottom:6px}
-@media(max-width:560px){.tl-logo{height:20px;max-width:72px;margin-bottom:4px}}
-@media(max-width:560px){.tl-item{grid-template-columns:74px 1px 1fr;gap:0 1rem}.tl-date{font-size:.68rem}}
+.xp-card:hover{border-color:var(--border-strong);transform:translateY(-3px);background:rgba(255,255,255,.045);box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.xp-card.on{border-color:rgba(92,155,255,.6);background:rgba(92,155,255,.08)}
+.xp-card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.xp-logo-wrap{height:46px;display:flex;align-items:center;justify-content:center;margin-bottom:.35rem}
+.xp-logo{max-height:46px;max-width:130px;width:auto;object-fit:contain}
+.xp-role{font-family:'Space Grotesk',sans-serif;font-size:.86rem;font-weight:600;line-height:1.3;letter-spacing:-.01em}
+.xp-date{font-size:.72rem;color:var(--muted);letter-spacing:.02em}
+.xp-details{margin-top:1rem}
+.xp-detail{
+  background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.4rem 1.6rem;animation:xpIn .45s var(--ease);
+}
+@media(max-width:640px){.xp-detail{padding:1.15rem 1.1rem}}
+@keyframes xpIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.xp-co{font-size:.8rem;color:var(--accent);letter-spacing:.02em;margin-bottom:.6rem;font-weight:500}
+.xp-text{font-size:.9rem;color:#aab4c4;line-height:1.85;font-weight:300}
+.xp-more{margin-top:.8rem;font-size:.85rem}
+.xp-more a{color:var(--accent);transition:color .3s}
+.xp-more a:hover{color:var(--accent2)}
+/* tijdlijn boven de werkervaring: welke periode wanneer, van oud (links) naar nieuw (rechts) */
+.xt{position:relative;margin:0 0 1.5rem;-webkit-user-select:none;user-select:none}
+.xt-years{position:relative;height:1.55rem;border-bottom:1px solid var(--border)}
+.xt-year{
+  position:absolute;top:0;transform:translateX(-50%);
+  font-family:'Space Grotesk',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.08em;color:var(--muted);
+}
+.xt-body{position:relative;padding:.5rem 0 .15rem}
+.xt-grid{position:absolute;top:-1.55rem;bottom:0;width:1px;background:rgba(255,255,255,.07)}
+.xt-lane{position:relative;height:24px;cursor:pointer;transition:opacity .35s}
+.xt-span{position:absolute;top:0;bottom:0;min-width:10px}   /* net begonnen periode blijft zichtbaar */
+.xt-bar{
+  position:absolute;left:0;right:0;top:50%;height:8px;margin-top:-4px;border-radius:99px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:.6;
+  transform-origin:left center;transform:scaleX(0);
+  transition:transform 1s var(--ease) calc(.2s + var(--i,0) * .13s),opacity .3s,box-shadow .3s;
+}
+.xp.vis .xt-bar{transform:scaleX(1)}
+.xt-label{
+  position:absolute;top:50%;left:calc(100% + 12px);transform:translateY(-50%);white-space:nowrap;
+  font-size:.74rem;color:var(--muted);opacity:0;
+  transition:color .3s,opacity .6s calc(.7s + var(--i,0) * .13s);
+}
+.xt-span.links .xt-label{left:auto;right:calc(100% + 12px)}
+.xp.vis .xt-label{opacity:1}
+.xt-now{
+  position:absolute;top:50%;right:0;width:8px;height:8px;margin:-4px -4px 0 0;border-radius:50%;
+  background:var(--accent2);opacity:0;transition:opacity .4s 1.4s;
+}
+.xp.vis .xt-now{opacity:1;animation:xtPulse 2.2s 1.6s infinite}
+@keyframes xtPulse{0%{box-shadow:0 0 0 0 rgba(125,211,252,.55)}70%,100%{box-shadow:0 0 0 9px rgba(125,211,252,0)}}
+.xt-lane:hover .xt-bar,.xt-lane.hl .xt-bar,.xt-lane.on .xt-bar{opacity:1;box-shadow:0 0 14px rgba(92,155,255,.45)}
+.xt-lane:hover .xt-label,.xt-lane.hl .xt-label,.xt-lane.on .xt-label{color:var(--text)}
+.xt.has-on .xt-lane:not(.on):not(:hover){opacity:.45}
+.xp-card.hl{border-color:var(--border-strong);background:rgba(255,255,255,.045)}
+@media(pointer:fine){html.cursor-ready body .xt-lane{cursor:none}}
+@media(prefers-reduced-motion:reduce){
+  .xt-bar{transform:none;transition:opacity .3s,box-shadow .3s}
+  .xt-label{opacity:1;transition:color .3s}
+  .xt-now{transition:none}.xp.vis .xt-now{animation:none}
+}
+.xp-cv{text-align:center;margin-top:1.4rem;font-size:.85rem}
+.xp-cv a{color:var(--muted);transition:color .3s}
+.xp-cv a:hover{color:var(--accent2)}
 
 /* ── PROJECTS ── */
 /* veegbare rij: horizontaal scrollen, per kaart vastklikken */
@@ -859,7 +915,7 @@ a.svc-proof-link:hover{color:var(--text)}
   position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
   color:var(--muted);font-size:.8rem;letter-spacing:.12em;
 }
-.proj-card:focus-visible,.skill-card:focus-visible,.tl-header:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:var(--r)}
+.proj-card:focus-visible,.skill-card:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:var(--r)}
 .m-close{
   position:absolute;top:1.15rem;right:1.15rem;
   width:32px;height:32px;border-radius:50%;
@@ -987,6 +1043,12 @@ footer{
 .foot-meta{margin-bottom:.5rem}
 .foot-sep{margin:0 .5rem;opacity:.5}
 .foot-copy{opacity:.6;font-size:.7rem}
+.foot-links{margin-top:.55rem;font-size:.7rem}
+.foot-links a{
+  color:var(--muted);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(255,255,255,.2);transition:color .3s,text-decoration-color .3s;
+}
+.foot-links a:hover{color:var(--accent2);text-decoration-color:currentColor}
 
 /* ── INTERACTIE: naam-animatie, mobiel menu, cursor-glow ── */
 body{-webkit-tap-highlight-color:transparent}
@@ -1012,7 +1074,6 @@ body{-webkit-tap-highlight-color:transparent}
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   box-shadow:0 0 12px rgba(92,155,255,.5);
 }
-.tl-header{-webkit-user-select:none;user-select:none}
 .nav-burger{
   display:none;flex-direction:column;justify-content:center;gap:5px;
   background:none;border:none;padding:10px;margin-left:.6rem;z-index:102;
@@ -1054,7 +1115,6 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
   .m-carousel img:hover{transform:none}
   .m-carousel img{cursor:default}
   .m-arr{width:42px;height:42px}
-  .tl-header{padding:.3rem 0}
 }
 
 #hero-name,.nav-logo,nav,.hero-sub,.hero-stats,.profile-pic-wrapper{-webkit-user-select:none;user-select:none}
@@ -1085,17 +1145,17 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
 </div>
 
 <!-- Lightbox -->
-<div id="lightbox" role="dialog" aria-modal="true" aria-label="Afbeelding volledig scherm">
-  <button class="m-close lb-close" id="lb-close" aria-label="Sluiten">✕</button>
-  <button class="m-arr lb-prev" id="lb-prev" aria-label="Vorige afbeelding">&#8592;</button>
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Afbeelding volledig scherm" data-nl-aria="Afbeelding volledig scherm" data-en-aria="Full-screen image">
+  <button class="m-close lb-close" id="lb-close" aria-label="Sluiten" data-nl-aria="Sluiten" data-en-aria="Close">✕</button>
+  <button class="m-arr lb-prev" id="lb-prev" aria-label="Vorige afbeelding" data-nl-aria="Vorige afbeelding" data-en-aria="Previous image">&#8592;</button>
   <img id="lb-img" src="" alt=""/>
-  <button class="m-arr lb-next" id="lb-next" aria-label="Volgende afbeelding">&#8594;</button>
+  <button class="m-arr lb-next" id="lb-next" aria-label="Volgende afbeelding" data-nl-aria="Volgende afbeelding" data-en-aria="Next image">&#8594;</button>
   <div class="lb-count" id="lb-count"></div>
 </div>
 
 <!-- Nav -->
 <nav>
-  <a href="#hero" class="nav-logo" aria-label="Terug naar boven">DvB</a>
+  <a href="#hero" class="nav-logo" aria-label="Terug naar boven" data-nl-aria="Terug naar boven" data-en-aria="Back to top">DvB</a>
   <div class="nav-links">
     <a href="#about"      data-nl="Over mij"    data-en="About">Over mij</a>
     <a href="#diensten"   data-nl="Diensten"     data-en="Services">Diensten</a>
@@ -1191,7 +1251,7 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
         <h3 class="svc-title" data-nl="Prototypebouw" data-en="Prototype building">Prototypebouw</h3>
         <p class="svc-text"
           data-nl="Van idee naar werkend prototype. Ik denk mee over wat er nodig is, ontwerp de elektronica en printplaat, teken de behuizing in SolidWorks en bouw het geheel. Inclusief solderen, testen en bijsturen tot het doet wat het moet doen."
-          data-en="From idea to working prototype. I think along about what's needed, design the electronics and PCB, model the enclosure in SolidWorks and build the whole thing. Including soldering, testing and iterating until it does what it should.">
+          data-en="From idea to working prototype. I help work out what's needed, design the electronics and PCB, model the enclosure in SolidWorks and build the whole thing. That includes soldering, testing and iterating until it does what it should.">
           Van idee naar werkend prototype. Ik denk mee over wat er nodig is, ontwerp de elektronica en printplaat, teken de behuizing in SolidWorks en bouw het geheel. Inclusief solderen, testen en bijsturen tot het doet wat het moet doen.
         </p>
         <div class="svc-tags">
@@ -1205,7 +1265,7 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
           <span class="svc-proof-label" data-nl="Voorbeeldprojecten" data-en="Example projects">Voorbeeldprojecten</span>
           <a href="#projects" class="svc-proof-link" data-proof="led-cube"
             data-nl="LED Cube: schema, PCB, software en behuizing volledig zelf ontworpen"
-            data-en="LED Cube: schematic, PCB, software and enclosure fully self-designed">LED Cube: schema, PCB, software en behuizing volledig zelf ontworpen</a>
+            data-en="LED Cube: schematic, PCB, software and enclosure all designed myself">LED Cube: schema, PCB, software en behuizing volledig zelf ontworpen</a>
           <a href="#projects" class="svc-proof-link" data-proof="closure-unit"
             data-nl="Closure Unit: meetsysteem voor TNO, van idee tot werkend product"
             data-en="Closure Unit: measurement system for TNO, from idea to working product">Closure Unit: meetsysteem voor TNO, van idee tot werkend product</a>
@@ -1230,10 +1290,10 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
           <span class="svc-proof-label" data-nl="Voorbeeldprojecten" data-en="Example projects">Voorbeeldprojecten</span>
           <a href="#projects" class="svc-proof-link" data-proof="vbcustoms"
             data-nl="VB Customs: onderdelen die niet te koop waren, zelf ontworpen en 3D-geprint"
-            data-en="VB Customs: parts that weren't for sale, self-designed and 3D-printed">VB Customs: onderdelen die niet te koop waren, zelf ontworpen en 3D-geprint</a>
+            data-en="VB Customs: parts that weren't for sale, designed and 3D-printed myself">VB Customs: onderdelen die niet te koop waren, zelf ontworpen en 3D-geprint</a>
           <a href="#projects" class="svc-proof-link" data-proof="kabelboom"
             data-nl="Speedboot: kabelboom plus 3D-geprint maatwerk voor aan boord"
-            data-en="Speedboat: wiring harness plus 3D-printed custom parts for on board">Speedboot: kabelboom plus 3D-geprint maatwerk voor aan boord</a>
+            data-en="Speedboat: wiring harness plus custom 3D-printed parts for the boat">Speedboot: kabelboom plus 3D-geprint maatwerk voor aan boord</a>
         </div>
       </div>
 
@@ -1242,7 +1302,7 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
         <h3 class="svc-title" data-nl="Technische problemen" data-en="Technical problems">Technische problemen</h3>
         <p class="svc-text"
           data-nl="Meetopstellingen, storingen, elektrische systemen en kabelbomen. Loop je ergens op vast of weet je niet waar je moet beginnen? Dan denk ik mee en zoek ik uit wat er aan de hand is. Bij TNO bouw en bedien ik meetopstellingen met high-speed data-acquisitie tot 4 MHz."
-          data-en="Measurement setups, faults, electrical systems and wiring harnesses. Stuck somewhere, or not sure where to start? I'll think along and work out what's going on. At TNO I build and operate measurement setups with high-speed data acquisition up to 4 MHz.">
+          data-en="Measurement setups, faults, electrical systems and wiring harnesses. Stuck somewhere, or not sure where to start? I'll help you work out what's going on. At TNO I build and operate measurement setups with high-speed data acquisition up to 4 MHz.">
           Meetopstellingen, storingen, elektrische systemen en kabelbomen. Loop je ergens op vast of weet je niet waar je moet beginnen? Dan denk ik mee en zoek ik uit wat er aan de hand is. Bij TNO bouw en bedien ik meetopstellingen met high-speed data-acquisitie tot 4 MHz.
         </p>
         <div class="svc-tags">
@@ -1270,7 +1330,7 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
       </div>
       <p class="svc-cta-text"
         data-nl="Opdrachten voer ik uit onder de naam DJVB Solutions. Klein of groot, eenmalig of doorlopend: laat weten wat je nodig hebt en ik denk graag mee."
-        data-en="I take on assignments under the name DJVB Solutions. Small or large, one-off or ongoing: let me know what you need and I'm happy to think along.">
+        data-en="I take on assignments under the name DJVB Solutions. Small or large, one-off or ongoing: let me know what you need and I'm happy to help.">
         Opdrachten voer ik uit onder de naam DJVB Solutions. Klein of groot, eenmalig of doorlopend: laat weten wat je nodig hebt en ik denk graag mee.
       </p>
       <a href="#contact" class="btn btn-primary" data-nl="Bespreek je project" data-en="Discuss your project">Bespreek je project</a>
@@ -1294,7 +1354,7 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
       <div class="p-title">Closure Unit, TNO</div>
       <div class="p-sum">Van idee tot werkend meetsysteem in 10 weken, zelfstandig ontwikkeld bij TNO Defence.</div>
       <div class="p-foot">
-        <div class="chips"><span class="chip">PCB ontwerp</span><span class="chip">SMD solderen</span><span class="chip">Data-acquisitie</span></div>
+        <div class="chips"><span class="chip">PCB-ontwerp</span><span class="chip">SMD-solderen</span><span class="chip">Data-acquisitie</span></div>
         <span class="p-arr">&rarr;</span>
       </div>
       <div class="p-body">
@@ -1343,12 +1403,12 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
       </div></div>
 <div class="proj-card" tabindex="0" role="button" aria-label="Testsystemen &amp; PCB-ontwerp, Mach Technology" aria-expanded="false" data-id="testsystemen">
       <button class="p-close" type="button" aria-label="Project sluiten">&#10005;</button>
-      <div class="p-img"><img src="media/head_pcb.png" alt="Testsystemen &amp; PCB-ontwerp, Mach Technology" loading="lazy"/></div>
+      <div class="p-img"><img src="media/head_pcb2.jpg" alt="Testsystemen &amp; PCB-ontwerp, Mach Technology" loading="lazy"/></div>
       <div class="p-meta"><span class="p-tag">Elektronica</span></div>
       <div class="p-title">Testsystemen &amp; PCB-ontwerp, Mach Technology</div>
       <div class="p-sum">Geautomatiseerde testsystemen ontwikkeld en eigen PCB&#x27;s ontworpen en gesoldeerd bij Mach Technology.</div>
       <div class="p-foot">
-        <div class="chips"><span class="chip">KiCad</span><span class="chip">SMD solderen</span></div>
+        <div class="chips"><span class="chip">KiCad</span><span class="chip">SMD-solderen</span></div>
         <span class="p-arr">&rarr;</span>
       </div>
       <div class="p-body">
@@ -1375,7 +1435,7 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
       <div class="p-title">LED Cube Project, Eindproject</div>
       <div class="p-sum">Eindproject Technicus Engineering: een 4×4×4 LED cube met multiplexing en eigen PCB design.</div>
       <div class="p-foot">
-        <div class="chips"><span class="chip">Multiplexing</span><span class="chip">KiCad</span><span class="chip">PCB ontwerp in KiCad</span><span class="chip">Solderen</span><span class="chip">Arduino</span><span class="chip">3D printen</span></div>
+        <div class="chips"><span class="chip">Multiplexing</span><span class="chip">PCB-ontwerp in KiCad</span><span class="chip">Solderen</span><span class="chip">Arduino</span><span class="chip">3D-printen</span></div>
         <span class="p-arr">&rarr;</span>
       </div>
       <div class="p-body">
@@ -1456,7 +1516,7 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
       <div class="p-title">FPV Racing Drones, 3 Custom Builds</div>
       <div class="p-sum">3 FPV racing drones van nul af aan gebouwd: solderen, programmeren en tunen.</div>
       <div class="p-foot">
-        <div class="chips"><span class="chip">Solderen</span><span class="chip">Programmeren</span><span class="chip">Drone assembly</span><span class="chip">ESC tuning</span><span class="chip">Betaflight programeren</span></div>
+        <div class="chips"><span class="chip">Solderen</span><span class="chip">Programmeren</span><span class="chip">Drones bouwen</span><span class="chip">ESC-tuning</span><span class="chip">Betaflight programmeren</span></div>
         <span class="p-arr">&rarr;</span>
       </div>
       <div class="p-body">
@@ -1478,7 +1538,7 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
       </div></div>
 <div class="proj-card" tabindex="0" role="button" aria-label="Automatisch Watersysteem" aria-expanded="false" data-id="watersysteem">
       <button class="p-close" type="button" aria-label="Project sluiten">&#10005;</button>
-      
+      <div class="p-img"><img src="media/watersysteem.jpg" alt="Automatisch Watersysteem" loading="lazy"/></div>
       <div class="p-meta"><span class="p-tag">Automatisering</span></div>
       <div class="p-title">Automatisch Watersysteem</div>
       <div class="p-sum">Automatisch irrigatiesysteem voor een vergaderruimte bij The Field, Leiden.</div>
@@ -1541,92 +1601,71 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
     <p class="s-tag rev" data-nl="Mijn pad" data-en="My journey">Mijn pad</p>
     <h2 class="s-title"><span class="w" data-nl="Werkervaring" data-en="Experience">Werkervaring</span></h2>
     <div class="s-line"></div>
-    <div class="tl rev rev-d1">
-
-      <div class="tl-item" data-logo="media/tno_logo.png">
-        <div class="tl-date" data-nl="feb 2025 t/m heden" data-en="Feb 2025 t/m present">feb 2025 t/m heden</div>
-        <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
-        <div>
-          <div class="tl-role" data-nl="Engineer &amp; Meetspecialist" data-en="Engineer &amp; Measurement Specialist">Engineer &amp; Meetspecialist</div>
-          <div class="tl-co">TNO, Den Haag - Ypenburg</div>
-          <div class="tl-desc"
-            data-nl="Meewerken aan R&amp;D-projecten gericht op explosieven, munitie en beschermende voertuigsystemen. Ontwerpen, bouwen en bedienen van hoognauwkeurige meetopstellingen met high-speed data-acquisitiesystemen (tot 4 MHz), en ontwikkeling van een meetproduct dat closure-signalen omzet naar bruikbare TTL-signalen voor gelijktijdige meting van maximaal 12 kanalen. Daarnaast bouw van tools voor het verwerken en rapporteren van meetdata en het verwerken van 3D-scans in SolidWorks voor 3D-printen. De rol combineert ontwerpen, zelf bouwen, testen en data-analyse."
-            data-en="Contributing to R&amp;D projects focused on explosives, ammunition and protective vehicle systems. Designing, building and operating high-precision measurement setups with high-speed data acquisition systems (up to 4 MHz), and developing a measurement product that converts closure signals into usable TTL signals for simultaneous measurement of up to 12 channels. I also build tools for processing and reporting measurement data, and process 3D scans in SolidWorks for 3D printing. The role combines design, hands-on building, testing and data analysis.">
-            Meewerken aan R&amp;D-projecten gericht op explosieven, munitie en beschermende voertuigsystemen. Ontwerpen, bouwen en bedienen van hoognauwkeurige meetopstellingen met high-speed data-acquisitiesystemen (tot 4 MHz), en ontwikkeling van een meetproduct dat closure-signalen omzet naar bruikbare TTL-signalen voor gelijktijdige meting van maximaal 12 kanalen. Daarnaast bouw van tools voor het verwerken en rapporteren van meetdata en het verwerken van 3D-scans in SolidWorks voor 3D-printen. De rol combineert ontwerpen, zelf bouwen, testen en data-analyse.
-          </div>
+    <div class="xp rev rev-d1">
+      <div class="xt" id="xp-tl" aria-hidden="true"></div>
+      <div class="xp-grid">
+        <button class="xp-card" type="button" data-xp="0" aria-expanded="false" data-start="2023-08" data-end="2024-02" aria-controls="xp-d0">
+          <span class="xp-logo-wrap"><img class="xp-logo" src="media/mach_logo.png" alt="Mach Technology" loading="lazy"></span>
+          <span class="xp-role" data-nl="Test Engineer, Stagiair" data-en="Test Engineer, Intern">Test Engineer, Stagiair</span>
+          <span class="xp-date" data-nl="aug&nbsp;2023 t/m&nbsp;feb&nbsp;2024" data-en="Aug&nbsp;2023 to&nbsp;Feb&nbsp;2024">aug&nbsp;2023 t/m&nbsp;feb&nbsp;2024</span>
+        </button>
+        <button class="xp-card" type="button" data-xp="1" aria-expanded="false" data-start="2024-02" data-end="2024-11" aria-controls="xp-d1">
+          <span class="xp-logo-wrap"><img class="xp-logo" src="media/the_field_logo.png" alt="The Field" loading="lazy"></span>
+          <span class="xp-role" data-nl="Ontwikkelaar" data-en="Developer">Ontwikkelaar</span>
+          <span class="xp-date" data-nl="feb&nbsp;2024 t/m&nbsp;nov&nbsp;2024" data-en="Feb&nbsp;2024 to&nbsp;Nov&nbsp;2024">feb&nbsp;2024 t/m&nbsp;nov&nbsp;2024</span>
+        </button>
+        <button class="xp-card" type="button" data-xp="2" aria-expanded="false" data-start="2024-06" data-end="2025-07" aria-controls="xp-d2">
+          <span class="xp-logo-wrap"><img class="xp-logo" src="media/logo_vbcustoms.png" alt="VB Customs" loading="lazy"></span>
+          <span class="xp-role" data-nl="Oprichter / Eigenaar" data-en="Founder / Owner">Oprichter / Eigenaar</span>
+          <span class="xp-date" data-nl="jun&nbsp;2024 t/m&nbsp;jul&nbsp;2025" data-en="Jun&nbsp;2024 to&nbsp;Jul&nbsp;2025">jun&nbsp;2024 t/m&nbsp;jul&nbsp;2025</span>
+        </button>
+        <button class="xp-card" type="button" data-xp="3" aria-expanded="false" data-start="2024-07" data-end="2025-01" aria-controls="xp-d3">
+          <span class="xp-logo-wrap"><img class="xp-logo" src="media/van_bentem_logo.png" alt="Van Bentem Elektrotechniek" loading="lazy"></span>
+          <span class="xp-role" data-nl="Monteur Elektrotechniek, Parttime" data-en="Electrical Technician, Part-time">Monteur Elektrotechniek, Parttime</span>
+          <span class="xp-date" data-nl="jul&nbsp;2024 t/m&nbsp;jan&nbsp;2025" data-en="Jul&nbsp;2024 to&nbsp;Jan&nbsp;2025">jul&nbsp;2024 t/m&nbsp;jan&nbsp;2025</span>
+        </button>
+        <button class="xp-card" type="button" data-xp="4" aria-expanded="false" data-start="2025-02" data-end="" aria-controls="xp-d4">
+          <span class="xp-logo-wrap"><img class="xp-logo" src="media/tno_logo.png" alt="TNO" loading="lazy"></span>
+          <span class="xp-role" data-nl="Engineer &amp; Meetspecialist" data-en="Engineer &amp; Measurement Specialist">Engineer &amp; Meetspecialist</span>
+          <span class="xp-date" data-nl="feb&nbsp;2025 t/m&nbsp;heden" data-en="Feb&nbsp;2025 to&nbsp;present">feb&nbsp;2025 t/m&nbsp;heden</span>
+        </button>
+        <button class="xp-card" type="button" data-xp="5" aria-expanded="false" data-start="2026-09" data-end="" aria-controls="xp-d5">
+          <span class="xp-logo-wrap"><img class="xp-logo" src="media/djvb_logo.png" alt="DJVB Solutions" loading="lazy"></span>
+          <span class="xp-role" data-nl="Eigenaar" data-en="Owner">Eigenaar</span>
+          <span class="xp-date" data-nl="sep&nbsp;2026 t/m&nbsp;heden" data-en="Sep&nbsp;2026 to&nbsp;present">sep&nbsp;2026 t/m&nbsp;heden</span>
+        </button>
+      </div>
+      <div class="xp-details">
+        <div class="xp-detail" id="xp-d0" role="region" hidden>
+          <p class="xp-co" data-nl="Mach Technology (voorheen Head Electronics B.V.), Katwijk aan Zee" data-en="Mach Technology (formerly Head Electronics B.V.), Katwijk aan Zee">Mach Technology (voorheen Head Electronics B.V.), Katwijk aan Zee</p>
+          <p class="xp-text" data-nl="Gewerkt aan geautomatiseerde testsystemen (ATE) waarmee printplaten van klanten worden gecontroleerd op betrouwbaarheid en correcte assemblage, waaronder stresstests en in-circuit tests van sporen en soldeerverbindingen. Kleinschalige PCB's met SMD-componenten ontworpen en met de hand gesoldeerd voor deze testopstellingen, en samen met het testengineering-team 3 PCB's ontwikkeld die daadwerkelijk in de testopstellingen worden gebruikt. Daarnaast de testopstellingen geüpgraded en onderhouden, technische storingen verholpen en werkplaatservaring opgedaan met CNC-bewerking, draaien en frezen." data-en="Worked on automated test equipment (ATE) used to check customer PCBs for reliability and correct assembly, including stress tests and in-circuit tests of traces and solder joints. Designed and hand-soldered small-scale PCBs with SMD components for these test setups, and together with the test engineering team developed 3 PCBs that are actually used in the setups. Also upgraded and maintained the test setups, resolved technical faults and gained workshop experience with CNC machining, turning and milling.">Gewerkt aan geautomatiseerde testsystemen (ATE) waarmee printplaten van klanten worden gecontroleerd op betrouwbaarheid en correcte assemblage, waaronder stresstests en in-circuit tests van sporen en soldeerverbindingen. Kleinschalige PCB's met SMD-componenten ontworpen en met de hand gesoldeerd voor deze testopstellingen, en samen met het testengineering-team 3 PCB's ontwikkeld die daadwerkelijk in de testopstellingen worden gebruikt. Daarnaast de testopstellingen geüpgraded en onderhouden, technische storingen verholpen en werkplaatservaring opgedaan met CNC-bewerking, draaien en frezen.</p>
+        </div>
+        <div class="xp-detail" id="xp-d1" role="region" hidden>
+          <p class="xp-co" data-nl="The Field, Leiden" data-en="The Field, Leiden">The Field, Leiden</p>
+          <p class="xp-text" data-nl="Samen met een medestudent een geautomatiseerd watersysteem voor planten ontwikkeld, draaiend op een Raspberry Pi, dat het watergebruik aanpast op basis van omgevingsfactoren. Gezamenlijk verantwoordelijk voor het complete systeem, van concept en hardware-ontwerp tot een werkende installatie. IT-studenten hebben de automatisering later verder verbeterd." data-en="Together with a fellow student, developed an automated plant watering system running on a Raspberry Pi that adjusts water usage based on environmental factors. Jointly responsible for the complete system, from concept and hardware design to a working installation. IT students later improved the automation further.">Samen met een medestudent een geautomatiseerd watersysteem voor planten ontwikkeld, draaiend op een Raspberry Pi, dat het watergebruik aanpast op basis van omgevingsfactoren. Gezamenlijk verantwoordelijk voor het complete systeem, van concept en hardware-ontwerp tot een werkende installatie. IT-studenten hebben de automatisering later verder verbeterd.</p>
+        </div>
+        <div class="xp-detail" id="xp-d2" role="region" hidden>
+          <p class="xp-co" data-nl="VB Customs, Wassenaar" data-en="VB Customs, Wassenaar">VB Customs, Wassenaar</p>
+          <p class="xp-text" data-nl="Een bedrijf opgericht, gespecialiseerd in het customizen en onderhouden van Vespa- en Tomos-brommers: performance-upgrades, verlichtingsaanpassingen en maatwerkonderdelen. Het bedrijf samen met een compagnon gerund, met ruim 100 verkochte brommers. Ik was verantwoordelijk voor de inkoop, offertes, facturatie en boekhouding, mijn compagnon voor de verkoop en voorraad. Het bedrijf vanaf nul opgebouwd, inclusief KVK-inschrijving, huisstijl en belastingadministratie." data-en="Founded a business specialising in customising and maintaining Vespa and Tomos scooters: performance upgrades, lighting modifications and custom parts. Ran the business together with a partner, with over 100 scooters sold. I was responsible for purchasing, quotes, invoicing and bookkeeping; my partner for sales and stock. Built the business from scratch, including Chamber of Commerce registration, branding and tax administration.">Een bedrijf opgericht, gespecialiseerd in het customizen en onderhouden van Vespa- en Tomos-brommers: performance-upgrades, verlichtingsaanpassingen en maatwerkonderdelen. Het bedrijf samen met een compagnon gerund, met ruim 100 verkochte brommers. Ik was verantwoordelijk voor de inkoop, offertes, facturatie en boekhouding, mijn compagnon voor de verkoop en voorraad. Het bedrijf vanaf nul opgebouwd, inclusief KVK-inschrijving, huisstijl en belastingadministratie.</p>
+        </div>
+        <div class="xp-detail" id="xp-d3" role="region" hidden>
+          <p class="xp-co" data-nl="Van Bentem Elektrotechniek, Warmond" data-en="Van Bentem Elektrotechniek, Warmond">Van Bentem Elektrotechniek, Warmond</p>
+          <p class="xp-text" data-nl="Parttime werkzaam als monteur elektrotechniek in de regio Zuid-Holland, met een werkbus van de zaak. Verantwoordelijk voor een breed scala aan elektrische klussen bij particuliere klanten: huisinstallaties aanleggen, groepenkasten plaatsen en uitbreiden, storingen opsporen en verhelpen, en extra verlichting zoals spotjes installeren. Op drukke dagen stond ik voor wel 8 spoedklussen gepland die ik zelfstandig moest uitvoeren. Dat vroeg om snel kunnen schakelen, goed probleemoplossend vermogen en nauw contact houden met de zaak. Ik kreeg veel verantwoordelijkheid: zelf naar klanten rijden, uitzoeken wat de storing of wens precies was, en ervoor zorgen dat alles netjes en veilig werd afgerond. Een enorm leerzame periode die mijn praktische kennis van elektrotechniek sterk heeft verbreed." data-en="Worked part-time as an electrical technician across the Zuid-Holland region, driving a company van. Responsible for a wide range of electrical jobs at residential clients: installing home wiring, fitting and expanding distribution boards, diagnosing and resolving faults, and installing extra lighting such as spotlights. On busy days I had up to 8 urgent jobs scheduled, all completed independently. This required quick thinking, strong problem-solving skills, and close communication with the office. I was given a lot of responsibility: driving to clients alone, figuring out the exact fault or requirement, and ensuring everything was completed neatly and safely. An incredibly valuable period that significantly broadened my hands-on knowledge of electrical engineering.">Parttime werkzaam als monteur elektrotechniek in de regio Zuid-Holland, met een werkbus van de zaak. Verantwoordelijk voor een breed scala aan elektrische klussen bij particuliere klanten: huisinstallaties aanleggen, groepenkasten plaatsen en uitbreiden, storingen opsporen en verhelpen, en extra verlichting zoals spotjes installeren. Op drukke dagen stond ik voor wel 8 spoedklussen gepland die ik zelfstandig moest uitvoeren. Dat vroeg om snel kunnen schakelen, goed probleemoplossend vermogen en nauw contact houden met de zaak. Ik kreeg veel verantwoordelijkheid: zelf naar klanten rijden, uitzoeken wat de storing of wens precies was, en ervoor zorgen dat alles netjes en veilig werd afgerond. Een enorm leerzame periode die mijn praktische kennis van elektrotechniek sterk heeft verbreed.</p>
+        </div>
+        <div class="xp-detail" id="xp-d4" role="region" hidden>
+          <p class="xp-co" data-nl="TNO, Ypenburg (Den Haag)" data-en="TNO, Ypenburg (Den Haag)">TNO, Ypenburg (Den Haag)</p>
+          <p class="xp-text" data-nl="Meewerken aan R&amp;D-projecten gericht op explosieven, munitie en beschermende voertuigsystemen. Ontwerpen, bouwen en bedienen van hoognauwkeurige meetopstellingen met high-speed data-acquisitiesystemen (tot 4 MHz), en ontwikkeling van een meetproduct dat closure-signalen omzet naar bruikbare TTL-signalen voor gelijktijdige meting van maximaal 12 kanalen. Daarnaast bouw van tools voor het verwerken en rapporteren van meetdata en het verwerken van 3D-scans in SolidWorks voor 3D-printen. De rol combineert ontwerpen, zelf bouwen, testen en data-analyse." data-en="Contributing to R&amp;D projects focused on explosives, ammunition and protective vehicle systems. Designing, building and operating high-precision measurement setups with high-speed data acquisition systems (up to 4 MHz), and developing a measurement product that converts closure signals into usable TTL signals for simultaneous measurement of up to 12 channels. I also build tools for processing and reporting measurement data, and process 3D scans in SolidWorks for 3D printing. The role combines design, hands-on building, testing and data analysis.">Meewerken aan R&amp;D-projecten gericht op explosieven, munitie en beschermende voertuigsystemen. Ontwerpen, bouwen en bedienen van hoognauwkeurige meetopstellingen met high-speed data-acquisitiesystemen (tot 4 MHz), en ontwikkeling van een meetproduct dat closure-signalen omzet naar bruikbare TTL-signalen voor gelijktijdige meting van maximaal 12 kanalen. Daarnaast bouw van tools voor het verwerken en rapporteren van meetdata en het verwerken van 3D-scans in SolidWorks voor 3D-printen. De rol combineert ontwerpen, zelf bouwen, testen en data-analyse.</p>
+        </div>
+        <div class="xp-detail" id="xp-d5" role="region" hidden>
+          <p class="xp-co" data-nl="DJVB Solutions, eigen bedrijf" data-en="DJVB Solutions, my own business">DJVB Solutions, eigen bedrijf</p>
+          <p class="xp-text" data-nl="DJVB Solutions heb ik in 2024 opgericht, naast VB Customs. Mijn eerste opdracht was het aanleggen van verlichting in een tuin. Sinds september 2026 richt ik me met DJVB Solutions op prototypebouw, onderdelen op maat en het oplossen van technische problemen: van idee tot werkend resultaat." data-en="I founded DJVB Solutions in 2024, alongside VB Customs. My first job was installing lighting in a garden. Since September 2026, DJVB Solutions has focused on prototyping, custom parts and solving technical problems: from idea to working result.">DJVB Solutions heb ik in 2024 opgericht, naast VB Customs. Mijn eerste opdracht was het aanleggen van verlichting in een tuin. Sinds september 2026 richt ik me met DJVB Solutions op prototypebouw, onderdelen op maat en het oplossen van technische problemen: van idee tot werkend resultaat.</p>
+          <p class="xp-more"><a href="#diensten" data-nl="Bekijk mijn diensten &#8594;" data-en="View my services &#8594;">Bekijk mijn diensten &#8594;</a></p>
         </div>
       </div>
-
-      <div class="tl-item" data-logo="media/logo_vbcustoms.png">
-        <div class="tl-date" data-nl="jun 2024 t/m jul 2025" data-en="Jun 2024 t/m Jul 2025">jun 2024 t/m jul 2025</div>
-        <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
-        <div>
-          <div class="tl-role" data-nl="Oprichter / Eigenaar" data-en="Founder / Owner">Oprichter / Eigenaar</div>
-          <div class="tl-co">VB Customs, Wassenaar</div>
-          <div class="tl-desc"
-            data-nl="Een bedrijf opgericht, gespecialiseerd in het customizen en onderhouden van Vespa- en Tomos-brommers: performance-upgrades, verlichtingsaanpassingen en maatwerkonderdelen. Het bedrijf samen met een compagnon gerund, met ruim 100 verkochte brommers. Ik was verantwoordelijk voor de inkoop, offertes, facturatie en boekhouding, mijn compagnon voor de verkoop en voorraad. Het bedrijf vanaf nul opgebouwd, inclusief KVK-inschrijving, huisstijl en belastingadministratie."
-            data-en="Founded a business specialising in customising and maintaining Vespa and Tomos scooters: performance upgrades, lighting modifications and custom parts. Ran the business together with a partner, with over 100 scooters sold. I was responsible for purchasing, quotes, invoicing and bookkeeping; my partner for sales and stock. Built the business from scratch, including chamber of commerce registration, branding and tax administration.">
-            Een bedrijf opgericht, gespecialiseerd in het customizen en onderhouden van Vespa- en Tomos-brommers: performance-upgrades, verlichtingsaanpassingen en maatwerkonderdelen. Het bedrijf samen met een compagnon gerund, met ruim 100 verkochte brommers. Ik was verantwoordelijk voor de inkoop, offertes, facturatie en boekhouding, mijn compagnon voor de verkoop en voorraad. Het bedrijf vanaf nul opgebouwd, inclusief KVK-inschrijving, huisstijl en belastingadministratie.
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item" data-logo="media/van_bentem_logo.png">
-        <div class="tl-date" data-nl="jul 2024 t/m jan 2025" data-en="Jul 2024 t/m Jan 2025">jul 2024 t/m jan 2025</div>
-        <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
-        <div>
-          <div class="tl-role" data-nl="Monteur Elektrotechniek, Parttime" data-en="Electrical Technician, Part-time">Monteur Elektrotechniek, Parttime</div>
-          <div class="tl-co">Van Bentem Elektrotechniek, Warmond</div>
-          <div class="tl-desc"
-            data-nl="Parttime werkzaam als monteur elektrotechniek in de regio Zuid-Holland, met een werkbus van de zaak. Verantwoordelijk voor een breed scala aan elektrische klussen bij particuliere klanten: huisinstallaties aanleggen, groepenkasten plaatsen en uitbreiden, storingen opsporen en verhelpen, en extra verlichting zoals spotjes installeren. Op drukke dagen stond ik voor wel 8 spoedklussen gepland die ik zelfstandig moest uitvoeren. Dat vroeg om snel kunnen schakelen, goed probleemoplossend vermogen en nauw contact houden met de zaak. Ik kreeg veel verantwoordelijkheid: zelf naar klanten rijden, uitzoeken wat de storing of wens precies was, en ervoor zorgen dat alles netjes en veilig werd afgerond. Een enorm leerzame periode die mijn praktische kennis van elektrotechniek sterk heeft verbreed."
-            data-en="Worked part-time as an electrical technician across the Zuid-Holland region, driving a company van. Responsible for a wide range of electrical jobs at residential clients: installing home wiring, fitting and expanding distribution boards, diagnosing and resolving faults, and installing extra lighting such as spotlights. On busy days I had up to 8 urgent jobs scheduled, all completed independently. This required quick thinking, strong problem-solving skills, and close communication with the office. I was given a lot of responsibility: driving to clients alone, figuring out the exact fault or requirement, and ensuring everything was completed neatly and safely. An incredibly valuable period that significantly broadened my hands-on knowledge of electrical engineering.">
-            Parttime werkzaam als monteur elektrotechniek in de regio Zuid-Holland, met een werkbus van de zaak. Verantwoordelijk voor een breed scala aan elektrische klussen bij particuliere klanten: huisinstallaties aanleggen, groepenkasten plaatsen en uitbreiden, storingen opsporen en verhelpen, en extra verlichting zoals spotjes installeren. Op drukke dagen stond ik voor wel 8 spoedklussen gepland die ik zelfstandig moest uitvoeren. Dat vroeg om snel kunnen schakelen, goed probleemoplossend vermogen en nauw contact houden met de zaak. Ik kreeg veel verantwoordelijkheid: zelf naar klanten rijden, uitzoeken wat de storing of wens precies was, en ervoor zorgen dat alles netjes en veilig werd afgerond. Een enorm leerzame periode die mijn praktische kennis van elektrotechniek sterk heeft verbreed.
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item" data-logo="media/the_field_logo.png">
-        <div class="tl-date" data-nl="feb 2024 t/m nov 2024" data-en="Feb 2024 t/m Nov 2024">feb 2024 t/m nov 2024</div>
-        <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
-        <div>
-          <div class="tl-role" data-nl="Ontwikkelaar" data-en="Developer">Ontwikkelaar</div>
-          <div class="tl-co">The Field, Leiden</div>
-          <div class="tl-desc"
-            data-nl="Samen met een medestudent een geautomatiseerd watersysteem voor planten ontwikkeld, draaiend op een Raspberry Pi, dat het watergebruik aanpast op basis van omgevingsfactoren. Gezamenlijk verantwoordelijk voor het complete systeem, van concept en hardware-ontwerp tot een werkende installatie. IT-studenten hebben de automatisering later verder verbeterd."
-            data-en="Together with a fellow student, developed an automated plant watering system running on a Raspberry Pi that adjusts water usage based on environmental factors. Jointly responsible for the complete system, from concept and hardware design to a working installation. IT students later improved the automation further.">
-            Samen met een medestudent een geautomatiseerd watersysteem voor planten ontwikkeld, draaiend op een Raspberry Pi, dat het watergebruik aanpast op basis van omgevingsfactoren. Gezamenlijk verantwoordelijk voor het complete systeem, van concept en hardware-ontwerp tot een werkende installatie. IT-studenten hebben de automatisering later verder verbeterd.
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item" data-logo="media/head_logo.png">
-        <div class="tl-date" data-nl="aug 2023 t/m feb 2024" data-en="Aug 2023 t/m Feb 2024">aug 2023 t/m feb 2024</div>
-        <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
-        <div>
-          <div class="tl-role" data-nl="Test Engineer, Stagiair" data-en="Test Engineer, Intern">Test Engineer, Stagiair</div>
-          <div class="tl-co">Mach Technology (voorheen Head Electronics B.V.), Katwijk aan Zee</div>
-          <div class="tl-desc"
-            data-nl="Gewerkt aan geautomatiseerde testsystemen (ATE) waarmee printplaten van klanten worden gecontroleerd op betrouwbaarheid en correcte assemblage, waaronder stresstests en in-circuit tests van sporen en soldeerverbindingen. Kleinschalige PCB's met SMD-componenten ontworpen en met de hand gesoldeerd voor deze testopstellingen, en samen met het testengineering-team 3 PCB's ontwikkeld die daadwerkelijk in de testopstellingen worden gebruikt. Daarnaast de testopstellingen geüpgraded en onderhouden, technische storingen verholpen en werkplaatservaring opgedaan met CNC-bewerking, draaien en frezen."
-            data-en="Worked on automated test equipment (ATE) used to check customer PCBs for reliability and correct assembly, including stress tests and in-circuit tests of traces and solder joints. Designed and hand-soldered small-scale PCBs with SMD components for these test setups, and together with the test engineering team developed 3 PCBs that are actually used in the setups. Also upgraded and maintained the test setups, resolved technical faults and gained workshop experience with CNC machining, turning and milling.">
-            Gewerkt aan geautomatiseerde testsystemen (ATE) waarmee printplaten van klanten worden gecontroleerd op betrouwbaarheid en correcte assemblage, waaronder stresstests en in-circuit tests van sporen en soldeerverbindingen. Kleinschalige PCB's met SMD-componenten ontworpen en met de hand gesoldeerd voor deze testopstellingen, en samen met het testengineering-team 3 PCB's ontwikkeld die daadwerkelijk in de testopstellingen worden gebruikt. Daarnaast de testopstellingen geüpgraded en onderhouden, technische storingen verholpen en werkplaatservaring opgedaan met CNC-bewerking, draaien en frezen.
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-date" data-nl="jan 2019 t/m jan 2024" data-en="Jan 2019 t/m Jan 2024">jan 2019 t/m jan 2024</div>
-        <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
-        <div>
-          <div class="tl-role" data-nl="Junior Vestigingsmanager" data-en="Junior Branch Manager">Junior Vestigingsmanager</div>
-          <div class="tl-co">IJskiosk Aan De Slag, Wassenaar</div>
-          <div class="tl-desc"
-            data-nl="Op mijn 13e begonnen als ijsverkoper achter de kassa en doorgegroeid naar junior vestigingsmanager, verantwoordelijk voor het openen, runnen en afsluiten van één van twee strandkiosken, wisselend tussen de locaties. Tot 4 collega's aangestuurd, voorraad en bestellingen beheerd en de dagelijkse gang van zaken soepel laten verlopen op piekdagen."
-            data-en="Started at 13 as an ice cream seller behind the register and grew into junior branch manager, responsible for opening, running and closing one of two beach kiosks, alternating between locations. Managed up to 4 colleagues, handled stock and orders, and kept day-to-day operations running smoothly on peak days.">
-            Op mijn 13e begonnen als ijsverkoper achter de kassa en doorgegroeid naar junior vestigingsmanager, verantwoordelijk voor het openen, runnen en afsluiten van één van twee strandkiosken, wisselend tussen de locaties. Tot 4 collega's aangestuurd, voorraad en bestellingen beheerd en de dagelijkse gang van zaken soepel laten verlopen op piekdagen.
-          </div>
-        </div>
-      </div>
-
+      <p class="xp-cv">
+        <a href="cv/CV-Daan-van-Beelen-NL.pdf" target="_blank" rel="noopener" id="cv-view-xp"
+           data-nl="Volledige loopbaan en opleiding in mijn CV &#8594;" data-en="Full career and education in my CV &#8594;">Volledige loopbaan en opleiding in mijn CV &#8594;</a>
+      </p>
     </div>
   </div>
 </section>
@@ -1639,13 +1678,13 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
     <div class="s-line"></div>
     <p class="rev rev-d1" style="max-width:800px;margin:0 auto 1.5rem;color:var(--muted);font-size:.95rem;line-height:1.75;text-align:left;"
       data-nl="Dit is een van mijn projecten, en deze heb ik gefilmd om het vast te leggen. Hierbij vervang ik een groot deel van het elektrische systeem: de accu's, de balancer die zorgt dat de accu's gelijkmatig worden leeggetrokken en opgeladen, de controller, en daarbij alle draden op maat gemaakt en een nieuwe oplader geplaatst. We hebben dit alles vervangen omdat we af wilden van het NIU-systeem, omdat er een storing in de controller zat. Door onze aanpassing kunnen we nu gemakkelijk elke accu in de scooter zetten, zonder dat die van NIU hoeft te zijn."
-      data-en="This is one of my projects, which I filmed to document the process. I replace a large part of the electrical system: the batteries, the balancer that ensures the batteries are charged and discharged evenly, the controller, and all wiring custom-made to fit, along with a new charger. We replaced all of this because we wanted to move away from the NIU system due to a fault in the controller. Thanks to our modification, we can now easily fit any battery into the scooter, it no longer has to be a NIU battery.">
+      data-en="This is one of my projects, which I filmed to document the process. I replace a large part of the electrical system: the batteries, the balancer that ensures the batteries are charged and discharged evenly, the controller, and all wiring custom-made to fit, along with a new charger. We replaced all of this because we wanted to move away from the NIU system due to a fault in the controller. Thanks to our modification, we can now easily fit any battery into the scooter; it no longer has to be a NIU battery.">
       Dit is een van mijn projecten, en deze heb ik gefilmd om het vast te leggen. Hierbij vervang ik een groot deel van het elektrische systeem: de accu's, de balancer die zorgt dat de accu's gelijkmatig worden leeggetrokken en opgeladen, de controller, en daarbij alle draden op maat gemaakt en een nieuwe oplader geplaatst. We hebben dit alles vervangen omdat we af wilden van het NIU-systeem, omdat er een storing in de controller zat. Door onze aanpassing kunnen we nu gemakkelijk elke accu in de scooter zetten, zonder dat die van NIU hoeft te zijn.
     </p>
     <div id="yt-wrap" class="rev rev-d1" style="max-width:800px;margin:0 auto;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:#000;">
       <iframe id="yt-iframe"
-        title="YouTube video player"
-        data-src="https://www.youtube-nocookie.com/embed/m5mBE7MGakE?enablejsapi=1&mute=1&autoplay=0"
+        title="NIU-scooter opknappen, van hok naar fabrieksnieuw (YouTube)"
+        data-src="https://www.youtube-nocookie.com/embed/Jy0a4N9BypE?enablejsapi=1&mute=1&autoplay=0"
         style="width:100%;height:100%;border:none;display:block;"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
@@ -1661,9 +1700,9 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
     <h2 class="s-title"><span class="w" data-nl="Contact" data-en="Contact">Contact</span></h2>
     <div class="s-line"></div>
     <p class="contact-intro rev rev-d1"
-      data-nl="Heb je een technisch probleem of een idee dat gebouwd moet worden? Stuur een mail, dan plannen we een vrijblijvend gesprek."
-      data-en="Do you have a technical problem or an idea that needs building? Send an email and we'll schedule a no-obligation conversation.">
-      Heb je een technisch probleem of een idee dat gebouwd moet worden? Stuur een mail, dan plannen we een vrijblijvend gesprek.
+      data-nl="Heb je een technisch probleem of een idee dat gebouwd moet worden? Stuur een bericht, dan plannen we een vrijblijvend gesprek."
+      data-en="Do you have a technical problem or an idea that needs building? Send a message and we'll schedule a no-obligation chat.">
+      Heb je een technisch probleem of een idee dat gebouwd moet worden? Stuur een bericht, dan plannen we een vrijblijvend gesprek.
     </p>
     <form class="contact-form rev rev-d1" id="contact-form" novalidate>
       <!-- Web3Forms: berichten gaan naar het e-mailadres waarmee deze key is aangevraagd -->
@@ -1716,7 +1755,7 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
     <div class="contact-grid rev rev-d2">
       <a href="mailto:daan.hvs@gmail.com" class="c-card">
         <span class="c-icon"><i class="ti ti-mail"></i></span>
-        <div><div class="c-label">Email</div><div class="c-val">daan.hvs@gmail.com</div></div>
+        <div><div class="c-label" data-nl="E-mail" data-en="Email">E-mail</div><div class="c-val">daan.hvs@gmail.com</div></div>
       </a>
       <a href="https://linkedin.com/in/daan-van-beelen-072953246" target="_blank" rel="noopener" class="c-card">
         <span class="c-icon"><i class="ti ti-brand-linkedin"></i></span>
@@ -1737,12 +1776,11 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
 
 <footer>
   <p class="foot-brand">DJVB Solutions</p>
-  <p class="foot-meta">
-    <span data-nl="Daan van Beelen, Wassenaar" data-en="Daan van Beelen, Wassenaar">Daan van Beelen, Wassenaar</span>
-    <!-- KVK-nummer hieronder invullen zodra DJVB Solutions is ingeschreven:
-         <span class="foot-sep">·</span><span>KVK 12345678</span>  -->
+  <p class="foot-copy">© <span id="foot-year">2026</span> DJVB Solutions<span class="foot-sep">·</span>KVK 94085714</p>
+  <p class="foot-links">
+    <a href="docs/algemene-voorwaarden-djvb-solutions.pdf" target="_blank" rel="noopener"
+       data-nl="Algemene voorwaarden" data-en="Terms and conditions (Dutch)">Algemene voorwaarden</a>
   </p>
-  <p class="foot-copy">© <span id="foot-year">2026</span> Daan van Beelen</p>
 </footer>
 
 <script>
@@ -1795,7 +1833,7 @@ function bindHover(el){
   el.addEventListener('mouseenter', () => document.body.classList.add('c-hover'));
   el.addEventListener('mouseleave', () => document.body.classList.remove('c-hover'));
 }
-document.querySelectorAll('a,button,.skill-card,.c-card,.tl-header').forEach(bindHover);
+document.querySelectorAll('a,button,.skill-card,.c-card').forEach(bindHover);
 
 function cursorTick() {
   dx  += (mx - dx)  * 0.55;
@@ -2064,7 +2102,7 @@ function setLang(l){
   });
   // CV-knoppen wijzen naar de versie in de gekozen taal
   const cvPad = l === 'nl' ? 'cv/CV-Daan-van-Beelen-NL.pdf' : 'cv/CV-Daan-van-Beelen-EN.pdf';
-  ['cv-view','cv-download'].forEach(id => {
+  ['cv-view','cv-download','cv-view-xp'].forEach(id => {
     const a = document.getElementById(id);
     if(a) a.setAttribute('href', cvPad);
   });
@@ -2113,7 +2151,7 @@ function renderProjects(){
       <div class="p-title">${title}</div>
       <div class="p-sum">${sum}</div>
       <div class="p-foot">
-        <div class="chips">${(p.chips || []).map(c => `<span class="chip">${c}</span>`).join('')}</div>
+        <div class="chips">${((lang === 'nl' ? p.chips : (p.chips_en || p.chips)) || []).map(c => `<span class="chip">${c}</span>`).join('')}</div>
         <span class="p-arr">&rarr;</span>
       </div>
       <div class="p-body">
@@ -2482,7 +2520,7 @@ function openModal(i, cardEl){
   document.getElementById('m-date').textContent  = (lang === 'nl' ? p.date_nl : p.date_en) || '';
   document.getElementById('m-title').textContent = lang === 'nl' ? p.title_nl : p.title_en;
   document.getElementById('m-body').innerHTML    = lang === 'nl' ? p.body_nl  : p.body_en;
-  document.getElementById('m-chips').innerHTML   = (p.chips || []).map(c => `<span class="chip">${c}</span>`).join('');
+  document.getElementById('m-chips').innerHTML   = ((lang === 'nl' ? p.chips : (p.chips_en || p.chips)) || []).map(c => `<span class="chip">${c}</span>`).join('');
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
   lastFocused = cardEl || document.activeElement;
@@ -2588,8 +2626,8 @@ renderProjects();
       if(uitkomst.success){
         form.reset();
         form.classList.remove('cf-tried');
-        zeg(nl ? 'Bedankt, je bericht is verstuurd. Ik reageer meestal binnen een paar dagen.'
-               : 'Thank you, your message has been sent. I usually reply within a few days.', 'ok');
+        zeg(nl ? 'Bedankt, je bericht is verstuurd. Ik reageer meestal binnen 24 uur.'
+               : 'Thank you, your message has been sent. I usually reply within 24 hours.', 'ok');
       } else {
         throw new Error(uitkomst.message || 'mislukt');
       }
@@ -2742,43 +2780,118 @@ document.querySelectorAll('.skill-card').forEach(card => {
 });
 
 /* ══════════════════════════════════════════
-   TIMELINE ACCORDION
+   WERKERVARING — kaarten van oud naar nieuw, tijdlijn erboven;
+   klik op een bedrijf (kaart of balk) toont de details
 ══════════════════════════════════════════ */
-document.querySelectorAll('.tl-item').forEach(item => {
-  const role = item.querySelector('.tl-role');
-  const co   = item.querySelector('.tl-co');
-  const desc = item.querySelector('.tl-desc');
-  if(!desc) return;
-  const header = document.createElement('div');
-  header.className = 'tl-header';
-  header.setAttribute('tabindex', '0');
-  header.setAttribute('role', 'button');
-  header.setAttribute('aria-expanded', 'false');
-  const left = document.createElement('div');
-  const logoSrc = item.dataset.logo;
-  if(logoSrc){
-    const img = document.createElement('img');
-    img.src = logoSrc; img.className = 'tl-logo'; img.alt = '';
-    left.appendChild(img);
+(function(){
+  const kaarten = [...document.querySelectorAll('.xp-card')];
+  const details = [...document.querySelectorAll('.xp-detail')];
+  const tl = document.getElementById('xp-tl');
+  const banen = [];
+
+  function kies(i){
+    const k = kaarten[i];
+    const wasOpen = k.classList.contains('on');
+    kaarten.forEach(x => { x.classList.remove('on'); x.setAttribute('aria-expanded', 'false'); });
+    details.forEach(d => { d.hidden = true; });
+    banen.forEach(b => b.classList.remove('on'));
+    if(tl) tl.classList.toggle('has-on', !wasOpen);
+    if(wasOpen) return;                              // nogmaals klikken sluit
+    k.classList.add('on');
+    k.setAttribute('aria-expanded', 'true');
+    if(banen[i]) banen[i].classList.add('on');
+    details[i].hidden = false;
+    const r = details[i].getBoundingClientRect();
+    if(r.bottom > window.innerHeight) details[i].scrollIntoView({behavior: 'smooth', block: 'nearest'});
   }
-  left.appendChild(role);
-  left.appendChild(co);
-  const arrow = document.createElement('span');
-  arrow.className = 'tl-arrow';
-  arrow.textContent = '▼';
-  header.appendChild(left);
-  header.appendChild(arrow);
-  desc.parentNode.insertBefore(header, desc);
-  function toggleTl(){
-    const open = item.classList.toggle('open');
-    header.setAttribute('aria-expanded', open ? 'true' : 'false');
+  kaarten.forEach((k, i) => k.addEventListener('click', () => kies(i)));
+
+  /* ---- tijdlijn ---- */
+  if(!tl) return;
+  const datum = ym => { const [j, m] = ym.split('-').map(Number); return new Date(j, m - 1, 1); };
+  const nu = new Date();
+  const perioden = kaarten.map(k => ({
+    naam: k.querySelector('.xp-logo').alt.replace(' Elektrotechniek', ''),
+    van: datum(k.dataset.start),
+    tot: k.dataset.end ? new Date(datum(k.dataset.end).getFullYear(), datum(k.dataset.end).getMonth() + 1, 1) : nu,
+    loopt: !k.dataset.end
+  }));
+  const begin = new Date(Math.min(...perioden.map(p => p.van)));
+  begin.setMonth(begin.getMonth() - 1);                       // een maand lucht aan de linkerkant
+  const einde = new Date(Math.max(...perioden.map(p => +p.tot)));
+  einde.setMonth(einde.getMonth() + 1);                       // en aan de rechterkant
+  const pos = d => (d - begin) / (einde - begin) * 100;
+
+  const jaren = document.createElement('div');
+  jaren.className = 'xt-years';
+  const body = document.createElement('div');
+  body.className = 'xt-body';
+  for(let j = begin.getFullYear(); j <= einde.getFullYear(); j++){
+    const a = Math.max(0, pos(new Date(j, 0, 1)));
+    const b = Math.min(100, pos(new Date(j + 1, 0, 1)));
+    if(b - a > 7){                                            // alleen als het jaartal past
+      const y = document.createElement('span');
+      y.className = 'xt-year';
+      y.textContent = j;
+      y.style.left = ((a + b) / 2) + '%';
+      jaren.appendChild(y);
+    }
+    if(a > 0){
+      const g = document.createElement('span');
+      g.className = 'xt-grid';
+      g.style.left = a + '%';
+      body.appendChild(g);
+    }
   }
-  header.addEventListener('click', toggleTl);
-  header.addEventListener('keydown', e => {
-    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleTl(); }
+
+  perioden.forEach((p, i) => {
+    const baan = document.createElement('div');
+    baan.className = 'xt-lane';
+    const periode = document.createElement('span');          // draagt balk, naam en stip
+    periode.className = 'xt-span';
+    periode.style.left = pos(p.van) + '%';
+    periode.style.width = (pos(p.tot) - pos(p.van)) + '%';
+    if(pos(p.tot) > 75) periode.classList.add('links');       // eerste gok; plaatsLabels() meet het na
+    periode.style.setProperty('--i', i);                      // volgorde van de animatie
+    const bar = document.createElement('span');
+    bar.className = 'xt-bar';
+    const label = document.createElement('span');
+    label.className = 'xt-label';
+    label.textContent = p.naam;
+    periode.append(bar, label);
+    if(p.loopt){
+      const stip = document.createElement('span');
+      stip.className = 'xt-now';
+      periode.appendChild(stip);
+    }
+    baan.appendChild(periode);
+    baan.addEventListener('click', () => kies(i));
+    baan.addEventListener('mouseenter', () => kaarten[i].classList.add('hl'));
+    baan.addEventListener('mouseleave', () => kaarten[i].classList.remove('hl'));
+    kaarten[i].addEventListener('mouseenter', () => baan.classList.add('hl'));
+    kaarten[i].addEventListener('mouseleave', () => baan.classList.remove('hl'));
+    if(typeof bindHover === 'function') bindHover(baan);
+    banen.push(baan);
+    body.appendChild(baan);
   });
-  bindHover(header);
-});
+  tl.append(jaren, body);
+
+  /* naam rechts naast de balk, of links ervan als daar geen ruimte is */
+  function plaatsLabels(){
+    const breed = body.clientWidth;
+    if(!breed) return;
+    banen.forEach(baan => {
+      const periode = baan.querySelector('.xt-span');
+      const w = baan.querySelector('.xt-label').offsetWidth + 12;
+      const l = periode.offsetLeft, r = l + periode.offsetWidth;
+      periode.classList.toggle('links', r + w > breed && l > breed - r);   // links als rechts te krap is
+    });
+  }
+  plaatsLabels();
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(plaatsLabels);   // lettertype bepaalt de breedte
+  if('ResizeObserver' in window) new ResizeObserver(plaatsLabels).observe(body);
+  window.addEventListener('resize', plaatsLabels);
+})();
 
 /* ══════════════════════════════════════════
    YOUTUBE — autoplay bij scrollen
