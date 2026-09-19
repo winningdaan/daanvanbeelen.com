@@ -27,15 +27,78 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Daan van Beelen",
-  "jobTitle": "Mechatronica Engineer",
-  "url": "https://daanvanbeelen.com/",
-  "address": { "@type": "PostalAddress", "addressLocality": "Wassenaar", "addressCountry": "NL" },
-  "email": "daan.hvs@gmail.com",
-  "image": "https://daanvanbeelen.com/media/me2.jpg",
-  "sameAs": ["https://linkedin.com/in/daan-van-beelen-072953246"],
-  "knowsAbout": ["PCB-ontwerp", "SMD-solderen", "Mechatronica", "Elektrotechniek", "3D-printen", "Automatisering"]
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://daanvanbeelen.com/#daan",
+      "name": "Daan van Beelen",
+      "jobTitle": "Mechatronica Engineer",
+      "url": "https://daanvanbeelen.com/",
+      "email": "daan.hvs@gmail.com",
+      "image": "https://daanvanbeelen.com/media/me2.jpg",
+      "sameAs": [
+        "https://linkedin.com/in/daan-van-beelen-072953246"
+      ],
+      "knowsAbout": [
+        "Prototypebouw",
+        "3D-ontwerp",
+        "SolidWorks",
+        "3D-printen",
+        "3D-scannen",
+        "PCB-ontwerp",
+        "SMD-solderen",
+        "Elektrotechniek",
+        "Meettechniek",
+        "Data-acquisitie",
+        "Mechatronica"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://daanvanbeelen.com/#djvb",
+      "name": "DJVB Solutions",
+      "url": "https://daanvanbeelen.com/",
+      "email": "daan.hvs@gmail.com",
+      "founder": {
+        "@id": "https://daanvanbeelen.com/#daan"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Nederland"
+      },
+      "description": "Prototypebouw, onderdelen op maat en het oplossen van technische problemen, van idee tot werkend resultaat.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Diensten",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Prototypebouw",
+              "description": "Van idee naar werkend prototype: elektronica, printplaat, behuizing en software."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Onderdelen op maat",
+              "description": "Adapters, houders en vervangende onderdelen, ontworpen in SolidWorks en 3D-geprint; zo nodig eerst ingescand tot 0,05 mm nauwkeurig."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Technische problemen",
+              "description": "Meetopstellingen, storingen, elektrische systemen en kabelbomen."
+            }
+          }
+        ]
+      }
+    }
+  ]
 }
 </script>
 
@@ -171,8 +234,10 @@ body{
   line-height:1.7;overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
-  caret-color:transparent;
+  caret-color:transparent;          /* geen typbalkje op gewone tekst (o.a. naast de profielfoto) */
 }
+/* ...maar in invoervelden moet je juist zien waar je typt */
+input,textarea{caret-color:var(--accent2)}
 @media(pointer:fine){html.cursor-ready body{cursor:none}html.cursor-ready body a,html.cursor-ready body button,html.cursor-ready body .proj-card,html.cursor-ready body .skill-card,html.cursor-ready body .c-card,html.cursor-ready body .tl-header{cursor:none}}
 ::selection{background:rgba(92,155,255,.28);color:#fff}
 ::-webkit-scrollbar{width:10px}
@@ -1221,7 +1286,224 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
     <div class="s-line"></div>
     <div class="proj-rail rev rev-d1" id="proj-rail">
       <button class="rail-arr rail-prev" id="rail-prev" type="button" aria-label="Vorige projecten" data-nl-aria="Vorige projecten" data-en-aria="Previous projects">&#8592;</button>
-      <div class="proj-grid" id="proj-grid"></div>
+      <div class="proj-grid" id="proj-grid"><!-- PRERENDER:START -->
+<div class="proj-card" tabindex="0" role="button" aria-label="Closure Unit, TNO" aria-expanded="false" data-id="closure-unit">
+      <button class="p-close" type="button" aria-label="Project sluiten">&#10005;</button>
+      <div class="p-img"><img src="media/closure_unit.jpg" alt="Closure Unit, TNO" loading="lazy"/></div>
+      <div class="p-meta"><span class="p-tag">R&amp;D / Defence</span></div>
+      <div class="p-title">Closure Unit, TNO</div>
+      <div class="p-sum">Van idee tot werkend meetsysteem in 10 weken, zelfstandig ontwikkeld bij TNO Defence.</div>
+      <div class="p-foot">
+        <div class="chips"><span class="chip">PCB ontwerp</span><span class="chip">SMD solderen</span><span class="chip">Data-acquisitie</span></div>
+        <span class="p-arr">&rarr;</span>
+      </div>
+      <div class="p-body">
+        <div class="p-body-inner">
+          <div class="p-body-content">
+            <div class="p-text"><p>Voor TNO heb ik een closure unit ontwikkeld die snelle en betrouwbare data-acquisitie mogelijk maakt. Het zet closure-signalen (kortsluitcontacten) om naar bruikbare TTL-signalen, zodat maximaal 12 kanalen gelijktijdig en storingsvrij gemeten kunnen worden.</p><p>Van plan en componentkeuze tot het ontwerp van de elektronica: ik heb het project van A tot Z geleid. De PCB's heb ik zelf getekend en gesoldeerd met SMD-componenten.</p><p>Ik kan niet te diep ingaan op de onderzoeksdetails, maar het ontwikkelen van deze closure unit was een geweldige ervaring die ik samen met collega's bij TNO heb mogen uitvoeren.</p></div>
+            <div class="p-nav">
+              <button class="p-nav-btn p-nav-prev" type="button" data-go="watersysteem">
+                <span class="p-nav-dir">&#8592; Vorig project</span>
+                <span class="p-nav-name">Automatisch Watersysteem</span>
+              </button>
+              <button class="p-nav-btn p-nav-next" type="button" data-go="vbcustoms">
+                <span class="p-nav-dir">Volgend project &#8594;</span>
+                <span class="p-nav-name">VB Customs, Scooters &amp; Klanten</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div></div>
+<div class="proj-card" tabindex="0" role="button" aria-label="VB Customs, Scooters &amp; Klanten" aria-expanded="false" data-id="vbcustoms">
+      <button class="p-close" type="button" aria-label="Project sluiten">&#10005;</button>
+      <div class="p-img"><img src="media/naast_scooters1.jpg" alt="VB Customs, Scooters &amp; Klanten" loading="lazy"/></div>
+      <div class="p-meta"><span class="p-tag">Bedrijf / Elektrisch &amp; Mechanisch</span></div>
+      <div class="p-title">VB Customs, Scooters &amp; Klanten</div>
+      <div class="p-sum">Eigen bedrijf opgericht: customizen, onderhoud en verkoop van Vespa&#x27;s voor klanten.</div>
+      <div class="p-foot">
+        <div class="chips"><span class="chip">Klantcontact</span><span class="chip">Mechanisch onderhoud</span><span class="chip">Ondernemerschap</span></div>
+        <span class="p-arr">&rarr;</span>
+      </div>
+      <div class="p-body">
+        <div class="p-body-inner">
+          <div class="p-body-content">
+            <div class="p-text"><p>Via VB Customs hebben we veel klanten geholpen met het aanpassen en onderhouden van hun Vespa- en Tomos-brommers, met ruim 100 verkochte brommers. Werkzaamheden omvatten echt alles: motoronderhoud, elektra aanpassen, remsysteem, storingen opsporen en oplossen, en opvoeren. Onderdelen die niet te koop waren, heb ik zelf op maat ontworpen en 3D-geprint. Elk project was anders en vroeg om een andere aanpak, wat het erg interessant maakte en me enorm veel heeft geleerd. Van simpele onderhoudsbeurten tot complexe elektrische problemen: geen dag was hetzelfde.</p><p>Het bedrijf runde ik samen met een compagnon: ik deed de inkoop, offertes, facturatie en boekhouding, mijn compagnon de verkoop en voorraad. Het bedrijf hebben we vanaf nul opgebouwd, inclusief KVK-inschrijving, huisstijl en belastingadministratie. Een unieke combinatie van technisch vakmanschap en ondernemerschap, waar ik een mooi netwerk aan heb overgehouden.</p></div>
+            <div class="p-nav">
+              <button class="p-nav-btn p-nav-prev" type="button" data-go="closure-unit">
+                <span class="p-nav-dir">&#8592; Vorig project</span>
+                <span class="p-nav-name">Closure Unit, TNO</span>
+              </button>
+              <button class="p-nav-btn p-nav-next" type="button" data-go="testsystemen">
+                <span class="p-nav-dir">Volgend project &#8594;</span>
+                <span class="p-nav-name">Testsystemen &amp; PCB-ontwerp, Mach Technology</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div></div>
+<div class="proj-card" tabindex="0" role="button" aria-label="Testsystemen &amp; PCB-ontwerp, Mach Technology" aria-expanded="false" data-id="testsystemen">
+      <button class="p-close" type="button" aria-label="Project sluiten">&#10005;</button>
+      <div class="p-img"><img src="media/head_pcb.png" alt="Testsystemen &amp; PCB-ontwerp, Mach Technology" loading="lazy"/></div>
+      <div class="p-meta"><span class="p-tag">Elektronica</span></div>
+      <div class="p-title">Testsystemen &amp; PCB-ontwerp, Mach Technology</div>
+      <div class="p-sum">Geautomatiseerde testsystemen ontwikkeld en eigen PCB&#x27;s ontworpen en gesoldeerd bij Mach Technology.</div>
+      <div class="p-foot">
+        <div class="chips"><span class="chip">KiCad</span><span class="chip">SMD solderen</span></div>
+        <span class="p-arr">&rarr;</span>
+      </div>
+      <div class="p-body">
+        <div class="p-body-inner">
+          <div class="p-body-content">
+            <div class="p-text"><p>Tijdens mijn stage bij Mach Technology (voorheen Head Electronics B.V.) in Katwijk aan Zee hield ik me vooral bezig met het testen van printplaten (PCB's): controleren of ze goed functioneren. Dat testen heb ik geautomatiseerd, zodat er meer testen uitgevoerd konden worden. De printplaat gaat daarbij in een testkast, die vervolgens via software een reeks stappen doorloopt om meerdere componenten achter elkaar te testen. Daarnaast ontwierp en soldeerde ik zelf printplaten met SMD-componenten (Surface Mount Devices): minuscule onderdelen die direct op het oppervlak van de printplaat worden gesoldeerd.</p><p>Samen met het testengineeringteam ontwikkelde ik drie producten die uiteindelijk in de testkasten zijn toegepast. Een van die producten loste een hardnekkig probleem op met een Intel NUC minicomputer: de USB-poorten van de NUC hadden moeite met het gelijktijdig opstarten van meerdere USB-apparaten, waardoor sommige apparaten niet herkend werden. Mijn oplossing was een RC-kring, een eenvoudige schakeling met een weerstand (R) en een condensator (C). De condensator laadt langzaam op via de weerstand, waardoor een tijdvertraging ontstaat. De apparaten starten nog steeds tegelijk op, maar niet meer direct met de Intel NUC zelf, waardoor de NUC elk apparaat nu wel netjes herkent.</p></div>
+            <div class="p-nav">
+              <button class="p-nav-btn p-nav-prev" type="button" data-go="vbcustoms">
+                <span class="p-nav-dir">&#8592; Vorig project</span>
+                <span class="p-nav-name">VB Customs, Scooters &amp; Klanten</span>
+              </button>
+              <button class="p-nav-btn p-nav-next" type="button" data-go="led-cube">
+                <span class="p-nav-dir">Volgend project &#8594;</span>
+                <span class="p-nav-name">LED Cube Project, Eindproject</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div></div>
+<div class="proj-card" tabindex="0" role="button" aria-label="LED Cube Project, Eindproject" aria-expanded="false" data-id="led-cube">
+      <button class="p-close" type="button" aria-label="Project sluiten">&#10005;</button>
+      <div class="p-img" style="--focus:50% 25%"><img src="media/led_cube.png" alt="LED Cube Project, Eindproject" loading="lazy"/></div>
+      <div class="p-meta"><span class="p-tag">Elektronica</span></div>
+      <div class="p-title">LED Cube Project, Eindproject</div>
+      <div class="p-sum">Eindproject Technicus Engineering: een 4×4×4 LED cube met multiplexing en eigen PCB design.</div>
+      <div class="p-foot">
+        <div class="chips"><span class="chip">Multiplexing</span><span class="chip">KiCad</span><span class="chip">PCB ontwerp in KiCad</span><span class="chip">Solderen</span><span class="chip">Arduino</span><span class="chip">3D printen</span></div>
+        <span class="p-arr">&rarr;</span>
+      </div>
+      <div class="p-body">
+        <div class="p-body-inner">
+          <div class="p-body-content">
+            <div class="p-text"><p>Dit eindproject voor het laatste jaar van Technicus Engineering was het meest uitdagende project dat ik tot dan toe had gemaakt. In 10 schoolweken bouwde ik van nul een volledig werkend prototype met multiplexing: de techniek om 64 LEDs individueel aan te sturen met slechts 7 uitgangen.</p><p>Alles is volledig eigen ontwerp: het elektrische schema, de PCB, de software en de kunststof behuizing (ontworpen in SolidWorks en geprint op een Ultimaker 3D printer), aangevuld met op maat gesneden plexiglas.</p><p>Multiplexing werkt via een matrix: je stuurt rijen en kolommen apart aan, zodat je met weinig uitgangen toch elk punt afzonderlijk kunt bedienen. Ditzelfde principe zit verwerkt in LED-displays, toetsenbordmatrixen en beeldschermen. Dit project gaf mij een sterke basis voor dat soort concepten.</p></div>
+            <div class="p-nav">
+              <button class="p-nav-btn p-nav-prev" type="button" data-go="testsystemen">
+                <span class="p-nav-dir">&#8592; Vorig project</span>
+                <span class="p-nav-name">Testsystemen &amp; PCB-ontwerp, Mach Technology</span>
+              </button>
+              <button class="p-nav-btn p-nav-next" type="button" data-go="ebike">
+                <span class="p-nav-dir">Volgend project &#8594;</span>
+                <span class="p-nav-name">Eigen E-bike Ontwikkeling</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div></div>
+<div class="proj-card" tabindex="0" role="button" aria-label="Eigen E-bike Ontwikkeling" aria-expanded="false" data-id="ebike">
+      <button class="p-close" type="button" aria-label="Project sluiten">&#10005;</button>
+      <div class="p-img"><img src="media/ebike_build.jpg" alt="Eigen E-bike Ontwikkeling" loading="lazy"/></div>
+      <div class="p-meta"><span class="p-tag">Elektronica &amp; Mechanisch</span></div>
+      <div class="p-title">Eigen E-bike Ontwikkeling</div>
+      <div class="p-sum">Zelfstandig een e-bike gebouwd van ontwerp tot rijklaar concept.</div>
+      <div class="p-foot">
+        <div class="chips"><span class="chip">Elektrisch systeem</span><span class="chip">Vermogenselektronica</span></div>
+        <span class="p-arr">&rarr;</span>
+      </div>
+      <div class="p-body">
+        <div class="p-body-inner">
+          <div class="p-body-content">
+            <div class="p-text"><p>Eerst wilde ik een kant-en-klare e-bike kopen, maar het leek me veel gaver om hem zelf te bouwen. Als basis gebruikte ik een bestaand fietsframe, maar het volledige elektrische systeem heb ik zelf ontworpen en opgebouwd: accu, motor, controller, sensoren bij de trapas en LED-verlichting. Van componentkeuze en dimensionering tot de uiteindelijke installatie en het rijklaar maken, alles volledig zelfstandig uitgevoerd.</p><p>Dit project gaf me veel inzicht in hoe elektrische systemen samenwerken en hoe je alles op elkaar afstemt voor optimale performance.</p></div>
+            <div class="p-nav">
+              <button class="p-nav-btn p-nav-prev" type="button" data-go="led-cube">
+                <span class="p-nav-dir">&#8592; Vorig project</span>
+                <span class="p-nav-name">LED Cube Project, Eindproject</span>
+              </button>
+              <button class="p-nav-btn p-nav-next" type="button" data-go="kabelboom">
+                <span class="p-nav-dir">Volgend project &#8594;</span>
+                <span class="p-nav-name">Kabelboom Boot (Piranha Espada)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div></div>
+<div class="proj-card" tabindex="0" role="button" aria-label="Kabelboom Boot (Piranha Espada)" aria-expanded="false" data-id="kabelboom">
+      <button class="p-close" type="button" aria-label="Project sluiten">&#10005;</button>
+      <div class="p-img"><img src="media/speedboot.jpg" alt="Kabelboom Boot (Piranha Espada)" loading="lazy"/></div>
+      <div class="p-meta"><span class="p-tag">Mechanisch / Elektrisch</span></div>
+      <div class="p-title">Kabelboom Boot (Piranha Espada)</div>
+      <div class="p-sum">Kabelboom ontworpen en gemonteerd in een Piranha Espada speedboot.</div>
+      <div class="p-foot">
+        <div class="chips"><span class="chip">Kabelboom</span><span class="chip">Schematekening in KiCad</span></div>
+        <span class="p-arr">&rarr;</span>
+      </div>
+      <div class="p-body">
+        <div class="p-body-inner">
+          <div class="p-body-content">
+            <div class="p-text"><p>De aanleiding voor dit project was oxydatie: de originele kabels van de boot waren zo aangetast dat ze niet meer betrouwbaar werkten. In plaats van losse kabels te vervangen, ontwierp en monteerde ik een volledig nieuwe kabelboom van nul af aan en sloot alle elektrische systemen opnieuw aan. Van schematekening tot definitieve installatie en test.</p><p>Ik installeerde onder andere: 4 waterdichte speakers met een subwoofer, LED-verlichting, navigatieverlichting, een radio, contactslot, powertrim, accu en killswitch. Daarnaast voegde ik een hoofdrelais toe, zodat alle systemen centraal en veilig onderbroken kunnen worden. Alles is netjes georganiseerd in een controlepaneel zodat de bediening overzichtelijk blijft.</p><p>Het project vereiste nauwkeurig werken in een beperkte ruimte en gedegen kennis van marine elektra.</p><p>Daarnaast heb ik voor boten verschillende maatwerkonderdelen ontworpen en 3D-geprint, voor dingen die nergens kant-en-klaar te koop zijn.</p></div>
+            <div class="p-nav">
+              <button class="p-nav-btn p-nav-prev" type="button" data-go="ebike">
+                <span class="p-nav-dir">&#8592; Vorig project</span>
+                <span class="p-nav-name">Eigen E-bike Ontwikkeling</span>
+              </button>
+              <button class="p-nav-btn p-nav-next" type="button" data-go="drones">
+                <span class="p-nav-dir">Volgend project &#8594;</span>
+                <span class="p-nav-name">FPV Racing Drones, 3 Custom Builds</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div></div>
+<div class="proj-card" tabindex="0" role="button" aria-label="FPV Racing Drones, 3 Custom Builds" aria-expanded="false" data-id="drones">
+      <button class="p-close" type="button" aria-label="Project sluiten">&#10005;</button>
+      <div class="p-img"><img src="media/drone.jpg" alt="FPV Racing Drones, 3 Custom Builds" loading="lazy"/></div>
+      <div class="p-meta"><span class="p-tag">Drones</span></div>
+      <div class="p-title">FPV Racing Drones, 3 Custom Builds</div>
+      <div class="p-sum">3 FPV racing drones van nul af aan gebouwd: solderen, programmeren en tunen.</div>
+      <div class="p-foot">
+        <div class="chips"><span class="chip">Solderen</span><span class="chip">Programmeren</span><span class="chip">Drone assembly</span><span class="chip">ESC tuning</span><span class="chip">Betaflight programeren</span></div>
+        <span class="p-arr">&rarr;</span>
+      </div>
+      <div class="p-body">
+        <div class="p-body-inner">
+          <div class="p-body-content">
+            <div class="p-text"><p>FPV drones zijn een passie van mij, het gevoel van speed en controle is onbeschrijfelijk. In plaats van kant-en-klare drones te kopen, heb ik 3 custom builds gemaakt: ESCs solderen, flight controllers programmeren, frames assembleren en alles fine-tunen voor optimale performance.</p><p>Begonnen met twee 5-inch drones: eerst analoge beeldoverdracht, daarna overgestapt naar een DJI Digital FPV-systeem (1080p 60fps, latency ~40ms). De 3-inch is voor rustiger vliegen. Een groot deel van het leerproces zat in begrijpen wat elk component in de drone doet en hoe alles met elkaar in verhouding staat. Alles is op elkaar afgestemd, van propellerkeuze en motorgewikkeling tot accucapaciteit, zodat de drone zo snel en responsief mogelijk reageert (~20ms per input).</p><p>Vliegen met een FPV drone is een compleet andere wereld dan een DJI drone. In 3D-modus houdt de drone geen rekening meer met waar de grond is: je kunt hem omkeren, rollen en de meest extreme manoeuvres uitvoeren die bij een gewone drone simpelweg onmogelijk zijn.</p></div>
+            <div class="p-nav">
+              <button class="p-nav-btn p-nav-prev" type="button" data-go="kabelboom">
+                <span class="p-nav-dir">&#8592; Vorig project</span>
+                <span class="p-nav-name">Kabelboom Boot (Piranha Espada)</span>
+              </button>
+              <button class="p-nav-btn p-nav-next" type="button" data-go="watersysteem">
+                <span class="p-nav-dir">Volgend project &#8594;</span>
+                <span class="p-nav-name">Automatisch Watersysteem</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div></div>
+<div class="proj-card" tabindex="0" role="button" aria-label="Automatisch Watersysteem" aria-expanded="false" data-id="watersysteem">
+      <button class="p-close" type="button" aria-label="Project sluiten">&#10005;</button>
+      
+      <div class="p-meta"><span class="p-tag">Automatisering</span></div>
+      <div class="p-title">Automatisch Watersysteem</div>
+      <div class="p-sum">Automatisch irrigatiesysteem voor een vergaderruimte bij The Field, Leiden.</div>
+      <div class="p-foot">
+        <div class="chips"><span class="chip">Microcontroller</span><span class="chip">Sensoren</span><span class="chip">Automatisering</span></div>
+        <span class="p-arr">&rarr;</span>
+      </div>
+      <div class="p-body">
+        <div class="p-body-inner">
+          <div class="p-body-content">
+            <div class="p-text"><p>Als schoolproject bij The Field in Leiden ontwikkelde ik een volledig automatisch watersysteem voor de beplanting in een vergaderruimte. Het systeem bestaat uit magnetische kleppen die de watertoevoer regelen, waterlekslangen die het water gelijkmatig verdelen, een pomp en een combinatie van vochtweerstands- en temperatuursensoren die continu de omstandigheden meten. Op basis van die sensordata stuurt de microcontroller de pomp en kleppen automatisch aan.</p><p>Dit deed ik samen met een medestudent; we waren gezamenlijk verantwoordelijk voor het complete systeem, van concept en hardware-ontwerp tot een werkende installatie. IT-studenten hebben de automatisering later verder verbeterd.</p></div>
+            <div class="p-nav">
+              <button class="p-nav-btn p-nav-prev" type="button" data-go="drones">
+                <span class="p-nav-dir">&#8592; Vorig project</span>
+                <span class="p-nav-name">FPV Racing Drones, 3 Custom Builds</span>
+              </button>
+              <button class="p-nav-btn p-nav-next" type="button" data-go="closure-unit">
+                <span class="p-nav-dir">Volgend project &#8594;</span>
+                <span class="p-nav-name">Closure Unit, TNO</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div></div>
+<!-- PRERENDER:END --></div>
       <button class="rail-arr rail-next" id="rail-next" type="button" aria-label="Volgende projecten" data-nl-aria="Volgende projecten" data-en-aria="Next projects">&#8594;</button>
     </div>
     <div class="rail-dots" id="rail-dots"></div>
@@ -1384,9 +1666,8 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
       Heb je een technisch probleem of een idee dat gebouwd moet worden? Stuur een mail, dan plannen we een vrijblijvend gesprek.
     </p>
     <form class="contact-form rev rev-d1" id="contact-form" novalidate>
-      <!-- Vul hieronder je Web3Forms access key in (gratis via web3forms.com):
-           zonder key komt er geen bericht aan. -->
-      <input type="hidden" name="access_key" value="JOUW-ACCESS-KEY-HIER">
+      <!-- Web3Forms: berichten gaan naar het e-mailadres waarmee deze key is aangevraagd -->
+      <input type="hidden" name="access_key" value="49c28c03-596f-46b6-b730-e1c8564261f4">
       <input type="hidden" name="from_name" value="daanvanbeelen.com">
       <!-- Honeypot: onzichtbaar voor mensen, bots vullen dit wel in -->
       <div class="hp-wrap" aria-hidden="true">
@@ -1798,7 +2079,7 @@ function setLang(l){
 ══════════════════════════════════════════ */
 /* Volgorde op de site: technisch bewijs eerst, ondernemerschap daarna.
    Een id hier weglaten haalt dat project van de site af. */
-const PROJECT_ORDER = ['led-cube','closure-unit','kabelboom','ebike','testsystemen','vbcustoms','watersysteem','drones'];
+const PROJECT_ORDER = ['closure-unit','vbcustoms','testsystemen','led-cube','ebike','kabelboom','drones','watersysteem'];
 
 function renderProjects(){
   const grid = document.getElementById('proj-grid');
@@ -2287,7 +2568,8 @@ renderProjects();
     }
 
     const data = Object.fromEntries(new FormData(form));
-    data.subject = `${data.onderwerp} — bericht via daanvanbeelen.com`;
+    data.subject = `${data.onderwerp} via daanvanbeelen.com`;
+    if(!data.telefoon) delete data.telefoon;             // leeg veld niet als lege regel meesturen
     if(!data.access_key || data.access_key.startsWith('JOUW-')){
       zeg(nl ? 'Het formulier is nog niet gekoppeld. Mail zolang direct naar daan.hvs@gmail.com.'
              : 'The form is not connected yet. Please email daan.hvs@gmail.com directly.', 'err');
