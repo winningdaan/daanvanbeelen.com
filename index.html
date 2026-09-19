@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Daan van Beelen | Mechatronica Engineer</title>
-<meta name="description" content="Daan van Beelen, Mechatronica Engineer uit Wassenaar. Portfolio met projecten in hardware, elektronica, PCB-ontwerp, 3D-printen en automatisering.">
+<title>Daan van Beelen | Prototypes en onderdelen op maat</title>
+<meta name="description" content="Prototypebouw en onderdelen op maat door Daan van Beelen (DJVB Solutions). Van idee tot werkend resultaat: elektronica, PCB-ontwerp en 3D-printen.">
 <meta name="theme-color" content="#0b101c">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://daanvanbeelen.com/">
-<meta property="og:title" content="Daan van Beelen | Mechatronica Engineer">
-<meta property="og:description" content="Portfolio met projecten in hardware, elektronica, PCB-ontwerp, 3D-printen en automatisering.">
+<meta property="og:title" content="Daan van Beelen | Prototypes en onderdelen op maat">
+<meta property="og:description" content="Prototypebouw, onderdelen op maat en technische oplossingen. Van idee tot werkend resultaat: elektronica, PCB-ontwerp, SolidWorks en 3D-printen.">
 <meta property="og:image" content="https://daanvanbeelen.com/media/me2.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Daan van Beelen | Mechatronica Engineer">
-<meta name="twitter:description" content="Portfolio met projecten in hardware, elektronica, PCB-ontwerp, 3D-printen en automatisering.">
+<meta name="twitter:title" content="Daan van Beelen | Prototypes en onderdelen op maat">
+<meta name="twitter:description" content="Prototypebouw, onderdelen op maat en technische oplossingen. Van idee tot werkend resultaat: elektronica, PCB-ontwerp, SolidWorks en 3D-printen.">
 <meta name="twitter:image" content="https://daanvanbeelen.com/media/me2.jpg">
 <link rel="canonical" href="https://daanvanbeelen.com/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23080b12'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233b82f6'/%3E%3Cstop offset='1' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ctext x='16' y='22' font-family='Arial Black,sans-serif' font-size='13' font-weight='900' text-anchor='middle' fill='url(%23g)'%3EDvB%3C/text%3E%3C/svg%3E">
@@ -56,25 +56,28 @@ const PROJECTS = [
   // },
 
   { tag_nl:"R&D / Defence", tag_en:"R&D / Defence",
+    id:"closure-unit",
     title_nl:"Closure Unit, TNO", title_en:"Closure Unit, TNO",
-    date_nl:"feb 2025", date_en:"Feb 2025",
     summary_nl:"Van idee tot werkend meetsysteem in 10 weken, zelfstandig ontwikkeld bij TNO Defence.",
     summary_en:"From idea to working measurement system in 10 weeks, independently developed at TNO Defence.",
-    body_nl:`<p>Voor TNO heb ik een closure unit ontwikkeld die snelle en betrouwbare data-acquisitie mogelijk maakt. Met 12 BNC-inputs en outputs registreert hij closure signalen (kortsluitcontacten) stabiel en tot een bepaald punt storingsvrij, zodat nauwkeurige metingen kunnen plaatsvinden.</p><p>Van plan en componentkeuze tot het ontwerp van de elektronica: ik heb het project van A tot Z geleid. De PCB's heb ik zelf getekend en gesoldeerd met SMD-componenten.</p><p>Ik kan niet te diep ingaan op de onderzoeksdetails, maar het ontwikkelen van deze closure unit was een geweldige ervaring die ik samen met collega's bij TNO heb mogen uitvoeren.</p>`,
-    body_en:`<p>For TNO I developed a closure unit that enables fast and reliable data acquisition. With 12 BNC inputs and outputs, it records closure signals (short-circuit contacts) stably and up to a certain point interference-free, ensuring accurate measurements.</p><p>From planning and component selection to designing the electronics: I led the project from A to Z. I drew and soldered the PCBs myself using SMD components.</p><p>I cannot go into the research details, but developing this closure unit was a fantastic experience that I had the privilege of executing together with colleagues at TNO.</p>`,
+    body_nl:`<p>Voor TNO heb ik een closure unit ontwikkeld die snelle en betrouwbare data-acquisitie mogelijk maakt. Het zet closure-signalen (kortsluitcontacten) om naar bruikbare TTL-signalen, zodat maximaal 12 kanalen gelijktijdig en storingsvrij gemeten kunnen worden.</p><p>Van plan en componentkeuze tot het ontwerp van de elektronica: ik heb het project van A tot Z geleid. De PCB's heb ik zelf getekend en gesoldeerd met SMD-componenten.</p><p>Ik kan niet te diep ingaan op de onderzoeksdetails, maar het ontwikkelen van deze closure unit was een geweldige ervaring die ik samen met collega's bij TNO heb mogen uitvoeren.</p>`,
+    body_en:`<p>For TNO I developed a closure unit that enables fast and reliable data acquisition. It converts closure signals (short-circuit contacts) into usable TTL signals, so up to 12 channels can be measured simultaneously and interference-free.</p><p>From planning and component selection to designing the electronics: I led the project from A to Z. I drew and soldered the PCBs myself using SMD components.</p><p>I cannot go into the research details, but developing this closure unit was a fantastic experience that I had the privilege of executing together with colleagues at TNO.</p>`,
     chips:["PCB ontwerp","SMD solderen","Data-acquisitie"],
     images: ["media/closure_unit.jpg"] },
 
   { tag_nl:"Elektronica", tag_en:"Electronics",
+    id:"led-cube",
     title_nl:"LED Cube Project, Eindproject", title_en:"LED Cube Project, Final Project",
     summary_nl:"Eindproject Technicus Engineering: een 4×4×4 LED cube met multiplexing en eigen PCB design.",
     summary_en:"Final project Technicus Engineering: a 4×4×4 LED cube with multiplexing and custom PCB design.",
     body_nl:`<p>Dit eindproject voor het laatste jaar van Technicus Engineering was het meest uitdagende project dat ik tot dan toe had gemaakt. In 10 schoolweken bouwde ik van nul een volledig werkend prototype met multiplexing: de techniek om 64 LEDs individueel aan te sturen met slechts 7 uitgangen.</p><p>Alles is volledig eigen ontwerp: het elektrische schema, de PCB, de software en de kunststof behuizing (ontworpen in SolidWorks en geprint op een Ultimaker 3D printer), aangevuld met op maat gesneden plexiglas.</p><p>Multiplexing werkt via een matrix: je stuurt rijen en kolommen apart aan, zodat je met weinig uitgangen toch elk punt afzonderlijk kunt bedienen. Ditzelfde principe zit verwerkt in LED-displays, toetsenbordmatrixen en beeldschermen. Dit project gaf mij een sterke basis voor dat soort concepten.</p>`,
     body_en:`<p>This final project for the last year of Technicus Engineering was the most challenging project I had built up to that point. In 10 school weeks I built a fully functional prototype from scratch using multiplexing: the technique of individually controlling 64 LEDs with just 7 outputs.</p><p>Everything is custom-designed: the electrical schematic, PCB, software, and plastic enclosure (designed in SolidWorks and printed with an Ultimaker 3D printer), plus custom-cut plexiglass.</p><p>Multiplexing works through a matrix: you address rows and columns separately, so with few outputs you can still control every point individually. The same principle is used in LED displays, keyboard matrices and screens. This project gave me a solid foundation for those kinds of concepts.</p>`,
     chips:["Multiplexing","KiCad","PCB ontwerp in KiCad","Solderen","Arduino","3D printen"],
-    images: ["media/led_cube.png","media/led_cube_schema.jpg","media/led_cube_print.png"] },
+    images: ["media/led_cube.png","media/led_cube_schema.jpg","media/led_cube_print.png"],
+    thumbFocus: "50% 25%" },
 
   { tag_nl:"Elektronica & Mechanisch", tag_en:"Electronics & Mechanical",
+    id:"ebike",
     title_nl:"Eigen E-bike Ontwikkeling", title_en:"Custom E-bike Build",
     summary_nl:"Zelfstandig een e-bike gebouwd van ontwerp tot rijklaar concept.",
     summary_en:"Independently built an e-bike from design to road-ready concept.",
@@ -84,26 +87,27 @@ const PROJECTS = [
     images: ["media/ebike_build.jpg", "media/ebike_schema.png"] },
 
   { tag_nl:"Bedrijf / Elektrisch & Mechanisch", tag_en:"Business / Electrical & Mechanical",
+    id:"vbcustoms",
     title_nl:"VB Customs, Scooters & Klanten", title_en:"VB Customs, Scooters & Clients",
-    date_nl:"jun 2024", date_en:"Jun 2024",
     summary_nl:"Eigen bedrijf opgericht: customizen, onderhoud en verkoop van Vespa's voor klanten.",
     summary_en:"Founded own business: customising, maintenance and sales of Vespa scooters for clients.",
-    body_nl:`<p>Via VBcustoms heb ik veel klanten geholpen met het aanpassen en onderhouden van hun Vespa's, en heel veel Vespa's verkocht, soms wel 7 per week! Werkzaamheden omvatten echt alles: motoronderhoud, elektra aanpassen, remsysteem, storingen opsporen en oplossen, en opvoeren. Elk project was anders en vroeg om een andere aanpak, wat het erg interessant maakte en me enorm veel heeft geleerd. Van simpele onderhoudsbeurten tot complexe elektrische problemen: geen dag was hetzelfde.</p><p>Naast het technische werk runde ik het volledige bedrijf zelfstandig: klantcontact, offertes, facturen en inkoop van onderdelen. Een unieke combinatie van technisch vakmanschap en ondernemerschap. Aan VBcustoms heb ik meer dan 100 tevreden klanten overgehouden, en een mooi netwerk dat ik tot op de dag van vandaag koester.</p>`,
-    body_en:`<p>Through VBcustoms I helped many clients with customising and maintaining their Vespas, and sold a lot of Vespas, sometimes up to 7 per week! Work included literally everything: engine maintenance, electrical modifications, brake systems, diagnosing and fixing faults, and performance tuning. Each project was different and required a different approach, which made it very interesting and taught me an enormous amount. From simple service jobs to complex electrical problems: no two days were the same.</p><p>Beyond the technical work, I ran the entire business independently: client contact, quotes, invoices, and parts purchasing. A unique combination of technical craftsmanship and entrepreneurship. VBcustoms left me with more than 100 satisfied customers, and a great network that I value to this day.</p>`,
+    body_nl:`<p>Via VB Customs hebben we veel klanten geholpen met het aanpassen en onderhouden van hun Vespa- en Tomos-brommers, met ruim 100 verkochte brommers. Werkzaamheden omvatten echt alles: motoronderhoud, elektra aanpassen, remsysteem, storingen opsporen en oplossen, en opvoeren. Onderdelen die niet te koop waren, heb ik zelf op maat ontworpen en 3D-geprint. Elk project was anders en vroeg om een andere aanpak, wat het erg interessant maakte en me enorm veel heeft geleerd. Van simpele onderhoudsbeurten tot complexe elektrische problemen: geen dag was hetzelfde.</p><p>Het bedrijf runde ik samen met een compagnon: ik deed de inkoop, offertes, facturatie en boekhouding, mijn compagnon de verkoop en voorraad. Het bedrijf hebben we vanaf nul opgebouwd, inclusief KVK-inschrijving, huisstijl en belastingadministratie. Een unieke combinatie van technisch vakmanschap en ondernemerschap, waar ik een mooi netwerk aan heb overgehouden.</p>`,
+    body_en:`<p>Through VB Customs we helped many clients with customising and maintaining their Vespa and Tomos scooters, with over 100 scooters sold. Work included literally everything: engine maintenance, electrical modifications, brake systems, diagnosing and fixing faults, and performance tuning. Parts that weren't for sale, I designed to size myself and 3D-printed. Each project was different and required a different approach, which made it very interesting and taught me an enormous amount. From simple service jobs to complex electrical problems: no two days were the same.</p><p>I ran the business together with a partner: I handled purchasing, quotes, invoicing and bookkeeping, my partner sales and stock. We built the business from scratch, including chamber of commerce registration, branding and tax administration. A unique combination of technical craftsmanship and entrepreneurship, which left me with a great network.</p>`,
     chips:["Klantcontact","Mechanisch onderhoud","Ondernemerschap"],
-    images: ["media/brommers.jpg","media/werken.jpg","media/zip.jpg","media/tomos.jpg"] },
+    images: ["media/naast_scooters1.jpg","media/naast_tomos.jpg","media/vier_scooters.jpg","media/werken.jpg","media/zip.jpg"] },
 
   { tag_nl:"Elektronica", tag_en:"Electronics",
-    title_nl:"PCB Ontwerp & Testkasten, Head Electronics", title_en:"PCB Design & Test Cabinets, Head Electronics",
-    date_nl:"mrt 2023", date_en:"Mar 2023",
-    summary_nl:"Printplaten (PCBs) ontworpen, SMD gesoldeerd en bijgedragen aan testkasten bij Head Electronics.",
-    summary_en:"Designed PCBs, hand-soldered SMD components, and contributed to test cabinets at Head Electronics.",
-    body_nl:`<p>Tijdens mijn stage bij Head Electronics B.V. in Katwijk aan Zee hield ik me vooral bezig met het testen van printplaten (PCB's): controleren of ze goed functioneren. Dat testen heb ik geautomatiseerd, zodat er meer testen uitgevoerd konden worden. De printplaat gaat daarbij in een testkast, die vervolgens via software een reeks stappen doorloopt om meerdere componenten achter elkaar te testen. Daarnaast ontwierp en soldeerde ik zelf printplaten met SMD-componenten (Surface Mount Devices): minuscule onderdelen die direct op het oppervlak van de printplaat worden gesoldeerd.</p><p>Samen met het testengineeringteam ontwikkelde ik drie producten die uiteindelijk in de testkasten zijn toegepast. Een van die producten loste een hardnekkig probleem op met een Intel NUC minicomputer: de USB-poorten van de NUC hadden moeite met het gelijktijdig opstarten van meerdere USB-apparaten, waardoor sommige apparaten niet herkend werden. Mijn oplossing was een RC-kring, een eenvoudige schakeling met een weerstand (R) en een condensator (C). De condensator laadt langzaam op via de weerstand, waardoor een tijdvertraging ontstaat. De apparaten starten nog steeds tegelijk op, maar niet meer direct met de Intel NUC zelf, waardoor de NUC elk apparaat nu wel netjes herkent.</p>`,
-    body_en:`<p>During my internship at Head Electronics B.V. in Katwijk aan Zee, I mainly focused on testing PCBs: verifying that they function correctly. I automated that testing, so more tests could be carried out. The PCB goes into a test cabinet, which then runs through a series of software-driven steps to test multiple components one after another. I also designed and soldered PCBs myself using SMD components (Surface Mount Devices): tiny parts soldered directly onto the surface of the board.</p><p>Together with the test engineering team, I developed three products that were ultimately integrated into test cabinets. One of those products solved a persistent problem with an Intel NUC mini computer: the NUC's USB ports struggled when multiple USB devices powered up simultaneously, causing some devices not to be recognised. My solution was an RC circuit, a simple circuit with a resistor (R) and a capacitor (C). The capacitor charges slowly through the resistor, creating a time delay. The devices still start up at the same time, but no longer directly with the Intel NUC itself, so the NUC now recognises every device properly.</p>`,
+    id:"testsystemen",
+    title_nl:"Testsystemen & PCB-ontwerp, Mach Technology", title_en:"Test Systems & PCB Design, Mach Technology",
+    summary_nl:"Geautomatiseerde testsystemen ontwikkeld en eigen PCB's ontworpen en gesoldeerd bij Mach Technology.",
+    summary_en:"Developed automated test systems and designed and soldered custom PCBs at Mach Technology.",
+    body_nl:`<p>Tijdens mijn stage bij Mach Technology (voorheen Head Electronics B.V.) in Katwijk aan Zee hield ik me vooral bezig met het testen van printplaten (PCB's): controleren of ze goed functioneren. Dat testen heb ik geautomatiseerd, zodat er meer testen uitgevoerd konden worden. De printplaat gaat daarbij in een testkast, die vervolgens via software een reeks stappen doorloopt om meerdere componenten achter elkaar te testen. Daarnaast ontwierp en soldeerde ik zelf printplaten met SMD-componenten (Surface Mount Devices): minuscule onderdelen die direct op het oppervlak van de printplaat worden gesoldeerd.</p><p>Samen met het testengineeringteam ontwikkelde ik drie producten die uiteindelijk in de testkasten zijn toegepast. Een van die producten loste een hardnekkig probleem op met een Intel NUC minicomputer: de USB-poorten van de NUC hadden moeite met het gelijktijdig opstarten van meerdere USB-apparaten, waardoor sommige apparaten niet herkend werden. Mijn oplossing was een RC-kring, een eenvoudige schakeling met een weerstand (R) en een condensator (C). De condensator laadt langzaam op via de weerstand, waardoor een tijdvertraging ontstaat. De apparaten starten nog steeds tegelijk op, maar niet meer direct met de Intel NUC zelf, waardoor de NUC elk apparaat nu wel netjes herkent.</p>`,
+    body_en:`<p>During my internship at Mach Technology (formerly Head Electronics B.V.) in Katwijk aan Zee, I mainly focused on testing PCBs: verifying that they function correctly. I automated that testing, so more tests could be carried out. The PCB goes into a test cabinet, which then runs through a series of software-driven steps to test multiple components one after another. I also designed and soldered PCBs myself using SMD components (Surface Mount Devices): tiny parts soldered directly onto the surface of the board.</p><p>Together with the test engineering team, I developed three products that were ultimately integrated into test cabinets. One of those products solved a persistent problem with an Intel NUC mini computer: the NUC's USB ports struggled when multiple USB devices powered up simultaneously, causing some devices not to be recognised. My solution was an RC circuit, a simple circuit with a resistor (R) and a capacitor (C). The capacitor charges slowly through the resistor, creating a time delay. The devices still start up at the same time, but no longer directly with the Intel NUC itself, so the NUC now recognises every device properly.</p>`,
     chips:["KiCad","SMD solderen"],
     images: ["media/head_pcb.png","media/head_pcb2.jpg"] },
 
   { tag_nl:"Drones", tag_en:"Drones",
+    id:"drones",
     title_nl:"FPV Racing Drones, 3 Custom Builds", title_en:"FPV Racing Drones, 3 Custom Builds",
     summary_nl:"3 FPV racing drones van nul af aan gebouwd: solderen, programmeren en tunen.",
     summary_en:"Built 3 FPV racing drones from scratch: soldering, programming and tuning.",
@@ -113,6 +117,7 @@ const PROJECTS = [
     images: ["media/drone.jpg","media/drone1.jpg","media/drone3.jpg"] },
 
   { tag_nl:"Reparatie & Restauratie", tag_en:"Repair & Restoration",
+    id:"iphone",
     title_nl:"iPhone 12 Restauratie, Volledige Overhaul", title_en:"iPhone 12 Restoration, Full Overhaul",
     summary_nl:"iPhone 12 volledig gerestaureerd: accu, frame, glas achterkant, scherm en oplaadpoort.",
     summary_en:"iPhone 12 fully restored: battery, frame, rear glass, screen and charging port.",
@@ -122,21 +127,22 @@ const PROJECTS = [
     images: ["media/iphone1.jpg","media/iphone2.jpg"] },
 
   { tag_nl:"Mechanisch / Elektrisch", tag_en:"Mechanical / Electrical",
+    id:"kabelboom",
     title_nl:"Kabelboom Boot (Piranha Espada)", title_en:"Boat Wiring Harness (Piranha Espada)",
     summary_nl:"Kabelboom ontworpen en gemonteerd in een Piranha Espada speedboot.",
     summary_en:"Designed and mounted a wiring harness in a Piranha Espada speedboat.",
-    body_nl:`<p>De aanleiding voor dit project was oxydatie: de originele kabels van de boot waren zo aangetast dat ze niet meer betrouwbaar werkten. In plaats van losse kabels te vervangen, ontwierp en monteerde ik een volledig nieuwe kabelboom van nul af aan en sloot alle elektrische systemen opnieuw aan. Van schematekening tot definitieve installatie en test.</p><p>Ik installeerde onder andere: 4 waterdichte speakers met een subwoofer, LED-verlichting, navigatieverlichting, een radio, contactslot, powertrim, accu en killswitch. Daarnaast voegde ik een hoofdrelais toe, zodat alle systemen centraal en veilig onderbroken kunnen worden. Alles is netjes georganiseerd in een controlepaneel zodat de bediening overzichtelijk blijft.</p><p>Het project vereiste nauwkeurig werken in een beperkte ruimte en gedegen kennis van marine elektra.</p>`,
-    body_en:`<p>The reason for this project was oxidation: the boat's original cables had deteriorated so badly they were no longer reliable. Instead of replacing individual cables, I designed and mounted a complete new wiring harness from scratch and reconnected all electrical systems. From schematic drawing to final installation and testing.</p><p>I installed among other things: 4 waterproof speakers with a subwoofer, LED lighting, navigation lights, a radio, ignition switch, power trim, battery and kill switch. I also added a main relay, so all systems can be centrally and safely disconnected. Everything is neatly organised in a control panel for a clean and logical layout.</p><p>The project required precision work in a confined space and solid knowledge of marine electrical systems.</p>`,
+    body_nl:`<p>De aanleiding voor dit project was oxydatie: de originele kabels van de boot waren zo aangetast dat ze niet meer betrouwbaar werkten. In plaats van losse kabels te vervangen, ontwierp en monteerde ik een volledig nieuwe kabelboom van nul af aan en sloot alle elektrische systemen opnieuw aan. Van schematekening tot definitieve installatie en test.</p><p>Ik installeerde onder andere: 4 waterdichte speakers met een subwoofer, LED-verlichting, navigatieverlichting, een radio, contactslot, powertrim, accu en killswitch. Daarnaast voegde ik een hoofdrelais toe, zodat alle systemen centraal en veilig onderbroken kunnen worden. Alles is netjes georganiseerd in een controlepaneel zodat de bediening overzichtelijk blijft.</p><p>Het project vereiste nauwkeurig werken in een beperkte ruimte en gedegen kennis van marine elektra.</p><p>Daarnaast heb ik voor boten verschillende maatwerkonderdelen ontworpen en 3D-geprint, voor dingen die nergens kant-en-klaar te koop zijn.</p>`,
+    body_en:`<p>The reason for this project was oxidation: the boat's original cables had deteriorated so badly they were no longer reliable. Instead of replacing individual cables, I designed and mounted a complete new wiring harness from scratch and reconnected all electrical systems. From schematic drawing to final installation and testing.</p><p>I installed among other things: 4 waterproof speakers with a subwoofer, LED lighting, navigation lights, a radio, ignition switch, power trim, battery and kill switch. I also added a main relay, so all systems can be centrally and safely disconnected. Everything is neatly organised in a control panel for a clean and logical layout.</p><p>The project required precision work in a confined space and solid knowledge of marine electrical systems.</p><p>I have also designed and 3D-printed various custom parts for boats, for things you can't buy off the shelf anywhere.</p>`,
     chips:["Kabelboom","Schematekening in KiCad"],
-    images: ["media/speedboot_paneel.jpg","media/speedboot_speaker.jpg"] },
+    images: ["media/speedboot.jpg","media/speedboot_paneel.jpg","media/speedboot_speaker.jpg"] },
 
   { tag_nl:"Automatisering", tag_en:"Automation",
+    id:"watersysteem",
     title_nl:"Automatisch Watersysteem", title_en:"Automatic Water System",
-    date_nl:"feb 2024", date_en:"Feb 2024",
     summary_nl:"Automatisch irrigatiesysteem voor een vergaderruimte bij The Field, Leiden.",
     summary_en:"Automated irrigation system for a meeting room at The Field, Leiden.",
-    body_nl:`<p>Als schoolproject bij The Field in Leiden ontwikkelde ik een volledig automatisch watersysteem voor de beplanting in een vergaderruimte. Het systeem bestaat uit magnetische kleppen die de watertoevoer regelen, waterlekslangen die het water gelijkmatig verdelen, een pomp en een combinatie van vochtweerstands- en temperatuursensoren die continu de omstandigheden meten. Op basis van die sensordata stuurt de microcontroller de pomp en kleppen automatisch aan.</p><p>Het team bestond uit studenten van een andere studie, waardoor ik ook leerde samenwerken over vakgebieden heen. Na de basisversie werkten we samen aan verdere uitbreidingen zoals remote monitoring en logging van historische data.</p>`,
-    body_en:`<p>As a school project at The Field in Leiden, I developed a fully automatic watering system for the plants in a meeting room. The system consists of magnetic valves that control the water supply, drip hoses that distribute water evenly, a pump, and a combination of moisture resistance sensors and temperature sensors that continuously monitor conditions. Based on that sensor data, the microcontroller automatically controls the pump and valves.</p><p>The team consisted of students from a different course of study, which also taught me how to collaborate across disciplines. After the initial version, we worked together on further extensions such as remote monitoring and logging of historical data.</p>`,
+    body_nl:`<p>Als schoolproject bij The Field in Leiden ontwikkelde ik een volledig automatisch watersysteem voor de beplanting in een vergaderruimte. Het systeem bestaat uit magnetische kleppen die de watertoevoer regelen, waterlekslangen die het water gelijkmatig verdelen, een pomp en een combinatie van vochtweerstands- en temperatuursensoren die continu de omstandigheden meten. Op basis van die sensordata stuurt de microcontroller de pomp en kleppen automatisch aan.</p><p>Dit deed ik samen met een medestudent; we waren gezamenlijk verantwoordelijk voor het complete systeem, van concept en hardware-ontwerp tot een werkende installatie. IT-studenten hebben de automatisering later verder verbeterd.</p>`,
+    body_en:`<p>As a school project at The Field in Leiden, I developed a fully automatic watering system for the plants in a meeting room. The system consists of magnetic valves that control the water supply, drip hoses that distribute water evenly, a pump, and a combination of moisture resistance sensors and temperature sensors that continuously monitor conditions. Based on that sensor data, the microcontroller automatically controls the pump and valves.</p><p>I did this together with a fellow student; we were jointly responsible for the complete system, from concept and hardware design to a working installation. IT students later improved the automation further.</p>`,
     chips:["Microcontroller","Sensoren","Automatisering"],
     images: [] }
 ];
@@ -332,6 +338,7 @@ nav.scrolled.scrolling{
   pointer-events:none;
 }
 .char.sp{display:inline-block;width:.24em;opacity:1}
+#hero-name .word{display:inline-block;white-space:nowrap}
 @keyframes charDrop{
   0%{opacity:0;transform:translateY(46px);filter:blur(10px)}
   100%{opacity:1;transform:translateY(0);filter:blur(0)}
@@ -453,6 +460,72 @@ nav.scrolled.scrolling{
 .fact+.fact{border-top:1px solid rgba(255,255,255,.05)}
 .fact-icon{font-size:1.05rem;flex-shrink:0;width:26px;text-align:center;color:var(--accent)}
 
+/* ── DIENSTEN ── */
+.svc-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;text-align:left;
+}
+@media(max-width:820px){.svc-grid{grid-template-columns:1fr}}
+.svc-card-wide{grid-column:1/-1}
+@media(min-width:821px){.svc-card-wide{flex-direction:row;flex-wrap:wrap;align-items:flex-start;gap:0 1.6rem}
+  .svc-card-wide .svc-icon{margin-bottom:0}
+  .svc-card-wide .svc-title{width:calc(100% - 68px);margin-top:.5rem}
+  .svc-card-wide .svc-text,.svc-card-wide .svc-tags,.svc-card-wide .svc-proof{width:100%}
+}
+.svc-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:2rem 1.9rem;
+  display:flex;flex-direction:column;
+  transition:border-color .45s var(--ease),transform .45s var(--ease),box-shadow .45s var(--ease),background .45s;
+}
+.svc-card:hover{
+  border-color:var(--border-strong);transform:translateY(-4px);
+  background:rgba(255,255,255,.045);
+  box-shadow:0 26px 54px rgba(0,0,0,.45);
+}
+.svc-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:rgba(92,155,255,.09);border:1px solid rgba(92,155,255,.18);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);font-size:1.5rem;margin-bottom:1.2rem;
+}
+.svc-title{
+  font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:600;
+  letter-spacing:-.02em;margin-bottom:.7rem;
+}
+.svc-text{color:#aab4c4;font-size:.92rem;line-height:1.85;font-weight:300;margin-bottom:1.2rem}
+.svc-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.3rem}
+.svc-proof{
+  margin-top:auto;padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.06);
+  display:flex;flex-direction:column;gap:.5rem;
+}
+.svc-proof-label{
+  font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:.2em;
+  color:var(--accent);margin-bottom:.1rem;
+}
+.svc-proof-link{
+  font-size:.82rem;color:var(--muted);line-height:1.5;font-weight:300;
+  display:flex;gap:.5rem;align-items:flex-start;transition:color .3s;
+}
+.svc-proof-link::before{content:'▸';color:var(--accent);flex-shrink:0;font-size:.7rem;margin-top:.25rem}
+a.svc-proof-link:hover{color:var(--text)}
+.svc-cta{
+  margin-top:2.2rem;padding:2rem 1.9rem;
+  background:linear-gradient(135deg,rgba(92,155,255,.07),rgba(125,211,252,.03));
+  border:1px solid rgba(92,155,255,.16);border-radius:var(--r);
+  display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;
+}
+.svc-cta-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:.78rem;font-weight:600;letter-spacing:.04em;color:#c3cede;
+}
+.svc-dot{
+  width:7px;height:7px;border-radius:50%;background:#4ade80;
+  box-shadow:0 0 10px rgba(74,222,128,.8);animation:breathe 3.2s ease-in-out infinite;
+}
+.svc-cta-text{
+  color:var(--muted);font-size:.92rem;line-height:1.8;font-weight:300;max-width:540px;
+}
+
 /* ── SKILLS ── */
 .skills-grid{
   display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.8rem;
@@ -499,7 +572,44 @@ nav.scrolled.scrolling{
   margin-bottom:1.15rem;overflow:hidden;font-size:.72rem;color:var(--muted);
   letter-spacing:.08em;text-transform:uppercase;
 }
-.p-img img{width:100%;height:100%;object-fit:cover;border-radius:9px;transition:transform 1.2s var(--ease);filter:saturate(.92)}
+.p-img img{width:100%;height:100%;object-fit:cover;border-radius:9px;transition:transform 1.2s var(--ease),opacity .3s ease;filter:saturate(.92)}
+/* mobiel: grotere foto's, vlotter doorheen scrollen */
+@media(max-width:640px){
+  .p-img{height:360px;margin-bottom:1rem}
+}
+
+/* foto groeit mee bij het uitklappen */
+.p-img{position:relative;transition:height .55s var(--ease)}
+.proj-card.open .p-img{height:440px;cursor:zoom-in;background:rgba(0,0,0,.28)}
+.p-img img{object-position:var(--focus,50% 50%)}
+.proj-card.open .p-img img{object-fit:contain;object-position:center}
+@media(max-width:640px){.proj-card.open .p-img{height:430px}}
+/* navigatie alleen zichtbaar als de kaart openstaat */
+.p-img .m-arr,.p-img .m-dots{opacity:0;pointer-events:none;transition:opacity .35s ease}
+.proj-card.open .p-img .m-arr,.proj-card.open .p-img .m-dots{opacity:1;pointer-events:auto}
+.p-img .m-dots{position:absolute;left:0;right:0;bottom:12px;margin:0}
+.p-img .m-arr{z-index:4}
+
+/* ── PROJECT UITKLAPPEN ── */
+.p-body{
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .5s var(--ease),opacity .35s ease;
+}
+.proj-card.open .p-body{opacity:1}
+.p-body-content{
+  padding-top:1.3rem;margin-top:1.3rem;
+  border-top:1px solid rgba(255,255,255,.07);
+  display:grid;gap:1.4rem;align-items:start;
+}
+@media(min-width:900px){
+  .proj-card.open .p-text{max-width:820px}
+}
+.p-text{color:#aab4c4;font-size:.9rem;line-height:1.9;font-weight:300}
+.p-text p{margin-bottom:.8rem}
+.p-text p:last-child{margin-bottom:0}
+.proj-card.open{border-color:var(--border-strong);background:rgba(255,255,255,.045)}
+.proj-card.open .p-arr{transform:rotate(90deg);color:var(--accent2)}
+.proj-card.open .p-sum{opacity:.85}
 .proj-card:hover .p-img img{transform:scale(1.05)}
 
 /* ── EXPERIENCE ── */
@@ -529,12 +639,76 @@ nav.scrolled.scrolling{
 @media(max-width:560px){.tl-item{grid-template-columns:74px 1px 1fr;gap:0 1rem}.tl-date{font-size:.68rem}}
 
 /* ── PROJECTS ── */
+/* veegbare rij: horizontaal scrollen, per kaart vastklikken */
+.proj-rail{position:relative}
 .proj-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1.1rem;text-align:left;
+  display:flex;gap:1.1rem;text-align:left;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  padding:.5rem .25rem 1.6rem;margin:0 -.25rem;
+  scrollbar-width:none;overscroll-behavior-x:contain;
 }
-@media(max-width:900px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.proj-grid{grid-template-columns:1fr}}
+.proj-grid::-webkit-scrollbar{display:none}
+.proj-grid>.proj-card{flex:0 0 calc((100% - 2.2rem)/3);scroll-snap-align:start}
+@media(max-width:900px){.proj-grid>.proj-card{flex-basis:calc((100% - 1.1rem)/2)}}
+@media(max-width:640px){.proj-grid>.proj-card{flex-basis:86%}}
+
+/* open project: de rij maakt plaats voor één brede kaart */
+.proj-rail.has-open .proj-grid{overflow:visible;scroll-snap-type:none}
+.proj-rail.has-open .proj-grid>.proj-card:not(.open){display:none}
+.proj-rail.has-open .proj-grid>.proj-card.open{flex-basis:100%}
+
+/* pijlen naast de rij */
+.rail-arr{
+  position:absolute;top:42%;transform:translateY(-50%);z-index:5;
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(12,17,28,.92);border:1px solid var(--border-strong);color:var(--text);
+  display:flex;align-items:center;justify-content:center;font-size:1.05rem;cursor:pointer;
+  box-shadow:0 8px 24px rgba(0,0,0,.45);
+  transition:opacity .3s,background .3s,border-color .3s;
+}
+.rail-arr:hover{background:rgba(92,155,255,.3);border-color:rgba(92,155,255,.55)}
+.rail-prev{left:-18px}
+.rail-next{right:-18px}
+.rail-arr[disabled]{opacity:0;pointer-events:none}
+.proj-rail.has-open .rail-arr{display:none}
+@media(max-width:640px){.rail-arr{display:none}}
+
+/* stipjes onder de rij */
+.rail-dots{display:flex;justify-content:center;gap:7px;margin-top:.2rem;min-height:8px}
+.rail-dot{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.18);border:none;padding:0;cursor:pointer;transition:background .3s,width .3s var(--ease)}
+.rail-dot.on{background:var(--accent);width:22px}
+.proj-rail.has-open + .rail-dots{display:none}
+
+/* duidelijk kruisje rechtsboven in een open project */
+.p-close{
+  position:absolute;top:.9rem;right:.9rem;z-index:8;
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(8,12,20,.85);border:1px solid rgba(255,255,255,.28);color:#fff;
+  font-size:1.05rem;line-height:1;cursor:pointer;
+  display:none;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.5);
+  transition:background .3s,border-color .3s,transform .35s var(--ease);
+}
+.p-close:hover{background:rgba(92,155,255,.35);border-color:rgba(92,155,255,.6);transform:rotate(90deg)}
+.proj-card.open .p-close{display:flex}
+
+/* vorig / volgend project */
+.p-nav{
+  display:flex;justify-content:space-between;gap:1rem;
+  margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.07);
+}
+.p-nav-btn{
+  flex:1;max-width:48%;
+  background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;
+  padding:.8rem 1rem;color:var(--text);cursor:pointer;text-align:left;font-family:inherit;
+  display:flex;flex-direction:column;gap:.25rem;
+  transition:border-color .3s,background .3s;
+}
+.p-nav-btn:hover{border-color:var(--border-strong);background:rgba(255,255,255,.06)}
+.p-nav-next{text-align:right;align-items:flex-end}
+.p-nav-dir{font-size:.66rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+.p-nav-name{font-size:.86rem;font-weight:500;font-family:'Space Grotesk',sans-serif;line-height:1.35}
+@media(max-width:560px){.p-nav-name{display:none}.p-nav-btn{padding:.75rem .9rem}}
 .proj-card{
   background:var(--card);border:1px solid var(--border);
   border-radius:var(--r);padding:1.5rem;
@@ -654,6 +828,51 @@ nav.scrolled.scrolling{
 .modal-body p{margin-bottom:.85rem}
 .modal-chips{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.06)}
 
+/* ── CONTACTFORMULIER ── */
+.contact-form{
+  max-width:620px;margin:0 auto 2rem;text-align:left;
+  display:flex;flex-direction:column;gap:1rem;
+}
+.cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:560px){.cf-grid{grid-template-columns:1fr}}
+.cf-row{display:flex;flex-direction:column;gap:.4rem}
+.cf-hint{font-size:.64rem;font-weight:500;text-transform:none;letter-spacing:.02em;color:var(--accent);opacity:.85;margin-left:.3rem}
+.cf-hint.cf-opt{color:var(--muted);opacity:.7}
+.cf-label{
+  font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--muted);
+}
+.contact-form input[type=text],
+.contact-form input[type=email],
+.contact-form input[type=tel],
+.contact-form select,
+.contact-form textarea{
+  width:100%;padding:.8rem 1rem;
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--border);border-radius:11px;
+  color:var(--text);font-family:'Inter',sans-serif;font-size:.9rem;
+  transition:border-color .3s,background .3s;
+}
+.contact-form textarea{resize:vertical;min-height:120px;line-height:1.7}
+.contact-form select{appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239aa4b5' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.4rem}
+.contact-form select option{background:#121826;color:var(--text)}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{
+  outline:none;border-color:rgba(92,155,255,.5);background:rgba(255,255,255,.05);
+}
+/* pas rood nadat de bezoeker een veld verlaat of op verzenden klikt, niet bij het laden */
+.contact-form :user-invalid,
+.contact-form.cf-tried :invalid{border-color:rgba(248,113,113,.55)}
+.cf-submit{align-self:flex-start;margin-top:.3rem;cursor:pointer}
+.cf-submit[disabled]{opacity:.55;cursor:default}
+.cf-status{font-size:.85rem;line-height:1.6;min-height:1.2em}
+.cf-status.ok{color:#4ade80}
+.cf-status.err{color:#f87171}
+/* honeypot: onzichtbaar voor mensen, bots vullen het in */
+.hp-wrap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.cv-actions{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+
 /* ── CONTACT ── */
 .contact-intro{
   max-width:480px;margin:-1.4rem auto 2.4rem;
@@ -689,11 +908,20 @@ nav.scrolled.scrolling{
 
 /* ── FOOTER ── */
 footer{
-  text-align:center;padding:2.4rem;
+  text-align:center;padding:2.6rem 2.4rem;
   color:var(--muted);font-size:.74rem;letter-spacing:.06em;
   border-top:1px solid rgba(255,255,255,.05);position:relative;z-index:1;
   background:transparent;
 }
+.foot-brand{
+  font-family:'Bebas Neue',sans-serif;font-size:1.25rem;letter-spacing:2px;
+  background:linear-gradient(120deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:.35rem;
+}
+.foot-meta{margin-bottom:.5rem}
+.foot-sep{margin:0 .5rem;opacity:.5}
+.foot-copy{opacity:.6;font-size:.7rem}
 
 /* ── INTERACTIE: naam-animatie, mobiel menu, cursor-glow ── */
 body{-webkit-tap-highlight-color:transparent}
@@ -805,6 +1033,7 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
   <a href="#hero" class="nav-logo" aria-label="Terug naar boven">DvB</a>
   <div class="nav-links">
     <a href="#about"      data-nl="Over mij"    data-en="About">Over mij</a>
+    <a href="#diensten"   data-nl="Diensten"     data-en="Services">Diensten</a>
     <a href="#projects"   data-nl="Projecten"    data-en="Projects">Projecten</a>
     <a href="#skills"     data-nl="Vaardigheden" data-en="Skills">Vaardigheden</a>
     <a href="#experience" data-nl="Ervaring"     data-en="Experience">Ervaring</a>
@@ -821,6 +1050,7 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
 
 <div class="mobile-menu" id="mobile-menu">
   <a href="#about" data-nl="Over mij" data-en="About">Over mij</a>
+  <a href="#diensten" data-nl="Diensten" data-en="Services">Diensten</a>
   <a href="#projects" data-nl="Projecten" data-en="Projects">Projecten</a>
   <a href="#skills" data-nl="Vaardigheden" data-en="Skills">Vaardigheden</a>
   <a href="#experience" data-nl="Ervaring" data-en="Experience">Ervaring</a>
@@ -845,19 +1075,14 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
       data-en="Mechatronics Engineer">Mechatronica Engineer</p>
 
     <p class="hero-bio"
-      data-nl="Hardware, Mechanica, Automatisering"
-      data-en="Hardware, Mechanics, Automation">
-      Hardware, Mechanica, Automatisering
+      data-nl="Prototypes en onderdelen op maat, van idee tot werkend resultaat"
+      data-en="Prototypes and custom parts, from idea to working result">
+      Prototypes en onderdelen op maat, van idee tot werkend resultaat
     </p>
 
     <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary"   data-nl="Bekijk projecten →" data-en="View projects →">Bekijk projecten →</a>
-      <a href="#contact"  class="btn btn-secondary" data-nl="Contact"            data-en="Contact">Contact</a>
-    </div>
-
-    <div class="hero-stats">
-      <div><div class="stat-sub" data-nl="Sinds" data-en="Since">Sinds</div><div class="stat-num" id="exp-count">2023</div><div class="stat-label" data-nl="In de techniek" data-en="In tech">In de techniek</div></div>
-      <div><div class="stat-sub" aria-hidden="true">&nbsp;</div><div class="stat-num" id="proj-count">0</div><div class="stat-label" data-nl="Projecten"     data-en="Projects">Projecten</div></div>
+      <a href="#diensten" class="btn btn-primary"   data-nl="Bekijk diensten →" data-en="View services →">Bekijk diensten →</a>
+      <a href="#projects" class="btn btn-secondary" data-nl="Bekijk projecten"  data-en="View projects">Bekijk projecten</a>
     </div>
   </div>
 </section>
@@ -870,16 +1095,120 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
     <div class="s-line"></div>
     <div class="about-grid">
       <div class="about-text rev rev-d1">
-        <p data-nl="Welkom! Mijn naam is Daan van Beelen. Dit is mijn portfolio vol projecten waar elektronica, hardware, software en mechanica samenkomen. Ik vind het erg leuk om dingen te maken en bouwen, en ben ervan overtuigd dat de beste manier om te leren is door te doen, en daarom heb ik deze website zelf gebouwd! Ik hoop dat je zo een goeie indruk krijgt van wat ik heb gemaakt."
-           data-en="Welcome! My name is Daan van Beelen. This is my portfolio of projects where electronics, hardware, software and mechanics come together. I love making and building things, and I'm convinced the best way to learn is by doing, which is exactly why I built this website myself! I hope you get a good impression of what I've created.">
-          Welkom! Mijn naam is Daan van Beelen. Dit is mijn portfolio vol projecten waar elektronica, hardware, software en mechanica samenkomen. Ik vind het erg leuk om dingen te maken en bouwen, en ben ervan overtuigd dat de beste manier om te leren is door te doen, en daarom heb ik deze website zelf gebouwd! Ik hoop dat je zo een goeie indruk krijgt van wat ik heb gemaakt.
+        <p data-nl="Ik los technische problemen op van begin tot eind: uitzoeken wat er nodig is, de oplossing ontwerpen, onderdelen regelen en het bouwen. Mijn achtergrond ligt in elektronica, meetsystemen en mechatronica, met hands-on R&amp;D-ervaring bij TNO en bewezen ervaring met het runnen van mijn eigen technische bedrijf. Waar ik het meeste energie van krijg, is een vaag probleem omzetten in een werkend resultaat."
+           data-en="I solve technical problems from start to finish: working out what is needed, designing the solution, sourcing the parts and building it. My background is in electronics, measurement systems and mechatronics, with hands-on R&amp;D experience at TNO and proven experience running my own technical business. What gives me the most energy is turning a vague problem into a working result.">
+          Ik los technische problemen op van begin tot eind: uitzoeken wat er nodig is, de oplossing ontwerpen, onderdelen regelen en het bouwen. Mijn achtergrond ligt in elektronica, meetsystemen en mechatronica, met hands-on R&amp;D-ervaring bij TNO en bewezen ervaring met het runnen van mijn eigen technische bedrijf. Waar ik het meeste energie van krijg, is een vaag probleem omzetten in een werkend resultaat.
+        </p>
+        <p data-nl="Opdrachten neem ik aan onder de naam DJVB Solutions, van losse klussen tot een compleet traject."
+           data-en="I take on assignments under the name DJVB Solutions, from one-off jobs to a complete project.">
+          Opdrachten neem ik aan onder de naam DJVB Solutions, van losse klussen tot een compleet traject.
         </p>
       </div>
       <div class="about-facts rev rev-d2">
-        <div class="fact"><span class="fact-icon"><i class="ti ti-school"></i></span><span>Technicus Engineering</span></div>
+        <div class="fact"><span class="fact-icon"><i class="ti ti-briefcase"></i></span><span data-nl="DJVB Solutions, beschikbaar voor opdrachten" data-en="DJVB Solutions, available for projects">DJVB Solutions, beschikbaar voor opdrachten</span></div>
+        <div class="fact"><span class="fact-icon"><i class="ti ti-tools"></i></span><span data-nl="Elektronica, mechatronica &amp; meettechniek" data-en="Electronics, mechatronics &amp; measurement">Elektronica, mechatronica &amp; meettechniek</span></div>
         <div class="fact"><span class="fact-icon"><i class="ti ti-language"></i></span><span data-nl="Nederlands, Engels" data-en="Dutch, English">Nederlands, Engels</span></div>
-        <div class="fact"><span class="fact-icon"><i class="ti ti-map-pin"></i></span><span>Wassenaar, Nederland</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DIENSTEN ═══ -->
+<section id="diensten">
+  <div class="section-inner">
+    <p class="s-tag rev" data-nl="Wat ik voor je kan doen" data-en="What I can do for you">Wat ik voor je kan doen</p>
+    <h2 class="s-title"><span class="w" data-nl="Diensten" data-en="Services">Diensten</span></h2>
+    <div class="s-line"></div>
+
+    <div class="svc-grid">
+      <div class="svc-card rev rev-d1">
+        <div class="svc-icon"><i class="ti ti-cpu"></i></div>
+        <h3 class="svc-title" data-nl="Prototypebouw" data-en="Prototype building">Prototypebouw</h3>
+        <p class="svc-text"
+          data-nl="Van idee naar werkend prototype. Ik denk mee over wat er nodig is, ontwerp de elektronica en printplaat, teken de behuizing in SolidWorks en bouw het geheel. Inclusief solderen, testen en bijsturen tot het doet wat het moet doen."
+          data-en="From idea to working prototype. I think along about what's needed, design the electronics and PCB, model the enclosure in SolidWorks and build the whole thing. Including soldering, testing and iterating until it does what it should.">
+          Van idee naar werkend prototype. Ik denk mee over wat er nodig is, ontwerp de elektronica en printplaat, teken de behuizing in SolidWorks en bouw het geheel. Inclusief solderen, testen en bijsturen tot het doet wat het moet doen.
+        </p>
+        <div class="svc-tags">
+          <span class="chip" data-nl="Elektronica-ontwerp" data-en="Electronics design">Elektronica-ontwerp</span>
+          <span class="chip">KiCad / Altium</span>
+          <span class="chip" data-nl="SMD-solderen" data-en="SMD soldering">SMD-solderen</span>
+          <span class="chip">SolidWorks</span>
+          <span class="chip" data-nl="3D-printen" data-en="3D printing">3D-printen</span>
+        </div>
+        <div class="svc-proof">
+          <span class="svc-proof-label" data-nl="Voorbeeldprojecten" data-en="Example projects">Voorbeeldprojecten</span>
+          <a href="#projects" class="svc-proof-link" data-proof="led-cube"
+            data-nl="LED Cube: schema, PCB, software en behuizing volledig zelf ontworpen"
+            data-en="LED Cube: schematic, PCB, software and enclosure fully self-designed">LED Cube: schema, PCB, software en behuizing volledig zelf ontworpen</a>
+          <a href="#projects" class="svc-proof-link" data-proof="closure-unit"
+            data-nl="Closure Unit: meetsysteem voor TNO, van idee tot werkend product"
+            data-en="Closure Unit: measurement system for TNO, from idea to working product">Closure Unit: meetsysteem voor TNO, van idee tot werkend product</a>
+        </div>
+      </div>
+
+      <div class="svc-card rev rev-d2">
+        <div class="svc-icon"><i class="ti ti-cube"></i></div>
+        <h3 class="svc-title" data-nl="Onderdelen op maat" data-en="Custom parts">Onderdelen op maat</h3>
+        <p class="svc-text"
+          data-nl="Een adapter, houder, beugel of vervangend onderdeel nodig dat nergens te koop is? Ik ontwerp het op maat in SolidWorks en print het in 3D. Moet het precies aansluiten op iets bestaands, dan scan ik dat onderdeel eerst in, tot 0,05 mm nauwkeurig, zodat het in één keer goed past."
+          data-en="Need an adapter, holder, bracket or replacement part you can't buy anywhere? I design it to size in SolidWorks and 3D-print it. If it has to fit something existing exactly, I scan that part first, accurate to 0.05 mm, so it fits right the first time.">
+          Een adapter, houder, beugel of vervangend onderdeel nodig dat nergens te koop is? Ik ontwerp het op maat in SolidWorks en print het in 3D. Moet het precies aansluiten op iets bestaands, dan scan ik dat onderdeel eerst in, tot 0,05 mm nauwkeurig, zodat het in één keer goed past.
+        </p>
+        <div class="svc-tags">
+          <span class="chip">SolidWorks</span>
+          <span class="chip" data-nl="3D-printen" data-en="3D printing">3D-printen</span>
+          <span class="chip" data-nl="Adapters &amp; houders" data-en="Adapters &amp; holders">Adapters &amp; houders</span>
+          <span class="chip" data-nl="3D-scan met Einstar Vega" data-en="3D scan with Einstar Vega">3D-scan met Einstar Vega</span>
+        </div>
+        <div class="svc-proof">
+          <span class="svc-proof-label" data-nl="Voorbeeldprojecten" data-en="Example projects">Voorbeeldprojecten</span>
+          <a href="#projects" class="svc-proof-link" data-proof="vbcustoms"
+            data-nl="VB Customs: onderdelen die niet te koop waren, zelf ontworpen en 3D-geprint"
+            data-en="VB Customs: parts that weren't for sale, self-designed and 3D-printed">VB Customs: onderdelen die niet te koop waren, zelf ontworpen en 3D-geprint</a>
+          <a href="#projects" class="svc-proof-link" data-proof="kabelboom"
+            data-nl="Speedboot: kabelboom plus 3D-geprint maatwerk voor aan boord"
+            data-en="Speedboat: wiring harness plus 3D-printed custom parts for on board">Speedboot: kabelboom plus 3D-geprint maatwerk voor aan boord</a>
+        </div>
+      </div>
+
+      <div class="svc-card svc-card-wide rev rev-d3">
+        <div class="svc-icon"><i class="ti ti-bolt"></i></div>
+        <h3 class="svc-title" data-nl="Technische problemen" data-en="Technical problems">Technische problemen</h3>
+        <p class="svc-text"
+          data-nl="Meetopstellingen, storingen, elektrische systemen en kabelbomen. Loop je ergens op vast of weet je niet waar je moet beginnen? Dan denk ik mee en zoek ik uit wat er aan de hand is. Bij TNO bouw en bedien ik meetopstellingen met high-speed data-acquisitie tot 4 MHz."
+          data-en="Measurement setups, faults, electrical systems and wiring harnesses. Stuck somewhere, or not sure where to start? I'll think along and work out what's going on. At TNO I build and operate measurement setups with high-speed data acquisition up to 4 MHz.">
+          Meetopstellingen, storingen, elektrische systemen en kabelbomen. Loop je ergens op vast of weet je niet waar je moet beginnen? Dan denk ik mee en zoek ik uit wat er aan de hand is. Bij TNO bouw en bedien ik meetopstellingen met high-speed data-acquisitie tot 4 MHz.
+        </p>
+        <div class="svc-tags">
+          <span class="chip" data-nl="Meettechniek" data-en="Measurement">Meettechniek</span>
+          <span class="chip" data-nl="Storingzoeken" data-en="Fault finding">Storingzoeken</span>
+          <span class="chip" data-nl="Kabelbomen" data-en="Wiring harnesses">Kabelbomen</span>
+          <span class="chip" data-nl="Data-acquisitie" data-en="Data acquisition">Data-acquisitie</span>
+        </div>
+        <div class="svc-proof">
+          <span class="svc-proof-label" data-nl="Voorbeeldprojecten" data-en="Example projects">Voorbeeldprojecten</span>
+          <a href="#projects" class="svc-proof-link" data-proof="testsystemen"
+            data-nl="Testsystemen: geautomatiseerde tests voor printplaten bij Mach Technology"
+            data-en="Test systems: automated PCB testing at Mach Technology">Testsystemen: geautomatiseerde tests voor printplaten bij Mach Technology</a>
+          <a href="#projects" class="svc-proof-link" data-proof="ebike"
+            data-nl="E-bike: compleet elektrisch systeem ontworpen, gebouwd en afgesteld"
+            data-en="E-bike: complete electrical system designed, built and tuned">E-bike: compleet elektrisch systeem ontworpen, gebouwd en afgesteld</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-cta rev rev-d3">
+      <div class="svc-cta-badge">
+        <span class="svc-dot"></span>
+        <span data-nl="Beschikbaar voor opdrachten" data-en="Available for projects">Beschikbaar voor opdrachten</span>
+      </div>
+      <p class="svc-cta-text"
+        data-nl="Opdrachten voer ik uit onder de naam DJVB Solutions. Klein of groot, eenmalig of doorlopend: laat weten wat je nodig hebt en ik denk graag mee."
+        data-en="I take on assignments under the name DJVB Solutions. Small or large, one-off or ongoing: let me know what you need and I'm happy to think along.">
+        Opdrachten voer ik uit onder de naam DJVB Solutions. Klein of groot, eenmalig of doorlopend: laat weten wat je nodig hebt en ik denk graag mee.
+      </p>
+      <a href="#contact" class="btn btn-primary" data-nl="Bespreek je project" data-en="Discuss your project">Bespreek je project</a>
     </div>
   </div>
 </section>
@@ -890,7 +1219,12 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
     <p class="s-tag rev" data-nl="Wat ik gebouwd heb" data-en="What I've built">Wat ik gebouwd heb</p>
     <h2 class="s-title"><span class="w" data-nl="Projecten" data-en="Projects">Projecten</span></h2>
     <div class="s-line"></div>
-    <div class="proj-grid rev rev-d1" id="proj-grid"></div>
+    <div class="proj-rail rev rev-d1" id="proj-rail">
+      <button class="rail-arr rail-prev" id="rail-prev" type="button" aria-label="Vorige projecten" data-nl-aria="Vorige projecten" data-en-aria="Previous projects">&#8592;</button>
+      <div class="proj-grid" id="proj-grid"></div>
+      <button class="rail-arr rail-next" id="rail-next" type="button" aria-label="Volgende projecten" data-nl-aria="Volgende projecten" data-en-aria="Next projects">&#8594;</button>
+    </div>
+    <div class="rail-dots" id="rail-dots"></div>
   </div>
 </section>
 
@@ -901,16 +1235,15 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
     <h2 class="s-title"><span class="w" data-nl="Vaardigheden" data-en="Skills">Vaardigheden</span></h2>
     <div class="s-line"></div>
     <div class="skills-grid rev rev-d1">
-      <div class="skill-card"><div class="sk-icon"><i class="ti ti-pencil"></i></div><div class="sk-info"><div class="sk-name" data-nl="3D Modelleren" data-en="3D Modelling">3D Modelleren</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">SolidWorks</span><span class="sk-tag">MeshMixer</span><span class="sk-tag">MeshLab</span><span class="sk-tag">FreeCAD</span></div></div></div>
-      <div class="skill-card"><div class="sk-icon"><i class="ti ti-atom"></i></div><div class="sk-info"><div class="sk-name" data-nl="SMD Solderen" data-en="SMD Soldering">SMD Solderen</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag" data-nl="Surface Mount Device" data-en="Surface Mount Device">Surface Mount Device</span><span class="sk-tag" data-nl="Handmatig solderen" data-en="Hand soldering">Handmatig solderen</span><span class="sk-tag" data-nl="Reflow oven" data-en="Reflow oven">Reflow oven</span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-bolt"></i></div><div class="sk-info"><div class="sk-name" data-nl="Elektrotechniek &amp; storingzoeken" data-en="Electrical &amp; fault finding">Elektrotechniek &amp; storingzoeken</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag" data-nl="Huisinstallaties" data-en="Home wiring">Huisinstallaties</span><span class="sk-tag" data-nl="Groepenkasten" data-en="Distribution boards">Groepenkasten</span><span class="sk-tag" data-nl="Kabelbomen" data-en="Wiring harnesses">Kabelbomen</span><span class="sk-tag" data-nl="Printplaten" data-en="PCBs">Printplaten</span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-wave-sine"></i></div><div class="sk-info"><div class="sk-name" data-nl="Data-acquisitie &amp; meettechniek" data-en="Data acquisition &amp; measurement">Data-acquisitie &amp; meettechniek</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">Dewetron</span><span class="sk-tag">Diversified Technical Systems</span><span class="sk-tag">Labortechniek Tasler</span><span class="sk-tag">PicoScope</span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-cpu"></i></div><div class="sk-info"><div class="sk-name" data-nl="Printplaat ontwerp" data-en="PCB design">Printplaat ontwerp</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">KiCad</span><span class="sk-tag">Altium Designer</span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-atom"></i></div><div class="sk-info"><div class="sk-name" data-nl="SMD-solderen" data-en="SMD soldering">SMD-solderen</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag" data-nl="ESD-veilig" data-en="ESD safe">ESD-veilig</span><span class="sk-tag" data-nl="Handmatig solderen" data-en="Hand soldering">Handmatig solderen</span><span class="sk-tag" data-nl="Reflow oven" data-en="Reflow oven">Reflow oven</span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-pencil"></i></div><div class="sk-info"><div class="sk-name" data-nl="3D CAD" data-en="3D CAD">3D CAD</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">SolidWorks</span><span class="sk-tag">FreeCAD</span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-cube"></i></div><div class="sk-info"><div class="sk-name" data-nl="3D printen" data-en="3D printing">3D printen</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">Bambu Lab</span><span class="sk-tag">UltiMaker</span><span class="sk-tag">Cura</span><span class="sk-tag">Bambu Studio</span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-scan"></i></div><div class="sk-info"><div class="sk-name" data-nl="3D scannen" data-en="3D scanning">3D scannen</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">Einstar Vega</span><span class="sk-tag">ZEISS scanner</span><span class="sk-tag">ZEISS INSPECT</span></div></div></div>
+      <div class="skill-card"><div class="sk-icon"><i class="ti ti-code"></i></div><div class="sk-info"><div class="sk-name" data-nl="Software" data-en="Software">Software</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">Python</span><span class="sk-tag">Arduino</span><span class="sk-tag">C++</span><span class="sk-tag">HTML/CSS</span></div></div></div>
       <div class="skill-card"><div class="sk-icon"><i class="ti ti-tool"></i></div><div class="sk-info"><div class="sk-name" data-nl="Sleutelen" data-en="Mechanical work">Sleutelen</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span></div></div></div>
-      <div class="skill-card"><div class="sk-icon"><i class="ti ti-scan"></i></div><div class="sk-info"><div class="sk-name" data-nl="3D Scannen" data-en="3D Scanning">3D Scannen</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">ZEISS scanner</span><span class="sk-tag">ZEISS INSPECT</span></div></div></div>
-      <div class="skill-card"><div class="sk-icon"><i class="ti ti-wave-sine"></i></div><div class="sk-info"><div class="sk-name" data-nl="Data-acquisitie & Scopes" data-en="Data acquisition & Scopes">Data-acquisitie & Scopes</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">Dewetron</span><span class="sk-tag">Diversified Technical Systems</span><span class="sk-tag">Labortechniek Tasler</span><span class="sk-tag">Picoscope</span></div></div></div>
-      <div class="skill-card"><div class="sk-icon"><i class="ti ti-cpu"></i></div><div class="sk-info"><div class="sk-name" data-nl="Printplaat ontwerp" data-en="PCB design">Printplaat ontwerp</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">KiCad</span><span class="sk-tag">Altium</span></div></div></div>
-      <div class="skill-card"><div class="sk-icon"><i class="ti ti-cube"></i></div><div class="sk-info"><div class="sk-name" data-nl="3D Printen" data-en="3D Printing">3D Printen</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">Ultimaker</span><span class="sk-tag">Bambu Lab</span><span class="sk-tag">Cura</span><span class="sk-tag">Bambu Studio</span></div></div></div>
-      <div class="skill-card"><div class="sk-icon"><i class="ti ti-bolt"></i></div><div class="sk-info"><div class="sk-name" data-nl="Elektrische storingen" data-en="Electrical faults">Elektrische storingen</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag" data-nl="Huisinstallaties" data-en="Home wiring">Huisinstallaties</span><span class="sk-tag" data-nl="Groepenkast" data-en="Distribution board">Groepenkast</span><span class="sk-tag" data-nl="Printplaten" data-en="PCBs">Printplaten</span><span class="sk-tag" data-nl="Kabelboom (boot/auto/scooter)" data-en="Wiring harness (boat/car/scooter)">Kabelboom (boot/auto/scooter)</span></div></div></div>
-      <div class="skill-card"><div class="sk-icon"><i class="ti ti-movie"></i></div><div class="sk-info"><div class="sk-name" data-nl="Videobewerking" data-en="Video editing">Videobewerking</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">DaVinci Resolve</span></div></div></div>
-      <div class="skill-card"><div class="sk-icon"><i class="ti ti-code"></i></div><div class="sk-info"><div class="sk-name" data-nl="Programmeren" data-en="Programming">Programmeren</div><div class="sk-dots"><span class="sk-dot on"></span><span class="sk-dot on"></span><span class="sk-dot"></span><span class="sk-dot"></span><span class="sk-dot"></span></div><div class="sk-detail"><span class="sk-tag">Python</span><span class="sk-tag">C++</span><span class="sk-tag">HTML</span><span class="sk-tag">Arduino</span></div></div></div>
     </div>
 
     <!-- Radar chart -->
@@ -932,12 +1265,12 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
         <div class="tl-date" data-nl="feb 2025 t/m heden" data-en="Feb 2025 t/m present">feb 2025 t/m heden</div>
         <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
         <div>
-          <div class="tl-role" data-nl="Researcher, Fulltime" data-en="Researcher, Full-time">Researcher, Fulltime</div>
-          <div class="tl-co">TNO, Den Haag</div>
+          <div class="tl-role" data-nl="Engineer &amp; Meetspecialist" data-en="Engineer &amp; Measurement Specialist">Engineer &amp; Meetspecialist</div>
+          <div class="tl-co">TNO, Den Haag - Ypenburg</div>
           <div class="tl-desc"
-            data-nl="Bij TNO, binnen de afdeling Defence, Safety &amp; Security, werk ik aan meerdere projecten waarbij ik ontwerp, bouw, testen en data-acquisitie combineer."
-            data-en="At TNO, within the Defence, Safety &amp; Security division, I work on multiple projects combining design, build, testing, and data acquisition.">
-            Bij TNO, binnen de afdeling Defence, Safety &amp; Security, werk ik aan meerdere projecten waarbij ik ontwerp, bouw, testen en data-acquisitie combineer.
+            data-nl="Meewerken aan R&amp;D-projecten gericht op explosieven, munitie en beschermende voertuigsystemen. Ontwerpen, bouwen en bedienen van hoognauwkeurige meetopstellingen met high-speed data-acquisitiesystemen (tot 4 MHz), en ontwikkeling van een meetproduct dat closure-signalen omzet naar bruikbare TTL-signalen voor gelijktijdige meting van maximaal 12 kanalen. Daarnaast bouw van tools voor het verwerken en rapporteren van meetdata en het verwerken van 3D-scans in SolidWorks voor 3D-printen. De rol combineert ontwerpen, zelf bouwen, testen en data-analyse."
+            data-en="Contributing to R&amp;D projects focused on explosives, ammunition and protective vehicle systems. Designing, building and operating high-precision measurement setups with high-speed data acquisition systems (up to 4 MHz), and developing a measurement product that converts closure signals into usable TTL signals for simultaneous measurement of up to 12 channels. I also build tools for processing and reporting measurement data, and process 3D scans in SolidWorks for 3D printing. The role combines design, hands-on building, testing and data analysis.">
+            Meewerken aan R&amp;D-projecten gericht op explosieven, munitie en beschermende voertuigsystemen. Ontwerpen, bouwen en bedienen van hoognauwkeurige meetopstellingen met high-speed data-acquisitiesystemen (tot 4 MHz), en ontwikkeling van een meetproduct dat closure-signalen omzet naar bruikbare TTL-signalen voor gelijktijdige meting van maximaal 12 kanalen. Daarnaast bouw van tools voor het verwerken en rapporteren van meetdata en het verwerken van 3D-scans in SolidWorks voor 3D-printen. De rol combineert ontwerpen, zelf bouwen, testen en data-analyse.
           </div>
         </div>
       </div>
@@ -946,12 +1279,12 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
         <div class="tl-date" data-nl="jun 2024 t/m jul 2025" data-en="Jun 2024 t/m Jul 2025">jun 2024 t/m jul 2025</div>
         <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
         <div>
-          <div class="tl-role" data-nl="Eigenaar, Zelfstandig" data-en="Owner, Self-employed">Eigenaar, Zelfstandig</div>
-          <div class="tl-co">VBcustoms, Wassenaar</div>
+          <div class="tl-role" data-nl="Oprichter / Eigenaar" data-en="Founder / Owner">Oprichter / Eigenaar</div>
+          <div class="tl-co">VB Customs, Wassenaar</div>
           <div class="tl-desc"
-            data-nl="VB Customs opgericht en volledig zelfstandig geleid, gespecialiseerd in het customizen en onderhouden van Vespa-brommers. Werkzaamheden omvatten prestatie-upgrades, aanpassingen aan verlichting en het maken van maatwerk onderdelen. Verantwoordelijk voor de volledige inkoop en verkoop, met meer dan 100 verkochte Vespas. Naast het technische werk heb ik het ondernemerschap van A tot Z leren kennen: het opzetten van de eenmanszaak via de KVK, het openen van een zakelijke rekening, het opstellen van offertes en facturen, en het bijhouden van de boekhouding. Daarnaast heb ik zelf de huisstijl en het logo ontworpen en geleerd hoe je aangifte doet bij de Belastingdienst. Na het starten van mijn huidige baan de klantenkring geleidelijk afgebouwd en de bedrijfsactiviteiten verkleind."
-            data-en="Founded and fully independently managed VB Customs, specialised in customising and maintaining Vespa scooters. Work included performance upgrades, lighting modifications, and custom parts fabrication. Responsible for all purchasing and sales, with over 100 Vespas sold. Beyond the technical work, I learned the full scope of entrepreneurship: registering the sole proprietorship with the KVK, opening a business bank account, drafting quotes and invoices, and maintaining the bookkeeping. I also designed the branding and logo myself, and learned how to file tax returns with the Belastingdienst. After starting my current job, gradually wound down the client base and scaled back business activities.">
-            VB Customs opgericht en volledig zelfstandig geleid, gespecialiseerd in het customizen en onderhouden van Vespa-brommers. Werkzaamheden omvatten prestatie-upgrades, aanpassingen aan verlichting en het maken van maatwerk onderdelen. Verantwoordelijk voor de volledige inkoop en verkoop, met meer dan 100 verkochte Vespas. Naast het technische werk heb ik het ondernemerschap van A tot Z leren kennen: het opzetten van de eenmanszaak via de KVK, het openen van een zakelijke rekening, het opstellen van offertes en facturen, en het bijhouden van de boekhouding. Daarnaast heb ik zelf de huisstijl en het logo ontworpen en geleerd hoe je aangifte doet bij de Belastingdienst. Na het starten van mijn huidige baan de klantenkring geleidelijk afgebouwd en de bedrijfsactiviteiten verkleind.
+            data-nl="Een bedrijf opgericht, gespecialiseerd in het customizen en onderhouden van Vespa- en Tomos-brommers: performance-upgrades, verlichtingsaanpassingen en maatwerkonderdelen. Het bedrijf samen met een compagnon gerund, met ruim 100 verkochte brommers. Ik was verantwoordelijk voor de inkoop, offertes, facturatie en boekhouding, mijn compagnon voor de verkoop en voorraad. Het bedrijf vanaf nul opgebouwd, inclusief KVK-inschrijving, huisstijl en belastingadministratie."
+            data-en="Founded a business specialising in customising and maintaining Vespa and Tomos scooters: performance upgrades, lighting modifications and custom parts. Ran the business together with a partner, with over 100 scooters sold. I was responsible for purchasing, quotes, invoicing and bookkeeping; my partner for sales and stock. Built the business from scratch, including chamber of commerce registration, branding and tax administration.">
+            Een bedrijf opgericht, gespecialiseerd in het customizen en onderhouden van Vespa- en Tomos-brommers: performance-upgrades, verlichtingsaanpassingen en maatwerkonderdelen. Het bedrijf samen met een compagnon gerund, met ruim 100 verkochte brommers. Ik was verantwoordelijk voor de inkoop, offertes, facturatie en boekhouding, mijn compagnon voor de verkoop en voorraad. Het bedrijf vanaf nul opgebouwd, inclusief KVK-inschrijving, huisstijl en belastingadministratie.
           </div>
         </div>
       </div>
@@ -974,40 +1307,40 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
         <div class="tl-date" data-nl="feb 2024 t/m nov 2024" data-en="Feb 2024 t/m Nov 2024">feb 2024 t/m nov 2024</div>
         <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
         <div>
-          <div class="tl-role" data-nl="Ontwikkelaar, Leerwerktraject" data-en="Developer, Work-study">Ontwikkelaar, Leerwerktraject</div>
+          <div class="tl-role" data-nl="Ontwikkelaar" data-en="Developer">Ontwikkelaar</div>
           <div class="tl-co">The Field, Leiden</div>
           <div class="tl-desc"
-            data-nl="Via school heb ik samen met andere studenten een geautomatiseerd watersysteem ontwikkeld dat nu op een Raspberry Pi draait. Het systeem optimaliseert watergebruik op basis van omgevingsfactoren en draagt bij aan efficiëntie en plantgezondheid. Verdere automatisering zal plaatsvinden binnen de opleiding Software Development."
-            data-en="Through school I collaborated with other students to develop an automated watering system now running on a Raspberry Pi. The system optimises water usage based on environmental factors and contributes to efficiency and plant health. Further automation will take place within the Software Development programme.">
-            Via school heb ik samen met andere studenten een geautomatiseerd watersysteem ontwikkeld dat nu op een Raspberry Pi draait. Het systeem optimaliseert watergebruik op basis van omgevingsfactoren en draagt bij aan efficiëntie en plantgezondheid. Verdere automatisering zal plaatsvinden binnen de opleiding Software Development.
+            data-nl="Samen met een medestudent een geautomatiseerd watersysteem voor planten ontwikkeld, draaiend op een Raspberry Pi, dat het watergebruik aanpast op basis van omgevingsfactoren. Gezamenlijk verantwoordelijk voor het complete systeem, van concept en hardware-ontwerp tot een werkende installatie. IT-studenten hebben de automatisering later verder verbeterd."
+            data-en="Together with a fellow student, developed an automated plant watering system running on a Raspberry Pi that adjusts water usage based on environmental factors. Jointly responsible for the complete system, from concept and hardware design to a working installation. IT students later improved the automation further.">
+            Samen met een medestudent een geautomatiseerd watersysteem voor planten ontwikkeld, draaiend op een Raspberry Pi, dat het watergebruik aanpast op basis van omgevingsfactoren. Gezamenlijk verantwoordelijk voor het complete systeem, van concept en hardware-ontwerp tot een werkende installatie. IT-studenten hebben de automatisering later verder verbeterd.
           </div>
         </div>
       </div>
 
       <div class="tl-item" data-logo="media/head_logo.png">
-        <div class="tl-date" data-nl="mrt 2023 t/m feb 2024" data-en="Mar 2023 t/m Feb 2024">mrt 2023 t/m feb 2024</div>
+        <div class="tl-date" data-nl="aug 2023 t/m feb 2024" data-en="Aug 2023 t/m Feb 2024">aug 2023 t/m feb 2024</div>
         <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
         <div>
-          <div class="tl-role" data-nl="Technicus & Test Engineer, 2 Stages" data-en="Technician & Test Engineer, 2 Internships">Technicus & Test Engineer, 2 Stages</div>
-          <div class="tl-co">Head Electronics B.V., Katwijk aan Zee</div>
+          <div class="tl-role" data-nl="Test Engineer, Stagiair" data-en="Test Engineer, Intern">Test Engineer, Stagiair</div>
+          <div class="tl-co">Mach Technology (voorheen Head Electronics B.V.), Katwijk aan Zee</div>
           <div class="tl-desc"
-            data-nl="Twee stages doorlopen bij Head Electronics B.V. Tijdens de eerste stage bij de technische dienst veel geleerd over het gebruik van CNC-machine, draaibank en freesmachine in de werkplaats. Daarna een tijdelijk contract gehad waarbij ik technische storingen oploste en een nieuw led-verlichtingssysteem aanlegde. Tijdens de tweede, langere stage bij de testafdeling veel geleerd over de ontwikkeling van testkasten en bijbehorende custom printplaten (PCB's). Daarbij heb ik het proces van printplaten ontwerpen geleerd en samen met collega's 3 PCB's ontwikkeld die daadwerkelijk zijn toegepast in de testkasten. Daarnaast ervaring opgedaan door mee te lopen op de afdelingen repair, assemblage en R&amp;D."
-            data-en="Completed two internships at Head Electronics B.V. During the first internship at the technical department, I learned a great deal about CNC machines, lathes, and milling machines in the workshop. I then had a temporary contract resolving technical faults and installing a new LED lighting system. During the second, longer internship at the test department, I learned about developing test cabinets and custom PCBs. I learned the PCB design process and co-developed 3 PCBs with colleagues that were integrated into the test cabinets. I also gained experience by shadowing the repair, assembly, and R&amp;D departments.">
-            Twee stages doorlopen bij Head Electronics B.V. Tijdens de eerste stage bij de technische dienst veel geleerd over het gebruik van CNC-machine, draaibank en freesmachine in de werkplaats. Daarna een tijdelijk contract gehad waarbij ik technische storingen oploste en een nieuw led-verlichtingssysteem aanlegde. Tijdens de tweede, langere stage bij de testafdeling veel geleerd over de ontwikkeling van testkasten en bijbehorende custom printplaten (PCB's). Daarbij heb ik het proces van printplaten ontwerpen geleerd en samen met collega's 3 PCB's ontwikkeld die daadwerkelijk zijn toegepast in de testkasten. Daarnaast ervaring opgedaan door mee te lopen op de afdelingen repair, assemblage en R&amp;D.
+            data-nl="Gewerkt aan geautomatiseerde testsystemen (ATE) waarmee printplaten van klanten worden gecontroleerd op betrouwbaarheid en correcte assemblage, waaronder stresstests en in-circuit tests van sporen en soldeerverbindingen. Kleinschalige PCB's met SMD-componenten ontworpen en met de hand gesoldeerd voor deze testopstellingen, en samen met het testengineering-team 3 PCB's ontwikkeld die daadwerkelijk in de testopstellingen worden gebruikt. Daarnaast de testopstellingen geüpgraded en onderhouden, technische storingen verholpen en werkplaatservaring opgedaan met CNC-bewerking, draaien en frezen."
+            data-en="Worked on automated test equipment (ATE) used to check customer PCBs for reliability and correct assembly, including stress tests and in-circuit tests of traces and solder joints. Designed and hand-soldered small-scale PCBs with SMD components for these test setups, and together with the test engineering team developed 3 PCBs that are actually used in the setups. Also upgraded and maintained the test setups, resolved technical faults and gained workshop experience with CNC machining, turning and milling.">
+            Gewerkt aan geautomatiseerde testsystemen (ATE) waarmee printplaten van klanten worden gecontroleerd op betrouwbaarheid en correcte assemblage, waaronder stresstests en in-circuit tests van sporen en soldeerverbindingen. Kleinschalige PCB's met SMD-componenten ontworpen en met de hand gesoldeerd voor deze testopstellingen, en samen met het testengineering-team 3 PCB's ontwikkeld die daadwerkelijk in de testopstellingen worden gebruikt. Daarnaast de testopstellingen geüpgraded en onderhouden, technische storingen verholpen en werkplaatservaring opgedaan met CNC-bewerking, draaien en frezen.
           </div>
         </div>
       </div>
 
       <div class="tl-item">
-        <div class="tl-date" data-nl="2019 t/m jan 2024" data-en="2019 t/m Jan 2024">2019 t/m jan 2024</div>
+        <div class="tl-date" data-nl="jan 2019 t/m jan 2024" data-en="Jan 2019 t/m Jan 2024">jan 2019 t/m jan 2024</div>
         <div class="tl-line"><div class="tl-dot"></div><div class="tl-tail"></div></div>
         <div>
-          <div class="tl-role" data-nl="Junior Vestigingsmanager, Parttime" data-en="Junior Branch Manager, Part-time">Junior Vestigingsmanager, Parttime</div>
+          <div class="tl-role" data-nl="Junior Vestigingsmanager" data-en="Junior Branch Manager">Junior Vestigingsmanager</div>
           <div class="tl-co">IJskiosk Aan De Slag, Wassenaar</div>
           <div class="tl-desc"
-            data-nl="Begonnen op 13-jarige leeftijd als verkoper en doorgegroeid naar junior vestigingsmanager. Verantwoordelijk voor het openen en afsluiten van twee kiosken, aansturen van collega's, klanten helpen en problemen oplossen tijdens drukke momenten. Daarnaast voorraadbeheer, bestellingen doorgeven en regelmatig overzichten maken met belangrijke updates voor mijn werkgever."
-            data-en="Started at age 13 as a salesperson and grew into junior branch manager. Responsible for opening and closing two kiosks, managing colleagues, helping customers and resolving issues during busy periods. Also handled stock management, placing orders, and regularly creating overviews with important updates for my employer.">
-            Begonnen op 13-jarige leeftijd als verkoper en doorgegroeid naar junior vestigingsmanager. Verantwoordelijk voor het openen en afsluiten van twee kiosken, aansturen van collega's, klanten helpen en problemen oplossen tijdens drukke momenten. Daarnaast voorraadbeheer, bestellingen doorgeven en regelmatig overzichten maken met belangrijke updates voor mijn werkgever.
+            data-nl="Op mijn 13e begonnen als ijsverkoper achter de kassa en doorgegroeid naar junior vestigingsmanager, verantwoordelijk voor het openen, runnen en afsluiten van één van twee strandkiosken, wisselend tussen de locaties. Tot 4 collega's aangestuurd, voorraad en bestellingen beheerd en de dagelijkse gang van zaken soepel laten verlopen op piekdagen."
+            data-en="Started at 13 as an ice cream seller behind the register and grew into junior branch manager, responsible for opening, running and closing one of two beach kiosks, alternating between locations. Managed up to 4 colleagues, handled stock and orders, and kept day-to-day operations running smoothly on peak days.">
+            Op mijn 13e begonnen als ijsverkoper achter de kassa en doorgegroeid naar junior vestigingsmanager, verantwoordelijk voor het openen, runnen en afsluiten van één van twee strandkiosken, wisselend tussen de locaties. Tot 4 collega's aangestuurd, voorraad en bestellingen beheerd en de dagelijkse gang van zaken soepel laten verlopen op piekdagen.
           </div>
         </div>
       </div>
@@ -1046,24 +1379,90 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
     <h2 class="s-title"><span class="w" data-nl="Contact" data-en="Contact">Contact</span></h2>
     <div class="s-line"></div>
     <p class="contact-intro rev rev-d1"
-      data-nl="Wil je samenwerken aan een gaaf project? Stuur me dan gerust een e-mail, dan kunnen we bouwen aan iets moois."
-      data-en="Want to team up on a cool project? Feel free to send me an email, and together we can build something great.">
-      Wil je samenwerken aan een gaaf project? Stuur me dan gerust een e-mail, dan kunnen we bouwen aan iets moois.
+      data-nl="Heb je een technisch probleem of een idee dat gebouwd moet worden? Stuur een mail, dan plannen we een vrijblijvend gesprek."
+      data-en="Do you have a technical problem or an idea that needs building? Send an email and we'll schedule a no-obligation conversation.">
+      Heb je een technisch probleem of een idee dat gebouwd moet worden? Stuur een mail, dan plannen we een vrijblijvend gesprek.
     </p>
-    <div class="contact-grid rev rev-d1">
+    <form class="contact-form rev rev-d1" id="contact-form" novalidate>
+      <!-- Vul hieronder je Web3Forms access key in (gratis via web3forms.com):
+           zonder key komt er geen bericht aan. -->
+      <input type="hidden" name="access_key" value="JOUW-ACCESS-KEY-HIER">
+      <input type="hidden" name="from_name" value="daanvanbeelen.com">
+      <!-- Honeypot: onzichtbaar voor mensen, bots vullen dit wel in -->
+      <div class="hp-wrap" aria-hidden="true">
+        <label>Laat dit veld leeg<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <div class="cf-row">
+        <label class="cf-label" for="cf-subject"><span data-nl="Waarvoor neem je contact op?" data-en="What is this about?">Waarvoor neem je contact op?</span> <span class="cf-hint" data-nl="vereist" data-en="required">vereist</span></label>
+        <select id="cf-subject" name="onderwerp" required>
+          <option value="" data-nl="Maak een keuze" data-en="Choose an option">Maak een keuze</option>
+          <option value="Offerte aanvragen" data-nl="Offerte aanvragen" data-en="Request a quote">Offerte aanvragen</option>
+          <option value="Prototype laten bouwen" data-nl="Prototype laten bouwen" data-en="Have a prototype built">Prototype laten bouwen</option>
+          <option value="Onderdeel op maat / 3D-ontwerp" data-nl="Onderdeel op maat (3D-ontwerp)" data-en="Custom part (3D design)">Onderdeel op maat (3D-ontwerp)</option>
+          <option value="Technisch probleem" data-nl="Technisch probleem" data-en="Technical problem">Technisch probleem</option>
+          <option value="Netwerken / kennismaken" data-nl="Netwerken of kennismaken" data-en="Networking or getting acquainted">Netwerken of kennismaken</option>
+          <option value="Vacature / samenwerking" data-nl="Vacature of samenwerking" data-en="Job or collaboration">Vacature of samenwerking</option>
+          <option value="Anders" data-nl="Anders" data-en="Something else">Anders</option>
+        </select>
+      </div>
+
+      <div class="cf-grid">
+        <div class="cf-row">
+          <label class="cf-label" for="cf-name"><span data-nl="Naam" data-en="Name">Naam</span> <span class="cf-hint" data-nl="vereist" data-en="required">vereist</span></label>
+          <input id="cf-name" name="naam" type="text" required autocomplete="name" maxlength="100">
+        </div>
+        <div class="cf-row">
+          <label class="cf-label" for="cf-email"><span data-nl="E-mailadres" data-en="Email address">E-mailadres</span> <span class="cf-hint" data-nl="vereist" data-en="required">vereist</span></label>
+          <input id="cf-email" name="email" type="email" required autocomplete="email" maxlength="150">
+        </div>
+        <div class="cf-row">
+          <label class="cf-label" for="cf-phone"><span data-nl="Telefoonnummer" data-en="Phone number">Telefoonnummer</span> <span class="cf-hint cf-opt" data-nl="optioneel" data-en="optional">optioneel</span></label>
+          <input id="cf-phone" name="telefoon" type="tel" autocomplete="tel" maxlength="20"
+                 pattern="[\d\s\+\(\)\-]{6,20}" inputmode="tel">
+        </div>
+      </div>
+
+      <div class="cf-row">
+        <label class="cf-label" for="cf-msg"><span data-nl="Je bericht" data-en="Your message">Je bericht</span> <span class="cf-hint" data-nl="vereist" data-en="required">vereist</span></label>
+        <textarea id="cf-msg" name="bericht" rows="5" required minlength="10" maxlength="3000"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary cf-submit" data-nl="Verstuur bericht" data-en="Send message">Verstuur bericht</button>
+      <p class="cf-status" id="cf-status" role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="contact-grid rev rev-d2">
       <a href="mailto:daan.hvs@gmail.com" class="c-card">
         <span class="c-icon"><i class="ti ti-mail"></i></span>
         <div><div class="c-label">Email</div><div class="c-val">daan.hvs@gmail.com</div></div>
       </a>
-      <a href="https://linkedin.com/in/daan-van-beelen-072953246" target="_blank" class="c-card">
+      <a href="https://linkedin.com/in/daan-van-beelen-072953246" target="_blank" rel="noopener" class="c-card">
         <span class="c-icon"><i class="ti ti-brand-linkedin"></i></span>
         <div><div class="c-label">LinkedIn</div><div class="c-val">Daan van Beelen</div></div>
+      </a>
+    </div>
+
+    <div class="cv-actions rev rev-d3">
+      <a href="cv/CV-Daan-van-Beelen-NL.pdf" target="_blank" rel="noopener" class="btn btn-secondary" id="cv-view">
+        <i class="ti ti-file-text"></i>&nbsp;<span data-nl="CV bekijken" data-en="View CV">CV bekijken</span>
+      </a>
+      <a href="cv/CV-Daan-van-Beelen-NL.pdf" download="CV Daan van Beelen.pdf" class="btn btn-secondary" id="cv-download">
+        <i class="ti ti-download"></i>&nbsp;<span data-nl="CV downloaden" data-en="Download CV">CV downloaden</span>
       </a>
     </div>
   </div>
 </section>
 
-<footer><p>© 2026 Daan van Beelen</p></footer>
+<footer>
+  <p class="foot-brand">DJVB Solutions</p>
+  <p class="foot-meta">
+    <span data-nl="Daan van Beelen, Wassenaar" data-en="Daan van Beelen, Wassenaar">Daan van Beelen, Wassenaar</span>
+    <!-- KVK-nummer hieronder invullen zodra DJVB Solutions is ingeschreven:
+         <span class="foot-sep">·</span><span>KVK 12345678</span>  -->
+  </p>
+  <p class="foot-copy">© <span id="foot-year">2026</span> Daan van Beelen</p>
+</footer>
 
 <script>
 /* ══════════════════════════════════════════
@@ -1261,14 +1660,23 @@ applyScroll();
   const wrap = document.getElementById('name-wrap');
   const chars = [];
 
+  // letters van hetzelfde woord in één nowrap-groep, zodat een woord nooit
+  // middenin afbreekt op een smal scherm
+  let woord = null;
   [...NAME].forEach((ch, i) => {
-    if(ch === '\n'){ cont.appendChild(document.createElement('br')); return; }
+    if(ch === '\n'){ cont.appendChild(document.createElement('br')); woord = null; return; }
     const s = document.createElement('span');
     s.className = ch === ' ' ? 'char sp' : 'char';
     s.textContent = ch === ' ' ? ' ' : ch;
     s.style.animation = `charDrop .9s cubic-bezier(.22,1,.36,1) ${.35 + i * .045}s forwards`;
     s.addEventListener('animationend', () => { s.style.opacity = 1; s.style.animation = 'none'; }, {once:true});
-    cont.appendChild(s);
+    if(ch === ' '){
+      cont.appendChild(s);
+      woord = null;
+    } else {
+      if(!woord){ woord = document.createElement('span'); woord.className = 'word'; cont.appendChild(woord); }
+      woord.appendChild(s);
+    }
     chars.push({el:s, oy:0, os:1, vy:0, nx:0, ready:false});
   });
 
@@ -1373,48 +1781,279 @@ function setLang(l){
   document.querySelectorAll('[data-nl-aria]').forEach(el => {
     el.setAttribute('aria-label', l === 'nl' ? el.dataset.nlAria : el.dataset.enAria);
   });
+  // CV-knoppen wijzen naar de versie in de gekozen taal
+  const cvPad = l === 'nl' ? 'cv/CV-Daan-van-Beelen-NL.pdf' : 'cv/CV-Daan-van-Beelen-EN.pdf';
+  ['cv-view','cv-download'].forEach(id => {
+    const a = document.getElementById(id);
+    if(a) a.setAttribute('href', cvPad);
+  });
+  const dl = document.getElementById('cv-download');
+  if(dl) dl.setAttribute('download', l === 'nl' ? 'CV Daan van Beelen.pdf' : 'CV Daan van Beelen (EN).pdf');
   renderProjects();
+
 }
 
 /* ══════════════════════════════════════════
    PROJECTS
 ══════════════════════════════════════════ */
+/* Volgorde op de site: technisch bewijs eerst, ondernemerschap daarna.
+   Een id hier weglaten haalt dat project van de site af. */
+const PROJECT_ORDER = ['led-cube','closure-unit','kabelboom','ebike','testsystemen','vbcustoms','watersysteem','drones'];
+
 function renderProjects(){
   const grid = document.getElementById('proj-grid');
   grid.innerHTML = '';
-  PROJECTS.forEach((p, i) => {
+  const rail = document.getElementById('proj-rail');
+  if(rail) rail.classList.remove('has-open');
+  const zichtbaar = PROJECT_ORDER.map(id => PROJECTS.find(p => p.id === id)).filter(Boolean);
+  const naam = x => lang === 'nl' ? x.title_nl : x.title_en;
+  zichtbaar.forEach((p, i) => {
     const tag   = lang === 'nl' ? p.tag_nl     : p.tag_en;
-    const title = lang === 'nl' ? p.title_nl   : p.title_en;
+    const title = naam(p);
     const sum   = lang === 'nl' ? p.summary_nl : p.summary_en;
-    const date  = lang === 'nl' ? p.date_nl    : p.date_en;
+    const body  = lang === 'nl' ? p.body_nl    : p.body_en;
+    const vorig   = zichtbaar[(i - 1 + zichtbaar.length) % zichtbaar.length];
+    const volgend = zichtbaar[(i + 1) % zichtbaar.length];
+    const focus = p.thumbFocus ? ` style="--focus:${p.thumbFocus}"` : '';
     const imgHtml = (p.images && p.images.length)
-      ? `<div class="p-img"><img src="${p.images[0]}" alt="${title}" loading="lazy"/></div>`
+      ? `<div class="p-img"${focus}><img src="${p.images[0]}" alt="${title}" loading="lazy"/></div>`
       : ``;
     const card = document.createElement('div');
     card.className = 'proj-card';
     card.setAttribute('tabindex', '0');
     card.setAttribute('role', 'button');
     card.setAttribute('aria-label', title);
+    card.setAttribute('aria-expanded', 'false');
+    card.dataset.id = p.id || '';
     card.innerHTML = `
+      <button class="p-close" type="button" aria-label="${lang === 'nl' ? 'Project sluiten' : 'Close project'}">&#10005;</button>
       ${imgHtml}
-      <div class="p-meta">
-        <span class="p-tag">${tag}</span>
-        ${date ? `<span class="p-date">${date}</span>` : ''}
-      </div>
+      <div class="p-meta"><span class="p-tag">${tag}</span></div>
       <div class="p-title">${title}</div>
       <div class="p-sum">${sum}</div>
       <div class="p-foot">
         <div class="chips">${(p.chips || []).map(c => `<span class="chip">${c}</span>`).join('')}</div>
         <span class="p-arr">&rarr;</span>
+      </div>
+      <div class="p-body">
+        <div class="p-body-inner">
+          <div class="p-body-content">
+            <div class="p-text">${body}</div>
+            <div class="p-nav">
+              <button class="p-nav-btn p-nav-prev" type="button" data-go="${vorig.id}">
+                <span class="p-nav-dir">&#8592; ${lang === 'nl' ? 'Vorig project' : 'Previous project'}</span>
+                <span class="p-nav-name">${naam(vorig)}</span>
+              </button>
+              <button class="p-nav-btn p-nav-next" type="button" data-go="${volgend.id}">
+                <span class="p-nav-dir">${lang === 'nl' ? 'Volgend project' : 'Next project'} &#8594;</span>
+                <span class="p-nav-name">${naam(volgend)}</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>`;
-    card.addEventListener('click', () => openModal(i, card));
+    // dicht: klik opent het project. Open: sluiten gaat via het kruisje (of Escape)
+    card.addEventListener('click', () => { if(!card.classList.contains('open')) openCard(card, p); });
     card.addEventListener('keydown', e => {
-      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openModal(i, card); }
+      if(e.target !== card || card.classList.contains('open')) return;
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openCard(card, p); }
+    });
+    card.querySelector('.p-close').addEventListener('click', e => { e.stopPropagation(); closeCard(card); });
+    card.querySelectorAll('.p-nav-btn').forEach(btn => btn.addEventListener('click', e => {
+      e.stopPropagation();
+      gaNaarProject(btn.dataset.go);
+    }));
+    // vegen over de tekst van een open project = vorig/volgend project (vegen over de foto = volgende foto)
+    addSwipe(card.querySelector('.p-text'), dir => {
+      if(card.classList.contains('open')) gaNaarProject(dir > 0 ? volgend.id : vorig.id);
     });
     bindHover(card);
     grid.appendChild(card);
   });
+  buildDots();
 }
+
+/* ══════════════════════════════════════════
+   PROJECT UITKLAPPEN — inline, geen apart venster
+══════════════════════════════════════════ */
+/* De foto bovenaan de kaart wordt zelf bladerbaar: geen tweede carousel,
+   de bestaande foto groeit mee bij het uitklappen. */
+/* Fotovak in een open project krijgt de verhouding van de foto zelf:
+   geen lege balken boven/onder liggende foto's, en de hoogte blijft animeerbaar. */
+function fotoHoogte(card){
+  const wrap = card.querySelector('.p-img');
+  const img = wrap && wrap.querySelector('img');
+  if(!img || !card.classList.contains('open') || !img.naturalWidth) return;
+  const max = window.innerWidth <= 640 ? 430 : 440;
+  const h = Math.max(220, Math.min(max, wrap.clientWidth * img.naturalHeight / img.naturalWidth));
+  wrap.style.height = Math.round(h) + 'px';
+}
+
+function enhanceCardImage(card, imgs){
+  const wrap = card.querySelector('.p-img');
+  if(!wrap || !imgs || !imgs.length || wrap._enhanced) return;
+  wrap._enhanced = true;
+  const img = wrap.querySelector('img');
+  let idx = 0;
+  img.addEventListener('load', () => fotoHoogte(card));
+
+  img.addEventListener('click', e => {
+    e.stopPropagation();
+    if(img._swiped) return;
+    openLightbox(imgs, idx);        // klik = fullscreen
+  });
+  if(imgs.length < 2) return;
+
+  const mk = (cls, html, label) => {
+    const b = document.createElement('button');
+    b.className = cls; b.innerHTML = html; b.setAttribute('aria-label', label);
+    return b;
+  };
+  const prev = mk('m-arr prev', '&#8592;', lang === 'nl' ? 'Vorige afbeelding' : 'Previous image');
+  const next = mk('m-arr next', '&#8594;', lang === 'nl' ? 'Volgende afbeelding' : 'Next image');
+  const dots = document.createElement('div');
+  dots.className = 'm-dots';
+  imgs.forEach((_, k) => {
+    const d = document.createElement('button');
+    d.className = 'm-dot' + (k === 0 ? ' on' : '');
+    d.dataset.k = k;
+    d.setAttribute('aria-label', `${lang === 'nl' ? 'Afbeelding' : 'Image'} ${k + 1}`);
+    dots.appendChild(d);
+  });
+  wrap.append(prev, next, dots);
+
+  function goTo(k){
+    idx = ((k % imgs.length) + imgs.length) % imgs.length;
+    img.style.opacity = 0;
+    setTimeout(() => { img.src = imgs[idx]; img.style.opacity = 1; }, 200);
+    [...dots.children].forEach((d, j) => d.classList.toggle('on', j === idx));
+  }
+  prev.addEventListener('click', e => { e.stopPropagation(); goTo(idx - 1); });
+  next.addEventListener('click', e => { e.stopPropagation(); goTo(idx + 1); });
+  [...dots.children].forEach(d => d.addEventListener('click', e => { e.stopPropagation(); goTo(+d.dataset.k); }));
+  addSwipe(img, dir => goTo(idx + dir));
+}
+
+/* Eén kaart dichtklappen, zonder de rij te herstellen (gebruikt bij vorig/volgend) */
+function collapseCard(card){
+  const body = card.querySelector('.p-body');
+  if(body){
+    body.style.maxHeight = body.scrollHeight + 'px';   // huidige hoogte vastzetten
+    void body.offsetHeight;                            // reflow forceren, dan pas dichtklappen
+    body.style.maxHeight = '0px';
+  }
+  card.classList.remove('open');
+  card.setAttribute('aria-expanded', 'false');
+  card.setAttribute('role', 'button');
+  const fotoVak = card.querySelector('.p-img');
+  if(fotoVak) fotoVak.style.height = '';
+}
+
+/* Project sluiten via kruisje of Escape: terug naar de rij, op dezelfde plek */
+function closeCard(card){
+  collapseCard(card);
+  const rail = document.getElementById('proj-rail');
+  if(!rail || rail.querySelector('.proj-card.open')) return;
+  rail.classList.remove('has-open');
+  const grid = document.getElementById('proj-grid');
+  const eerste = grid.firstElementChild;
+  grid.style.scrollBehavior = 'auto';                  // direct naar de kaart, zonder schuifanimatie
+  grid.scrollLeft = card.offsetLeft - eerste.offsetLeft;
+  grid.style.scrollBehavior = '';
+  updateDots();
+  window.scrollTo({top: rail.getBoundingClientRect().top + window.scrollY - 110, behavior: 'smooth'});
+  card.focus({preventScroll: true});
+}
+
+function openCard(card, p){
+  document.querySelectorAll('.proj-card.open').forEach(c => { if(c !== card) collapseCard(c); });
+  const rail = document.getElementById('proj-rail');
+  if(rail) rail.classList.add('has-open');
+  card.classList.add('open');
+  card.setAttribute('aria-expanded', 'true');
+  card.removeAttribute('role');
+  enhanceCardImage(card, p.images || []);
+  fotoHoogte(card);
+  const body = card.querySelector('.p-body');
+  const grow = () => { if(card.classList.contains('open')) body.style.maxHeight = body.scrollHeight + 'px'; };
+  grow();
+  // foto's laden na, dus hoogte bijwerken zodra ze binnen zijn
+  body.querySelectorAll('img').forEach(img => {
+    if(!img.complete) img.addEventListener('load', grow, {once:true});
+  });
+  // na de animatie de limiet loslaten, zodat wisselende fotohoogtes blijven passen
+  setTimeout(() => { if(card.classList.contains('open')) body.style.maxHeight = 'none'; }, 560);
+  // pagina naar de bovenkant van het project
+  window.scrollTo({top: card.getBoundingClientRect().top + window.scrollY - 84, behavior: 'smooth'});
+}
+
+function gaNaarProject(id){
+  const card = document.querySelector(`.proj-card[data-id="${id}"]`);
+  const p = PROJECTS.find(x => x.id === id);
+  if(card && p) openCard(card, p);
+}
+
+/* ══════════════════════════════════════════
+   PROJECTENRIJ — pijlen en stipjes
+══════════════════════════════════════════ */
+function buildDots(){
+  const grid = document.getElementById('proj-grid');
+  const wrap = document.getElementById('rail-dots');
+  if(!grid || !wrap) return;
+  const kaarten = [...grid.children];
+  wrap.innerHTML = kaarten.map((c, k) =>
+    `<button class="rail-dot" type="button" data-k="${k}" aria-label="${lang === 'nl' ? 'Ga naar project' : 'Go to project'} ${k + 1}"></button>`
+  ).join('');
+  wrap.querySelectorAll('.rail-dot').forEach(d => d.addEventListener('click', () => {
+    const c = kaarten[+d.dataset.k];
+    grid.scrollTo({left: c.offsetLeft - kaarten[0].offsetLeft, behavior: 'smooth'});
+  }));
+  updateDots();
+}
+
+/* stip = project dat grotendeels in beeld staat; pijlen uit aan de randen */
+function updateDots(){
+  const grid = document.getElementById('proj-grid');
+  if(!grid || !grid.children.length) return;
+  const gr = grid.getBoundingClientRect();
+  const dots = document.querySelectorAll('.rail-dot');
+  [...grid.children].forEach((c, k) => {
+    const r = c.getBoundingClientRect();
+    const deel = r.width ? Math.max(0, Math.min(r.right, gr.right) - Math.max(r.left, gr.left)) / r.width : 0;
+    if(dots[k]) dots[k].classList.toggle('on', deel > 0.6);
+  });
+  const prev = document.getElementById('rail-prev'), next = document.getElementById('rail-next');
+  if(prev) prev.disabled = grid.scrollLeft <= 4;
+  if(next) next.disabled = grid.scrollLeft >= grid.scrollWidth - grid.clientWidth - 4;
+}
+
+function scrollRail(dir){
+  const grid = document.getElementById('proj-grid');
+  const kaart = grid && grid.firstElementChild;
+  if(!kaart) return;
+  const gap = parseFloat(getComputedStyle(grid).columnGap) || 0;
+  grid.scrollBy({left: dir * (kaart.getBoundingClientRect().width + gap), behavior: 'smooth'});
+}
+
+(function(){
+  const grid = document.getElementById('proj-grid');
+  if(!grid) return;
+  grid.addEventListener('scroll', updateDots, {passive: true});
+  window.addEventListener('resize', updateDots);
+  document.getElementById('rail-prev').addEventListener('click', () => scrollRail(-1));
+  document.getElementById('rail-next').addEventListener('click', () => scrollRail(1));
+})();
+
+/* Bewijslinks bij de diensten openen meteen het bijbehorende project */
+document.querySelectorAll('.svc-proof-link[data-proof]').forEach(link => {
+  link.addEventListener('click', e => {
+    const id = link.dataset.proof;
+    const card = document.querySelector(`.proj-card[data-id="${id}"]`);
+    if(!card) return;
+    e.preventDefault();
+    gaNaarProject(id);
+  });
+});
 
 /* ══════════════════════════════════════════
    SWIPE — veeg om door foto's te bladeren (mobiel)
@@ -1448,29 +2087,33 @@ let carouselIdx = 0;
 function buildCarousel(imgs, wrap){
   if(!imgs || !imgs.length){ wrap.innerHTML = ''; wrap.classList.remove('has-img'); return; }
   wrap.classList.add('has-img');
-  carouselIdx = 0;
+  let idx = 0, timer = null;
   const multi = imgs.length > 1;
   const prevLabel = lang === 'nl' ? 'Vorige afbeelding' : 'Previous image';
   const nextLabel = lang === 'nl' ? 'Volgende afbeelding' : 'Next image';
   const imgLabel  = lang === 'nl' ? 'Afbeelding' : 'Image';
   wrap.innerHTML = `
     <div class="m-carousel">
-      <img id="m-car-img" src="${imgs[0]}" alt=""/>
-      ${multi ? `<button class="m-arr prev" id="m-prev" aria-label="${prevLabel}">&#8592;</button><button class="m-arr next" id="m-next" aria-label="${nextLabel}">&#8594;</button>` : ''}
+      <img class="m-car-img" src="${imgs[0]}" alt=""/>
+      ${multi ? `<button class="m-arr prev" aria-label="${prevLabel}">&#8592;</button><button class="m-arr next" aria-label="${nextLabel}">&#8594;</button>` : ''}
     </div>
-    ${multi ? `<div class="m-dots" id="m-dots">${imgs.map((_, k) => `<button class="m-dot${k === 0 ? ' on' : ''}" data-k="${k}" aria-label="${imgLabel} ${k + 1}"></button>`).join('')}</div>` : ''}
+    ${multi ? `<div class="m-dots">${imgs.map((_, k) => `<button class="m-dot${k === 0 ? ' on' : ''}" data-k="${k}" aria-label="${imgLabel} ${k + 1}"></button>`).join('')}</div>` : ''}
   `;
-  const carImg = document.getElementById('m-car-img');
-  carImg.addEventListener('click', () => { if(carImg._swiped) return; openLightbox(imgs, carouselIdx); });
-  if(!multi) return;
-  const dots = [...document.querySelectorAll('.m-dot')];
+  const carImg = wrap.querySelector('.m-car-img');
+  carImg.addEventListener('click', e => {
+    e.stopPropagation();
+    if(carImg._swiped) return;
+    openLightbox(imgs, idx);
+  });
+  if(!multi){ wrap._stop = () => {}; return; }
+  const dots = [...wrap.querySelectorAll('.m-dot')];
 
   function goTo(k, resetTimer = true){
-    carouselIdx = ((k % imgs.length) + imgs.length) % imgs.length;
+    idx = ((k % imgs.length) + imgs.length) % imgs.length;
     carImg.style.opacity = 0;
-    setTimeout(() => { carImg.src = imgs[carouselIdx]; carImg.style.opacity = 1; }, 220);
-    dots.forEach((d, j) => d.classList.toggle('on', j === carouselIdx));
-    if(resetTimer){ clearInterval(carouselTimer); carouselTimer = setInterval(() => goTo(carouselIdx + 1, false), 15000); }
+    setTimeout(() => { carImg.src = imgs[idx]; carImg.style.opacity = 1; }, 220);
+    dots.forEach((d, j) => d.classList.toggle('on', j === idx));
+    if(resetTimer){ clearInterval(timer); timer = setInterval(() => goTo(idx + 1, false), 15000); }
   }
 
   // pan-zoom op hover
@@ -1482,23 +2125,15 @@ function buildCarousel(imgs, wrap){
   });
   carImg.addEventListener('mouseleave', () => { carImg.style.transformOrigin = 'center center'; });
 
-  document.getElementById('m-prev').addEventListener('click', e => { e.stopPropagation(); goTo(carouselIdx - 1); });
-  document.getElementById('m-next').addEventListener('click', e => { e.stopPropagation(); goTo(carouselIdx + 1); });
+  wrap.querySelector('.m-arr.prev').addEventListener('click', e => { e.stopPropagation(); goTo(idx - 1); });
+  wrap.querySelector('.m-arr.next').addEventListener('click', e => { e.stopPropagation(); goTo(idx + 1); });
   dots.forEach(d => d.addEventListener('click', e => { e.stopPropagation(); goTo(+d.dataset.k); }));
 
   // veeg om te bladeren (mobiel)
-  addSwipe(carImg, dir => goTo(carouselIdx + dir));
+  addSwipe(carImg, dir => goTo(idx + dir));
 
-  // Pijltjestoetsen (niet als de lightbox open is — die heeft eigen navigatie)
-  const keyListener = (e) => {
-    if(document.getElementById('lightbox').classList.contains('open')) return;
-    if(e.key === 'ArrowLeft') goTo(carouselIdx - 1);
-    if(e.key === 'ArrowRight') goTo(carouselIdx + 1);
-  };
-  document.addEventListener('keydown', keyListener);
-  carImg._keyListener = keyListener;
-
-  carouselTimer = setInterval(() => goTo(carouselIdx + 1, false), 5000);
+  timer = setInterval(() => goTo(idx + 1, false), 5000);
+  wrap._stop = () => clearInterval(timer);
 }
 
 /* ══════════════════════════════════════════
@@ -1589,10 +2224,104 @@ document.getElementById('modal').addEventListener('click', e => {
 document.addEventListener('keydown', e => {
   if(e.key !== 'Escape') return;
   if(lbEl.classList.contains('open')){ closeLightbox(); return; }
+  const openKaart = document.querySelector('.proj-card.open');
+  if(openKaart){ closeCard(openKaart); return; }
   closeModal();
 });
 
+/* Pijltjestoetsen bladeren door de projecten als er één openstaat */
+document.addEventListener('keydown', e => {
+  if(e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+  if(lbEl.classList.contains('open')) return;
+  const actief = document.activeElement;
+  if(actief && /^(INPUT|TEXTAREA|SELECT)$/.test(actief.tagName)) return;
+  const openKaart = document.querySelector('.proj-card.open');
+  if(!openKaart) return;
+  const knop = openKaart.querySelector(e.key === 'ArrowLeft' ? '.p-nav-prev' : '.p-nav-next');
+  if(knop){ e.preventDefault(); gaNaarProject(knop.dataset.go); }
+});
+
 renderProjects();
+
+/* ══════════════════════════════════════════
+   CONTACTFORMULIER
+   Bot-bescherming in drie lagen:
+   1. honeypot-veld dat mensen niet zien
+   2. tijdslot: een bot vult sneller in dan een mens kan typen
+   3. spamfilter van Web3Forms zelf
+══════════════════════════════════════════ */
+(function(){
+  const form = document.getElementById('contact-form');
+  if(!form) return;
+  const status = document.getElementById('cf-status');
+  const knop = form.querySelector('.cf-submit');
+  const geopendOp = Date.now();
+
+  const zeg = (tekst, type) => { status.textContent = tekst; status.className = 'cf-status' + (type ? ' ' + type : ''); };
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    form.classList.add('cf-tried');
+    const nl = lang === 'nl';
+
+    if(form.botcheck.value){ return; }                       // 1. honeypot gevuld = bot
+    if(Date.now() - geopendOp < 3000){                       // 2. te snel ingevuld
+      zeg(nl ? 'Even geduld, probeer het zo nog eens.' : 'One moment, please try again shortly.', 'err');
+      return;
+    }
+    const tel = form.telefoon.value.trim();
+    if(form.bericht.value.trim().length < 10){
+      zeg(nl ? 'Je bericht is erg kort. Vertel iets meer, dan kan ik je beter helpen.' : 'Your message is very short. Tell me a bit more so I can help you better.', 'err');
+      form.bericht.focus();
+      return;
+    }
+    if(tel && !/^[\d\s+()\-]{6,20}$/.test(tel)){
+      zeg(nl ? 'Dat telefoonnummer klopt niet helemaal. Laat het leeg als je het liever niet deelt.' : 'That phone number doesn’t look right. Leave it empty if you prefer not to share it.', 'err');
+      form.telefoon.focus();
+      return;
+    }
+    if(!form.checkValidity()){
+      zeg(nl ? 'Vul alle velden in, dan komt je bericht aan.' : 'Please fill in all fields so your message can be sent.', 'err');
+      form.reportValidity();
+      return;
+    }
+
+    const data = Object.fromEntries(new FormData(form));
+    data.subject = `${data.onderwerp} — bericht via daanvanbeelen.com`;
+    if(!data.access_key || data.access_key.startsWith('JOUW-')){
+      zeg(nl ? 'Het formulier is nog niet gekoppeld. Mail zolang direct naar daan.hvs@gmail.com.'
+             : 'The form is not connected yet. Please email daan.hvs@gmail.com directly.', 'err');
+      return;
+    }
+
+    knop.disabled = true;
+    zeg(nl ? 'Versturen…' : 'Sending…');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', Accept: 'application/json'},
+        body: JSON.stringify(data)
+      });
+      const uitkomst = await res.json();
+      if(uitkomst.success){
+        form.reset();
+        form.classList.remove('cf-tried');
+        zeg(nl ? 'Bedankt, je bericht is verstuurd. Ik reageer meestal binnen een paar dagen.'
+               : 'Thank you, your message has been sent. I usually reply within a few days.', 'ok');
+      } else {
+        throw new Error(uitkomst.message || 'mislukt');
+      }
+    } catch(err){
+      zeg(nl ? 'Versturen lukte niet. Mail gerust direct naar daan.hvs@gmail.com.'
+             : 'Sending failed. Feel free to email daan.hvs@gmail.com directly.', 'err');
+    } finally {
+      knop.disabled = false;
+    }
+  });
+})();
+
+/* Jaartal in de footer automatisch bijwerken */
+(function(){ const y = document.getElementById('foot-year'); if(y) y.textContent = new Date().getFullYear(); })();
 
 /* ══════════════════════════════════════════
    RADAR CHART
