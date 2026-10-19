@@ -7,16 +7,19 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Daan van Beelen | Prototypes en onderdelen op maat</title>
 <meta name="description" content="Prototypebouw en onderdelen op maat door Daan van Beelen (DJVB Solutions). Van idee tot werkend resultaat: elektronica, PCB-ontwerp en 3D-printen.">
-<meta name="theme-color" content="#0b101c">
+<meta name="theme-color" content="#0C0C0B">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://daanvanbeelen.com/">
 <meta property="og:title" content="Daan van Beelen | Prototypes en onderdelen op maat">
 <meta property="og:description" content="Prototypebouw, onderdelen op maat en technische oplossingen. Van idee tot werkend resultaat: elektronica, PCB-ontwerp, SolidWorks en 3D-printen.">
-<meta property="og:image" content="https://daanvanbeelen.com/media/me2.webp">
+<meta property="og:image" content="https://daanvanbeelen.com/media/linkvoorbeeld.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DJVB Solutions, Daan van Beelen">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Daan van Beelen | Prototypes en onderdelen op maat">
 <meta name="twitter:description" content="Prototypebouw, onderdelen op maat en technische oplossingen. Van idee tot werkend resultaat: elektronica, PCB-ontwerp, SolidWorks en 3D-printen.">
-<meta name="twitter:image" content="https://daanvanbeelen.com/media/me2.webp">
+<meta name="twitter:image" content="https://daanvanbeelen.com/media/linkvoorbeeld.jpg">
 <link rel="canonical" href="https://daanvanbeelen.com/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20rx%3D%276%27%20fill%3D%27%23F6F6F3%27%2F%3E%3Ctext%20x%3D%2716%27%20y%3D%2721%27%20font-family%3D%27Arial%20Black%2CArial%2Csans-serif%27%20font-size%3D%2711%27%20font-weight%3D%27900%27%20letter-spacing%3D%27-0.8%27%20text-anchor%3D%27middle%27%20fill%3D%27%230C0C0B%27%3EDJVB%3C%2Ftext%3E%3C%2Fsvg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -251,7 +254,7 @@ const PROJECTS = [
 
 /* ── basis ─────────────────────────────────────────────────── */
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;background:#0C0C0B}
 body{
   background:var(--paper);color:var(--ink);
   font-family:var(--sans);font-size:var(--fs-body);line-height:1.6;font-weight:400;
@@ -326,7 +329,7 @@ header.op-donker{
 .nav > .nav-logo{justify-self:start}
 .nav > .nav-end{justify-self:end}
 .nav-logo{position:relative;display:inline-flex;align-items:center;margin-right:auto}
-.nav-logo img{height:clamp(20px,2vw,24px);width:auto}
+.nav-logo img{height:clamp(20px,2vw,24px);width:auto;max-width:none;flex:none}
 /* licht logo boven de zwarte hero, donker logo op de witte balk */
 .nav-logo .logo-licht,header.op-donker .nav-logo .logo-donker{display:none}
 header.op-donker .nav-logo .logo-licht{display:block}
@@ -588,18 +591,19 @@ canvas.pcb,canvas.vonk{position:absolute;inset:0;width:100%;height:100%;z-index:
 .portrait{border-radius:calc(var(--r-panel) - 10px);overflow:hidden;aspect-ratio:1/1;width:100%;max-width:360px;margin-inline:auto}
 .portrait img{width:100%;height:100%;object-fit:cover;object-position:48% 42%}
 .facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:var(--s4);
-  display:grid;grid-template-columns:repeat(3,1fr)}
+  display:grid;grid-template-columns:repeat(4,1fr)}
 .fact{display:flex;flex-direction:column;gap:.45rem;font-size:var(--fs-klein);
   padding:var(--s2) clamp(.9rem,2vw,1.6rem);border-left:1px solid var(--line)}
 .fact:first-child{border-left:0;padding-left:0}
 .fact dt{font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.04em;color:var(--muted)}
 .fact dd{color:var(--ink)}
+.fact dd a{border-bottom:1px solid var(--accent);padding-bottom:1px;transition:color var(--t-fast)}
+.fact dd a:hover{color:var(--accent)}
 @media(max-width:820px){
   .facts{grid-template-columns:1fr 1fr}
   .fact{border-left:0;border-top:1px solid var(--line);padding-inline:0}
   .fact:nth-child(2n){padding-left:clamp(.9rem,3vw,1.4rem);border-left:1px solid var(--line)}
   .fact:first-child,.fact:nth-child(2){border-top:0}
-  .fact:nth-child(3){grid-column:1 / -1}
 }
 
 /* ── werkervaring ──────────────────────────────────────────── */
@@ -765,6 +769,9 @@ footer{border-top:1px solid var(--line);padding-block:var(--s4)}
   .panel-grid{grid-template-columns:1fr}
   .xp-grid{grid-template-columns:repeat(2,1fr)}
   .nav-links{display:none}
+  .nav{display:flex;justify-content:space-between}
+  .nav-end{display:contents}
+  .nav-logo{margin-right:0}
   .nav-burger{display:block}
   .portrait{max-width:300px}
 }
@@ -1123,6 +1130,7 @@ footer{border-top:1px solid var(--line);padding-block:var(--s4)}
           <div class="fact"><dt data-nl="Bedrijf" data-en="Company">Bedrijf</dt><dd data-nl="DJVB Solutions" data-en="DJVB Solutions">DJVB Solutions</dd></div>
                     <div class="fact"><dt data-nl="Vakgebied" data-en="Field">Vakgebied</dt><dd data-nl="Elektronica, mechatronica &amp; meettechniek" data-en="Electronics, mechatronics &amp; measurement">Elektronica, mechatronica &amp; meettechniek</dd></div>
           <div class="fact"><dt data-nl="Talen" data-en="Languages">Talen</dt><dd data-nl="Nederlands, Engels" data-en="Dutch, English">Nederlands, Engels</dd></div>
+          <div class="fact"><dt>LinkedIn</dt><dd><a href="https://linkedin.com/in/daan-van-beelen-072953246" target="_blank" rel="noopener">Daan van Beelen</a></dd></div>
       </dl>
       <div class="cv-actions">
         <a href="cv/CV-Daan-van-Beelen-NL.pdf" target="_blank" rel="noopener" class="btn" id="cv-view"
@@ -1275,7 +1283,7 @@ footer{border-top:1px solid var(--line);padding-block:var(--s4)}
     <div id="yt-wrap" class="rev rev-d1">
       <iframe id="yt-iframe"
         title="NIU-scooter opknappen, van hok naar fabrieksnieuw (YouTube)"
-        data-src="https://www.youtube-nocookie.com/embed/Jy0a4N9BypE?enablejsapi=1&mute=1&autoplay=0"
+        data-src="https://www.youtube-nocookie.com/embed/Jy0a4N9BypE?enablejsapi=1&mute=1&start=13&autoplay=0"
         style="width:100%;height:100%;border:none;display:block;"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
@@ -1340,14 +1348,6 @@ footer{border-top:1px solid var(--line);padding-block:var(--s4)}
       <p class="cf-status" id="cf-status" role="status" aria-live="polite"></p>
     </form>
       <div class="c-grid">
-        <a class="c-item" href="mailto:daan.hvs@gmail.com">
-          <span class="c-label" data-nl="E-mail" data-en="Email">E-mail</span>
-          <span class="c-val">daan.hvs@gmail.com</span>
-        </a>
-        <a class="c-item" href="https://linkedin.com/in/daan-van-beelen-072953246" target="_blank" rel="noopener">
-          <span class="c-label">LinkedIn</span>
-          <span class="c-val">Daan van Beelen</span>
-        </a>
         <div class="c-item">
           <span class="c-label" data-nl="Bedrijf" data-en="Company">Bedrijf</span>
           <span class="c-val">DJVB Solutions</span>
