@@ -713,8 +713,6 @@ canvas.pcb,canvas.vonk{position:absolute;inset:0;width:100%;height:100%;z-index:
 /* ── contact ───────────────────────────────────────────────── */
 .contact-grid{max-width:760px;margin:0 auto}
 .contact-intro{text-align:center;margin:0 auto 2.6rem;color:var(--ink-2)}
-.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 2.5rem;margin-top:3rem}
-@media(max-width:640px){.c-grid{grid-template-columns:1fr}}
 .contact-form{display:grid;gap:1.5rem}
 .cf-grid{display:grid;gap:1.5rem;grid-template-columns:1fr 1fr}
 .cf-grid .cf-row:nth-child(3){grid-column:1/-1}   /* telefoon over de volle breedte, geen gat rechts */
@@ -738,12 +736,6 @@ canvas.pcb,canvas.vonk{position:absolute;inset:0;width:100%;height:100%;z-index:
 .cf-status.err{color:var(--live)}
 .cf-send{justify-self:center;min-width:220px;text-align:center}
 .cf-status{text-align:center}
-.c-item{border-top:1px solid var(--line)}
-.c-item{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;
-  padding:1rem 0;transition:transform var(--t-fast) var(--ease)}
-.c-item:hover{transform:translateX(8px)}
-.c-label{font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.04em;color:var(--muted)}
-.c-val{font-size:var(--fs-klein)}
 .cv-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.8rem}
 
 .cv-actions{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center;margin-top:var(--s5)}
@@ -1347,16 +1339,6 @@ footer{border-top:1px solid var(--line);padding-block:var(--s4)}
       <button type="submit" class="btn cf-send" data-nl="Verstuur bericht" data-en="Send message">Verstuur bericht</button>
       <p class="cf-status" id="cf-status" role="status" aria-live="polite"></p>
     </form>
-      <div class="c-grid">
-        <div class="c-item">
-          <span class="c-label" data-nl="Bedrijf" data-en="Company">Bedrijf</span>
-          <span class="c-val">DJVB Solutions</span>
-        </div>
-        <div class="c-item">
-          <span class="c-label" data-nl="Werkgebied" data-en="Area">Werkgebied</span>
-          <span class="c-val" data-nl="Nederland" data-en="Netherlands">Nederland</span>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1367,6 +1349,7 @@ footer{border-top:1px solid var(--line);padding-block:var(--s4)}
     <img class="foot-logo" src="media/djvb_logo.png" alt="DJVB Solutions" width="264" height="128" loading="lazy">
     <a href="docs/algemene-voorwaarden-djvb-solutions.pdf" target="_blank" rel="noopener"
        data-nl="Algemene voorwaarden" data-en="Terms and conditions (Dutch)">Algemene voorwaarden</a>
+    <span class="foot-klein" data-nl="Werkgebied: Nederland" data-en="Area: the Netherlands">Werkgebied: Nederland</span>
     <span class="foot-klein">KVK 94085714</span>
     <span class="foot-klein">&copy; <span id="foot-year">2026</span> Daan van Beelen</span>
   </div>
